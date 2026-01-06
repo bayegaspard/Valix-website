@@ -42,10 +42,17 @@ function initNavigation() {
       if (isActive) {
         mobileToggle.classList.remove('active');
         navMenu.classList.remove('active');
+        navMenu.style.display = 'none';
+        navMenu.style.visibility = 'hidden';
+        navMenu.style.opacity = '0';
         document.body.style.overflow = '';
       } else {
         mobileToggle.classList.add('active');
         navMenu.classList.add('active');
+        navMenu.style.display = 'flex';
+        navMenu.style.visibility = 'visible';
+        navMenu.style.opacity = '1';
+        navMenu.style.transform = 'translateX(0)';
         document.body.style.overflow = 'hidden';
       }
     });
@@ -56,6 +63,9 @@ function initNavigation() {
       link.addEventListener('click', function() {
         mobileToggle.classList.remove('active');
         navMenu.classList.remove('active');
+        navMenu.style.display = 'none';
+        navMenu.style.visibility = 'hidden';
+        navMenu.style.opacity = '0';
         document.body.style.overflow = '';
       });
     });
@@ -67,6 +77,9 @@ function initNavigation() {
           !mobileToggle.contains(e.target)) {
         mobileToggle.classList.remove('active');
         navMenu.classList.remove('active');
+        navMenu.style.display = 'none';
+        navMenu.style.visibility = 'hidden';
+        navMenu.style.opacity = '0';
         document.body.style.overflow = '';
       }
     });

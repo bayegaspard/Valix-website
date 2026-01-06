@@ -1969,28 +1969,30 @@ div.nav-logo::after {
     bottom: auto !important;
     width: 100% !important;
     flex-direction: column !important;
-    background: #ffffff;
-    padding: var(--space-xl);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    gap: var(--space-lg);
+    background: #ffffff !important;
+    padding: var(--space-xl) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    gap: var(--space-lg) !important;
     justify-content: flex-start !important;
     align-items: stretch !important;
     transform: translateX(-100%) !important;
-    transition: transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease !important;
-    z-index: 1001 !important;
-    max-height: calc(100vh - 70px);
-    overflow-y: auto;
+    transition: transform 0.3s ease, visibility 0s linear 0.3s, opacity 0.3s ease !important;
+    z-index: 9999 !important;
+    max-height: calc(100vh - 70px) !important;
+    overflow-y: auto !important;
     margin: 0 !important;
     visibility: hidden !important;
     opacity: 0 !important;
-    pointer-events: none;
+    pointer-events: none !important;
+    display: flex !important;
   }
 
   .nav-menu.active {
     transform: translateX(0) !important;
     visibility: visible !important;
     opacity: 1 !important;
-    pointer-events: auto;
+    pointer-events: auto !important;
+    transition: transform 0.3s ease, visibility 0s linear 0s, opacity 0.3s ease !important;
   }
 
   .nav-menu .nav-link {
