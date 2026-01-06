@@ -18,24 +18,36 @@ function initNavigation() {
   const navMenu = document.querySelector('.nav-menu');
   
   // Navbar scroll effect
-  window.addEventListener('scroll', throttle(() => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > 50) {
-      navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-      navbar.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
-    } else {
-      navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-      navbar.style.boxShadow = 'none';
-    }
-  }, 10));
+  if (navbar) {
+    window.addEventListener('scroll', throttle(() => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > 50) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+      }
+    }, 10));
+  }
 
   // Mobile menu toggle
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', function() {
-      this.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    mobileToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isActive = navMenu.classList.contains('active');
+      
+      if (isActive) {
+        mobileToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      } else {
+        mobileToggle.classList.add('active');
+        navMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
     });
 
     // Close menu when clicking on a link
@@ -50,12 +62,16 @@ function initNavigation() {
 
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
-      if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+      if (navMenu.classList.contains('active') && 
+          !navMenu.contains(e.target) && 
+          !mobileToggle.contains(e.target)) {
         mobileToggle.classList.remove('active');
         navMenu.classList.remove('active');
         document.body.style.overflow = '';
       }
     });
+  } else {
+    console.warn('Mobile menu toggle or nav menu not found');
   }
 }
 
