@@ -60,12 +60,15 @@ function initNavigation() {
     // Close menu when clicking on a link
     const navLinks = navMenu.querySelectorAll('.nav-link, .btn-primary');
     navLinks.forEach(link => {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', function(e) {
+        // Close menu immediately
         mobileToggle.classList.remove('active');
         navMenu.classList.remove('active');
-        navMenu.style.display = 'none';
-        navMenu.style.visibility = 'hidden';
-        navMenu.style.opacity = '0';
+        navMenu.style.removeProperty('display');
+        navMenu.style.removeProperty('visibility');
+        navMenu.style.removeProperty('opacity');
+        navMenu.style.removeProperty('transform');
+        navMenu.style.removeProperty('pointer-events');
         document.body.style.overflow = '';
       });
     });
@@ -145,6 +148,11 @@ function initSmoothScrolling() {
   
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
+      // Don't prevent default for mailto links or if already handled
+      if (this.getAttribute('href').startsWith('mailto:')) {
+        return;
+      }
+      
       e.preventDefault();
       
       const targetId = this.getAttribute('href');
@@ -260,94 +268,273 @@ function animateMetric(element) {
 function initVideoPlayButton() {
   const video = document.querySelector('.hero-video');
   const playButton = document.querySelector('.video-play-button');
+  const videoWrapper = document.querySelector('.hero-video-wrapper');
+  const videoSection = document.querySelector('.hero-video-section');
   
-  if (!video || !playButton) {
-    console.log('Video or play button not found');
+  if (!video || !playButton || !videoWrapper || !videoSection) {
+    console.log('Video, play button, or wrapper not found');
     return;
   }
   
   let autoHideTimeout;
   const AUTO_HIDE_DELAY = 3000; // 3 seconds
   
-  // Ensure button is visible initially
-  playButton.style.display = 'flex';
-  playButton.style.opacity = '0.6';
-  playButton.classList.remove('hidden', 'playing');
-  
-  function hidePlayButton() {
-    playButton.classList.add('hidden');
-  }
-  
-  function showPlayButton() {
-    playButton.classList.remove('hidden', 'playing');
-    playButton.style.opacity = '0.6';
-    // Auto-hide after delay if video is playing
-    clearTimeout(autoHideTimeout);
+  // Check if video is already playing (autoplay)
+  function hidePlayButtonIfPlaying() {
     if (!video.paused) {
-      autoHideTimeout = setTimeout(hidePlayButton, AUTO_HIDE_DELAY);
+      // Video is already playing (autoplay)
+      playButton.style.setProperty('display', 'none', 'important');
+      playButton.style.setProperty('visibility', 'hidden', 'important');
+      playButton.style.setProperty('opacity', '0', 'important');
+      playButton.style.setProperty('pointer-events', 'none', 'important');
+      playButton.style.setProperty('transform', 'translate(-50%, -50%) scale(0)', 'important');
+      playButton.classList.add('playing', 'hidden');
+      // Show enlarge button option
+      setTimeout(() => {
+        createEnlargeButton();
+      }, 300);
+    } else {
+      // Video is paused, show play button
+      playButton.style.setProperty('display', 'flex', 'important');
+      playButton.style.setProperty('visibility', 'visible', 'important');
+      playButton.style.setProperty('opacity', '0.6', 'important');
+      playButton.style.setProperty('pointer-events', 'auto', 'important');
+      playButton.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+      playButton.classList.remove('hidden', 'playing');
     }
   }
   
-  // Hide play button when video is playing
+  // Check initial state
+  hidePlayButtonIfPlaying();
+  
+  // Also check after a short delay in case autoplay hasn't started yet
+  setTimeout(() => {
+    hidePlayButtonIfPlaying();
+  }, 500);
+  
+  // Hide play button when video is playing (backup in case click handler doesn't fire)
   video.addEventListener('play', function() {
-    playButton.classList.add('playing');
-    // Auto-hide after delay
+    playButton.style.setProperty('display', 'none', 'important');
+    playButton.style.setProperty('visibility', 'hidden', 'important');
+    playButton.style.setProperty('opacity', '0', 'important');
+    playButton.style.setProperty('pointer-events', 'none', 'important');
+    playButton.style.setProperty('transform', 'translate(-50%, -50%) scale(0)', 'important');
+    playButton.classList.add('playing', 'hidden');
+    // Show enlarge button option
+    setTimeout(() => {
+      createEnlargeButton();
+    }, 300);
     clearTimeout(autoHideTimeout);
-    autoHideTimeout = setTimeout(hidePlayButton, AUTO_HIDE_DELAY);
   });
   
   // Show play button when video is paused
   video.addEventListener('pause', function() {
-    playButton.classList.remove('playing', 'hidden');
-    playButton.style.opacity = '0.6';
+    if (videoWrapper && !videoWrapper.classList.contains('enlarged')) {
+      playButton.style.display = 'flex';
+      playButton.style.visibility = 'visible';
+      playButton.style.opacity = '0.6';
+      playButton.style.pointerEvents = 'auto';
+      playButton.classList.remove('playing', 'hidden');
+      // Remove enlarge button when paused (unless enlarged)
+      const enlargeBtn = document.querySelector('.video-enlarge-button');
+      if (enlargeBtn) {
+        enlargeBtn.remove();
+      }
+    }
     clearTimeout(autoHideTimeout);
   });
   
-  // Show button on hover when playing
-  const videoWrapper = document.querySelector('.hero-video-wrapper');
+  // Show enlarge button on hover when playing (if not enlarged)
   if (videoWrapper) {
     videoWrapper.addEventListener('mouseenter', function() {
-      if (!video.paused) {
-        playButton.classList.remove('hidden');
-        playButton.style.opacity = '0.6';
-        clearTimeout(autoHideTimeout);
+      if (!video.paused && !videoWrapper.classList.contains('enlarged')) {
+        const enlargeBtn = document.querySelector('.video-enlarge-button');
+        if (enlargeBtn) {
+          enlargeBtn.style.opacity = '1';
+        }
       }
     });
     
     videoWrapper.addEventListener('mouseleave', function() {
-      if (!video.paused) {
-        clearTimeout(autoHideTimeout);
-        autoHideTimeout = setTimeout(hidePlayButton, AUTO_HIDE_DELAY);
+      if (!video.paused && !videoWrapper.classList.contains('enlarged')) {
+        const enlargeBtn = document.querySelector('.video-enlarge-button');
+        if (enlargeBtn) {
+          enlargeBtn.style.opacity = '0.8';
+        }
       }
     });
   }
   
-  // Toggle play/pause on button click
+  function createEnlargeButton() {
+    let enlargeBtn = document.querySelector('.video-enlarge-button');
+    if (!enlargeBtn && videoWrapper) {
+      console.log('Creating enlarge button');
+      enlargeBtn = document.createElement('button');
+      enlargeBtn.className = 'video-enlarge-button';
+      enlargeBtn.innerHTML = '⛶';
+      enlargeBtn.setAttribute('aria-label', 'Enlarge video');
+      // Position relative to video wrapper, in lower right corner
+      enlargeBtn.style.cssText = 'position: absolute !important; bottom: 10px !important; right: 10px !important; z-index: 100 !important; width: 40px !important; height: 40px !important; background: rgba(0, 0, 0, 0.7) !important; color: white !important; border: none !important; border-radius: 50% !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 18px !important; transition: all 0.3s ease !important; opacity: 0.8 !important; margin: 0 !important; top: auto !important;';
+      videoWrapper.appendChild(enlargeBtn);
+      console.log('Enlarge button created and appended');
+      
+      enlargeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        // Enlarge video
+        videoWrapper.classList.add('enlarged');
+        videoSection.classList.add('enlarged');
+        enlargeBtn.style.display = 'none';
+        
+        // Create minimize button
+        let minimizeBtn = document.querySelector('.video-minimize-button');
+        if (!minimizeBtn) {
+          minimizeBtn = document.createElement('button');
+          minimizeBtn.className = 'video-minimize-button';
+          minimizeBtn.innerHTML = '✕';
+          minimizeBtn.setAttribute('aria-label', 'Minimize video');
+          minimizeBtn.style.cssText = 'position: absolute; top: 20px; right: 20px; z-index: 100; width: 40px; height: 40px; background: rgba(0, 0, 0, 0.7); color: white; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; transition: all 0.3s ease;';
+          videoWrapper.appendChild(minimizeBtn);
+          
+          minimizeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            video.pause();
+            videoWrapper.classList.remove('enlarged');
+            videoSection.classList.remove('enlarged');
+            playButton.style.display = 'flex';
+            playButton.classList.remove('hidden', 'playing');
+            playButton.style.opacity = '0.6';
+            enlargeBtn.style.display = 'flex';
+            minimizeBtn.remove();
+          });
+          
+          minimizeBtn.addEventListener('mouseenter', function() {
+            this.style.background = 'rgba(0, 0, 0, 0.9)';
+            this.style.transform = 'scale(1.1)';
+          });
+          
+          minimizeBtn.addEventListener('mouseleave', function() {
+            this.style.background = 'rgba(0, 0, 0, 0.7)';
+            this.style.transform = 'scale(1)';
+          });
+        }
+      });
+      
+      enlargeBtn.addEventListener('mouseenter', function() {
+        this.style.background = 'rgba(0, 0, 0, 0.9)';
+        this.style.transform = 'scale(1.1)';
+      });
+      
+      enlargeBtn.addEventListener('mouseleave', function() {
+        this.style.background = 'rgba(0, 0, 0, 0.7)';
+        this.style.transform = 'scale(1)';
+      });
+    }
+  }
+  
   playButton.addEventListener('click', function(e) {
     e.stopPropagation();
+    e.preventDefault();
+    console.log('Play button clicked, video paused:', video.paused);
+    
     if (video.paused) {
-      video.play();
-      playButton.classList.add('playing');
+      // Hide button IMMEDIATELY before playing
+      playButton.style.setProperty('display', 'none', 'important');
+      playButton.style.setProperty('visibility', 'hidden', 'important');
+      playButton.style.setProperty('opacity', '0', 'important');
+      playButton.style.setProperty('pointer-events', 'none', 'important');
+      playButton.style.setProperty('transform', 'translate(-50%, -50%) scale(0)', 'important');
+      playButton.classList.add('hidden', 'playing');
+      
+      // Play video
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log('Video playing');
+          // Show enlarge button option
+          setTimeout(() => {
+            createEnlargeButton();
+          }, 300);
+        }).catch(err => {
+          console.error('Error playing video:', err);
+          // Show button again if play failed
+          playButton.style.removeProperty('display');
+          playButton.style.removeProperty('visibility');
+          playButton.style.setProperty('opacity', '0.6', 'important');
+          playButton.style.setProperty('pointer-events', 'auto', 'important');
+          playButton.classList.remove('playing', 'hidden');
+        });
+      }
     } else {
       video.pause();
+      playButton.style.removeProperty('display');
+      playButton.style.removeProperty('visibility');
+      playButton.style.removeProperty('transform');
+      playButton.style.setProperty('opacity', '0.6', 'important');
+      playButton.style.setProperty('pointer-events', 'auto', 'important');
       playButton.classList.remove('playing', 'hidden');
-      playButton.style.opacity = '0.6';
+      
+      // Remove enlarge button if video is paused
+      const enlargeBtn = document.querySelector('.video-enlarge-button');
+      if (enlargeBtn) {
+        enlargeBtn.remove();
+      }
     }
     clearTimeout(autoHideTimeout);
   });
   
-  // Also allow clicking on video to pause
-  video.addEventListener('click', function() {
+  // Also allow clicking on video to pause (but don't enlarge on click, only on play button)
+  video.addEventListener('click', function(e) {
+    e.stopPropagation();
     if (video.paused) {
       video.play();
-      playButton.classList.add('playing');
+      if (!videoWrapper.classList.contains('enlarged')) {
+        playButton.style.setProperty('display', 'none', 'important');
+        playButton.style.setProperty('visibility', 'hidden', 'important');
+        playButton.style.setProperty('opacity', '0', 'important');
+        playButton.style.setProperty('pointer-events', 'none', 'important');
+        playButton.classList.add('playing', 'hidden');
+        // Show enlarge button
+        setTimeout(() => {
+          createEnlargeButton();
+        }, 300);
+      }
     } else {
       video.pause();
-      playButton.classList.remove('playing', 'hidden');
-      playButton.style.opacity = '0.6';
+      if (!videoWrapper.classList.contains('enlarged')) {
+        playButton.style.setProperty('display', 'flex', 'important');
+        playButton.style.setProperty('visibility', 'visible', 'important');
+        playButton.style.setProperty('opacity', '0.6', 'important');
+        playButton.style.setProperty('pointer-events', 'auto', 'important');
+        playButton.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+        playButton.classList.remove('playing', 'hidden');
+        // Remove enlarge button
+        const enlargeBtn = document.querySelector('.video-enlarge-button');
+        if (enlargeBtn) {
+          enlargeBtn.remove();
+        }
+      }
     }
     clearTimeout(autoHideTimeout);
   });
+
+  // Close enlarged video when clicking outside
+  document.addEventListener('click', function(e) {
+    if (videoWrapper && videoWrapper.classList.contains('enlarged')) {
+      if (!videoWrapper.contains(e.target) && !e.target.classList.contains('video-minimize-button')) {
+        const minimizeBtn = document.querySelector('.video-minimize-button');
+        if (minimizeBtn) {
+          video.pause();
+          videoWrapper.classList.remove('enlarged');
+          videoSection.classList.remove('enlarged');
+          playButton.style.display = 'flex';
+          playButton.classList.remove('hidden', 'playing');
+          playButton.style.opacity = '0.6';
+          minimizeBtn.remove();
+        }
+      }
+    }
+  });
+
   
   // Initially show button, then auto-hide if video is autoplaying
   if (!video.paused) {
