@@ -39,38 +39,31 @@ function initNavigation() {
 // ===== WAITLIST DYNAMIC FIELDS =====
 function initWaitlistDynamicFields() {
   const interestSelect = document.getElementById('interest');
-  const otherInterestGroup = document.getElementById('other-interest-group');
-  const otherInterestInput = document.getElementById('other-interest');
-
   const pilotCheckbox = document.getElementById('pilot-interest');
-  const pilotDetailsGroup = document.getElementById('pilot-details-group');
-  const pilotDetailsInput = document.getElementById('pilot-details');
+  const dynamicDetailsGroup = document.getElementById('dynamic-details-group');
+  const dynamicDetailsInput = document.getElementById('dynamic-details');
 
-  // Handle "Other" interest dropdown
-  if (interestSelect && otherInterestGroup) {
-    interestSelect.addEventListener('change', function() {
-      if (this.value === 'Other') {
-        otherInterestGroup.classList.add('visible');
-        if (otherInterestInput) otherInterestInput.required = true;
-      } else {
-        otherInterestGroup.classList.remove('visible');
-        if (otherInterestInput) {
-          otherInterestInput.required = false;
-          otherInterestInput.value = '';
-        }
-      }
-    });
+  function updateVisibility() {
+    const isOtherSelected = interestSelect && interestSelect.value === 'Other';
+    const isPilotChecked = pilotCheckbox && pilotCheckbox.checked;
+
+    if (isOtherSelected || isPilotChecked) {
+      dynamicDetailsGroup.classList.add('visible');
+    } else {
+      dynamicDetailsGroup.classList.remove('visible');
+      if (dynamicDetailsInput) dynamicDetailsInput.value = '';
+    }
   }
 
-  // Handle Pilot Interest checkbox
-  if (pilotCheckbox && pilotDetailsGroup) {
+  if (interestSelect) {
+    interestSelect.addEventListener('change', updateVisibility);
+  }
+
+  if (pilotCheckbox) {
     pilotCheckbox.addEventListener('change', function() {
-      if (this.checked) {
-        pilotDetailsGroup.classList.add('visible');
-        if (pilotDetailsInput) pilotDetailsInput.focus();
-      } else {
-        pilotDetailsGroup.classList.remove('visible');
-        if (pilotDetailsInput) pilotDetailsInput.value = '';
+      updateVisibility();
+      if (this.checked && dynamicDetailsInput) {
+        dynamicDetailsInput.focus();
       }
     });
   }
