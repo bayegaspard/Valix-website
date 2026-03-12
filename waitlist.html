@@ -11,10 +11,13 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Join the Waitlist - Valix</title>
   <meta name="description" content="Join the waitlist for autonomous cybersecurity and compliance monitoring for SMBs.">
-  <link rel="icon" type="image/jpeg" href="images/valix_ai_logo-2.jpeg">
-  <link rel="apple-touch-icon" href="images/valix_ai_logo-2.jpeg">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="apple-touch-icon" href="logo.svg">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,128 +25,140 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Styles -->
-  <link rel="stylesheet" href="styles-elegant.css?v=4.0">
+  <link rel="stylesheet" href="styles-elegant.css?v=14.0">
   <link rel="stylesheet" href="waitlist.css">
 </head>
 <body class="waitlist-page">
-  <!-- Announcement Banner -->
-  <div class="announcement-banner">
+  <!-- Announcement Banner (deploy v9) -->
+  <div class="announcement-banner" role="banner">
     <div class="announcement-content">
-      <span>🎉 Valix AI have been accepted to <a href="https://www.c10labs.com/" target="_blank" rel="noopener noreferrer">C10 labs</a> winter cohort</span>
+      <span class="announcement-badge" aria-hidden="true">New</span>
+      <span>🎉 Valix has been accepted to <a href="https://www.c10labs.com/" target="_blank" rel="noopener noreferrer">C10 Labs</a> winter cohort, <a href="https://www.microsoft.com/en-us/startups" target="_blank" rel="noopener noreferrer">Microsoft for Startups</a>, and <a href="https://cloud.google.com/startup" target="_blank" rel="noopener noreferrer">Google Cloud for Startups</a></span>
     </div>
   </div>
 
-  <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">
         <a href="index.html">
-          <img src="images/logo.svg" alt="Valix" class="logo-image">
+          <img src="logo.svg" alt="Valix" class="logo-image">
         </a>
       </div>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="nav-menu">
-        <a href="index.html#product" class="nav-link">Platform</a>
-        <a href="index.html#results" class="nav-link">Impact</a>
-        <a href="index.html#integrations" class="nav-link">Integrations</a>
-        <a href="index.html#contact" class="nav-link">Contact</a>
-        <a href="index.html" class="btn-primary">Back to Home</a>
-      </div>
+      <details class="nav-details" id="nav-details">
+        <summary class="nav-details-summary" aria-hidden="true"></summary>
+        <button type="button" class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html#product" class="nav-link">Platform</a>
+          <a href="index.html#results" class="nav-link">Impact</a>
+          <a href="index.html#integrations" class="nav-link">Integrations</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+          <a href="#form" class="btn-primary">Get Started</a>
+        </div>
+      </details>
     </div>
   </nav>
 
   <!-- Main Centered Content -->
   <main class="waitlist-main">
-    <div class="waitlist-content-wrapper">
+    <div class="split-hero">
       <div class="form-card">
-        <!-- Form Header -->
         <div class="form-header">
-          <h2>Join the Waitlist</h2>
-          <p>Enterprise-grade security handles the complexity. You handle your business.</p>
+          <h2>Claim Early Access</h2>
+          <p>Early access application.</p>
         </div>
-
+        
         <!-- Signup Form -->
-        <form id="waitlist-form">
+        <form id="waitlist-form" action="https://formspree.io/f/mqaeajob" method="POST">
+          <!-- Contact Details -->
+          <div class="form-section-label">Contact Details</div>
           <div class="form-grid">
-            <div class="form-group">
-              <label for="full-name">Full Name</label>
-              <input type="text" id="full-name" name="name" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-              <label for="work-email">Work Email</label>
-              <input type="email" id="work-email" name="email" placeholder="john@company.com" required>
-            </div>
-            <div class="form-group">
-              <label for="company-name">Company Name</label>
-              <input type="text" id="company-name" name="company" placeholder="Acme Inc." required>
-            </div>
-            <div class="form-group">
-              <label for="industry">Industry</label>
-              <select id="industry" name="industry" required>
-                <option value="" disabled selected>Select industry</option>
-                <option value="Healthcare">Healthcare</option>
-                <option value="Fintech">Fintech</option>
-                <option value="Manufacturing">Manufacturing</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="endpoints">Number of Endpoints</label>
-              <select id="endpoints" name="endpoints" required>
-                <option value="" disabled selected>Select size</option>
-                <option value="1-25">1–25</option>
-                <option value="26-100">26–100</option>
-                <option value="101-500">101–500</option>
-                <option value="500+">500+</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="compliance">Compliance Need</label>
-              <select id="compliance" name="compliance" required>
-                <option value="" disabled selected>Select primary need</option>
-                <option value="HIPAA">HIPAA</option>
-                <option value="PCI DSS">PCI DSS</option>
-                <option value="CMMC">CMMC</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
             <div class="form-group full-width">
-              <label for="interest">Level of Interest</label>
-              <select id="interest" name="interest" required>
-                <option value="" disabled selected>When do you need a solution?</option>
-                <option value="Exploring">Just Exploring</option>
-                <option value="Actively Looking">Actively Looking</option>
-                <option value="Need Solution">Need Solution Within 3 Months</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div id="other-interest-group" class="form-group full-width hidden-field">
-              <label for="other-interest">Please specify</label>
-              <input type="text" id="other-interest" name="other_interest_details" placeholder="Tell us more about your needs...">
-            </div>
-            <div class="form-group full-width" style="margin-top: 0.5rem;">
-              <label class="checkbox-group">
-                <input type="checkbox" name="pilot" value="yes">
-                <span class="checkbox-label">I'm interested in early pilot access</span>
-              </label>
+              <label for="email">Work Email</label>
+              <input type="email" id="email" name="email" placeholder="john@company.com" required>
             </div>
           </div>
-          <div style="margin-top: 2.5rem;">
-            <button type="submit" class="btn-primary-large" style="width: 100%;">Get Early Access</button>
+
+          <!-- Infrastructure & Compliance -->
+          <div class="form-section-label">Infrastructure & Compliance</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="endpoints">Endpoints</label>
+              <select id="endpoints" name="endpoints" required>
+                <option value="" disabled selected>Size</option>
+                <option value="1-50">1-50</option>
+                <option value="51-200">51-200</option>
+                <option value="201-1000">201-1000</option>
+                <option value="1000+">1000+</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="compliance">Compliance</label>
+              <select id="compliance" name="compliance" required>
+                <option value="" disabled selected>Primary Need</option>
+                <option value="SOC 2">SOC 2</option>
+                <option value="CMMC">CMMC</option>
+                <option value="HIPAA">HIPAA</option>
+                <option value="ISO 27001">ISO 27001</option>
+                <option value="GDPR">GDPR</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Your Goals -->
+          <div class="form-section-label">Your Goals</div>
+          <div class="form-group full-width">
+            <label for="interest">Level of Interest</label>
+            <select id="interest" name="interest" required>
+              <option value="" disabled selected>When do you need a solution?</option>
+              <option value="Immediate">Immediate (Next 30 days)</option>
+              <option value="Planning">Planning (Next 3-6 months)</option>
+              <option value="Research">Just researching</option>
+              <option value="Other">Other (Please specify)</option>
+            </select>
+          </div>
+
+          <!-- Hidden "Other" field -->
+          <div id="other-interest-group" class="form-group full-width hidden-field">
+            <label for="other-interest">Please specify</label>
+            <input type="text" id="other-interest" name="other-interest-details" placeholder="Tell us more about your needs...">
+          </div>
+
+          <div class="form-group full-width" style="margin-top: 1rem;">
+            <label class="checkbox-group">
+              <input type="checkbox" id="pilot-interest" name="pilot_interest" value="yes">
+              <span>I'm interested in early pilot access</span>
+            </label>
+          </div>
+
+          <!-- Hidden "Pilot Details" field -->
+          <div id="pilot-details-group" class="form-group full-width hidden-field">
+            <label for="pilot-details">Tell us more details</label>
+            <textarea id="pilot-details" name="pilot-details" placeholder="What specific compliance or security goals are you looking to achieve?"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary-large full-width" style="margin-top: 1rem;">
+            Secure Early Access
+          </button>
+
+          <div class="form-security-note">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Enterprise-grade data encryption
           </div>
         </form>
 
         <!-- Success Message -->
         <div id="success-message" class="success-message">
           <div class="success-icon-wrapper">✓</div>
-          <h3>You're on the list!</h3>
-          <p>We've received your application for early access. Our team will reach out to you shortly to discuss your security needs.</p>
-          <div style="margin-top: 1rem;">
-            <a href="index.html" class="btn-secondary">Back to Homepage</a>
+          <h3>Application Received</h3>
+          <p>We've added you to our early access priority list. Our team will reach out to the work email provided.</p>
+          <div class="success-actions">
+            <a href="index.html" class="btn-secondary">Return Home</a>
           </div>
         </div>
       </div>
@@ -155,7 +170,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <img src="images/logo.svg" alt="Valix" class="footer-logo">
+          <img src="logo.svg" alt="Valix" class="footer-logo">
           <p>© 2024 Valix Inc. All rights reserved.</p>
         </div>
         <div class="footer-links">
@@ -166,13 +181,71 @@
           </div>
           <div class="footer-section">
             <h4>Company</h4>
-            <a href="https://www.valix.ai/cdn-cgi/l/email-protection#a7cec9c1c8d4e7d4c6c1c2c9c2d3d489c6ce">Contact</a>
+            <a href="#form">Contact</a>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="footer-social">
+              <a href="https://www.linkedin.com/company/valix-ai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <a href="https://twitter.com/valixai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X (Twitter)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/valixai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <!-- Menu: details always open so content exists; mobile open state = class only (no details toggle) -->
+  <script>
+  (function() {
+    var details = document.getElementById('nav-details');
+    var menu = document.getElementById('nav-menu');
+    var btn = document.querySelector('.mobile-menu-toggle');
+    if (!details || !menu) return;
+    function isDesktop() { return window.matchMedia('(min-width: 969px)').matches; }
+    details.setAttribute('open', '');
+    window.addEventListener('resize', function() {
+      if (isDesktop()) {
+        details.classList.remove('nav-menu-open');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!isDesktop()) {
+          details.classList.toggle('nav-menu-open');
+          var open = details.classList.contains('nav-menu-open');
+          btn.setAttribute('aria-expanded', open);
+          document.body.style.overflow = open ? 'hidden' : '';
+        }
+      });
+    }
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        details.classList.remove('nav-menu-open');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  })();
+  </script>
+  <script src="script.js?v=10.0"></script>
 </body>
 </html>

@@ -11,12 +11,15 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valix - AI-Powered Endpoint Protection for SMBs</title>
-  <meta name="description" content="World's most intelligent AI-powered endpoint protection for small and medium businesses. Advanced threat detection and automated response that's simple to deploy and manage.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Valix - Autonomous Security for Compliance-Driven SMBs</title>
+  <meta name="description" content="Autonomous security platform for SMBs. Replaces manual SOC workflows, cuts false positives, scales without cloud costs. Like Cursor for security and compliance.">
   <meta name="author" content="Valix Inc.">
-  <meta name="keywords" content="endpoint protection, SMB security, AI cybersecurity, threat detection, automated security">
-  <link rel="icon" type="image/jpeg" href="images/valix_ai_logo-2.jpeg">
-  <link rel="apple-touch-icon" href="images/valix_ai_logo-2.jpeg">
+  <meta name="keywords" content="autonomous security, SMB compliance, SOC automation, endpoint protection, false positive reduction">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="apple-touch-icon" href="logo.svg">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,34 +27,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Styles -->
-  <link rel="stylesheet" href="styles-elegant.css?v=4.0">
+  <link rel="stylesheet" href="styles-elegant.css?v=14.0">
 </head>
 <body>
-  <!-- Announcement Banner -->
-  <div class="announcement-banner">
+  <!-- Announcement Banner (deploy v9) -->
+  <div class="announcement-banner" role="banner">
     <div class="announcement-content">
-      <span>🎉 Valix AI have been accepted to <a href="https://www.c10labs.com/" target="_blank" rel="noopener noreferrer">C10 labs</a> winter cohort</span>
+      <span class="announcement-badge" aria-hidden="true">New</span>
+      <span>🎉 Valix has been accepted to <a href="https://www.c10labs.com/" target="_blank" rel="noopener noreferrer">C10 Labs</a> winter cohort, <a href="https://www.microsoft.com/en-us/startups" target="_blank" rel="noopener noreferrer">Microsoft for Startups</a>, and <a href="https://cloud.google.com/startup" target="_blank" rel="noopener noreferrer">Google Cloud for Startups</a></span>
     </div>
   </div>
 
-  <!-- Navigation -->
+  <!-- Navigation: button toggles menu (reliable on mobile touch), details[open] shows menu -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">
-        <img src="images/logo.svg" alt="Valix" class="logo-image">
+        <img src="logo.svg" alt="Valix" class="logo-image">
       </div>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="nav-menu">
-        <a href="#product" class="nav-link">Platform</a>
-        <a href="#results" class="nav-link">Impact</a>
-        <a href="#integrations" class="nav-link">Integrations</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="waitlist.html" class="btn-primary">Get Started</a>
-      </div>
+      <details class="nav-details" id="nav-details">
+        <summary class="nav-details-summary" aria-hidden="true"></summary>
+        <button type="button" class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#product" class="nav-link">Platform</a>
+          <a href="#results" class="nav-link">Impact</a>
+          <a href="#integrations" class="nav-link">Integrations</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="waitlist.html" class="btn-primary">Get Started</a>
+        </div>
+      </details>
     </div>
   </nav>
 
@@ -61,10 +68,10 @@
       <!-- Top Section: Headline Left, Text Right -->
       <div class="hero-top">
         <div class="hero-left">
-          <h1 class="hero-title">World's most intelligent endpoint protection for SMBs</h1>
+          <h1 class="hero-title">Autonomous security for compliance-driven Small and Medium Businesses (SMBs)</h1>
         </div>
         <div class="hero-right">
-          <p class="hero-description">Autonomous AI agents detecting and stopping attacks in real time. Enterprise-grade security that works around the clock without adding headcount.</p>
+          <p class="hero-description">Replaces manual Security Operations Center (SOC) workflows. Fewer false positives. Scales without cloud costs. Think autonomous Cursor agents for continuous security and compliance.</p>
           <div class="hero-cta">
             <a href="waitlist.html" class="btn-pill btn-primary-pill">
               Get a Demo
@@ -104,32 +111,44 @@
       </div>
       <div class="partners-scroll">
         <div class="partners-track">
-          <!-- Partner logos from partners folder -->
-          <div class="partner-logo">
-            <img src="partners/logo.png" alt="Partner Logo">
+          <!-- Partner logos: Microsoft, Google, C10 Labs, Proto -->
+          <div class="partner-logo partner-logo-large">
+            <img src="partners/logo_microsoft_for_startups.png" alt="Microsoft for Startups">
+          </div>
+          <div class="partner-logo partner-logo-large partner-logo-google">
+            <img src="partners/googlecloudforstartup.png" alt="Google Cloud for Startups">
           </div>
           <div class="partner-logo">
-            <img src="partners/logo_3d6f8cb795.svg" alt="Partner Logo">
+            <img src="partners/logo_3d6f8cb795.svg" alt="C10 Labs">
+          </div>
+          <div class="partner-logo">
+            <img src="partners/logo.png" alt="Proto">
           </div>
           <!-- Duplicate for seamless loop -->
-          <div class="partner-logo">
-            <img src="partners/logo.png" alt="Partner Logo">
+          <div class="partner-logo partner-logo-large">
+            <img src="partners/logo_microsoft_for_startups.png" alt="Microsoft for Startups">
+          </div>
+          <div class="partner-logo partner-logo-large partner-logo-google">
+            <img src="partners/googlecloudforstartup.png" alt="Google Cloud for Startups">
           </div>
           <div class="partner-logo">
-            <img src="partners/logo_3d6f8cb795.svg" alt="Partner Logo">
+            <img src="partners/logo_3d6f8cb795.svg" alt="C10 Labs">
+          </div>
+          <div class="partner-logo">
+            <img src="partners/logo.png" alt="Proto">
           </div>
           <!-- Additional duplicates for seamless continuous loop -->
-          <div class="partner-logo">
-            <img src="partners/logo.png" alt="Partner Logo">
+          <div class="partner-logo partner-logo-large">
+            <img src="partners/logo_microsoft_for_startups.png" alt="Microsoft for Startups">
+          </div>
+          <div class="partner-logo partner-logo-large partner-logo-google">
+            <img src="partners/googlecloudforstartup.png" alt="Google Cloud for Startups">
           </div>
           <div class="partner-logo">
-            <img src="partners/logo_3d6f8cb795.svg" alt="Partner Logo">
+            <img src="partners/logo_3d6f8cb795.svg" alt="C10 Labs">
           </div>
           <div class="partner-logo">
-            <img src="partners/logo.png" alt="Partner Logo">
-          </div>
-          <div class="partner-logo">
-            <img src="partners/logo_3d6f8cb795.svg" alt="Partner Logo">
+            <img src="partners/logo.png" alt="Proto">
           </div>
         </div>
       </div>
@@ -139,8 +158,8 @@
   <!-- Agents Collaboration Section -->
   <section class="agents-collab-section">
     <div class="agents-collab-container">
-      <h2 class="agents-collab-title">AI agents detect. AI agents respond. Humans in control.</h2>
-      <p class="agents-collab-description">Valix handles large parts of the SOC function with autonomous AI agents, detecting and stopping attacks in real time without adding headcount or exposing data externally.</p>
+      <h2 class="agents-collab-title">Autonomous SOC. You stay in control.</h2>
+      <p class="agents-collab-description">AI agents run detection and response so your team doesn’t drown in alerts. Built for compliance-driven SMBs-on-prem, no cloud lock-in.</p>
       <div class="agents-collab-image-wrapper">
         <img src="images/attacks.svg" alt="AI Agents Collaboration" class="agents-collab-image">
       </div>
@@ -155,55 +174,55 @@
   <section id="product" class="product-section">
     <div class="container">
       <div class="section-header">
-        <h2>Autonomous Security That Actually Works</h2>
-        <p>AI agents that detect, respond, and protect autonomously delivering enterprise-grade security without adding headcount or exposing data externally</p>
+        <h2>One platform. Less noise. Full control.</h2>
+        <p>Autonomous security that replaces manual workflows and scales without cloud spend.</p>
       </div>
 
       <div class="product-grid">
         <!-- Feature 1: Card -->
         <div class="product-card">
-          <h3>Autonomous Action, Not Alerts</h3>
-          <p>Our AI agents don't just detect threats—they take immediate action to neutralize attacks in real-time, handling routine security events automatically so your team can focus on strategic initiatives.</p>
+          <h3>Acts, not just alerts</h3>
+          <p>AI responds to threats in real time. Fewer false positives, less manual triage.</p>
           <ul class="feature-list">
-            <li>Autonomous threat response</li>
-            <li>Real-time attack neutralization</li>
-            <li>Automated routine event handling</li>
+            <li>Autonomous detection and response</li>
+            <li>Lower false positives</li>
+            <li>Less manual SOC work</li>
           </ul>
           <a href="waitlist.html" class="btn-demo">Get a Demo</a>
         </div>
 
         <!-- Feature 2: Card -->
         <div class="product-card">
-          <h3>On-Prem, Air-Gapped</h3>
-          <p>Your data never leaves your infrastructure. Deploy entirely on-premises with air-gapped architecture for maximum security and compliance.</p>
+          <h3>On-prem, air-gapped</h3>
+          <p>Data stays in your environment. Compliance-friendly, no cloud dependency.</p>
           <ul class="feature-list">
-            <li>100% on-premise deployment</li>
-            <li>Air-gapped architecture</li>
-            <li>Zero external data exposure</li>
+            <li>100% on-premise</li>
+            <li>Air-gapped option</li>
+            <li>No data sent to the cloud</li>
           </ul>
           <a href="waitlist.html" class="btn-demo">Take a Tour</a>
         </div>
 
         <!-- Feature 3: Card -->
         <div class="product-card">
-          <h3>Scales to 100k+ Endpoints</h3>
-          <p>Built for enterprise scale. Protect hundreds of thousands of endpoints without performance degradation or additional infrastructure complexity.</p>
+          <h3>Scale without cloud cost</h3>
+          <p>Grow to 100k+ endpoints without extra cloud bills or complexity.</p>
           <ul class="feature-list">
-            <li>Enterprise-grade scalability</li>
-            <li>100,000+ endpoint support</li>
-            <li>Linear performance scaling</li>
+            <li>100k+ endpoints supported</li>
+            <li>Linear scaling</li>
+            <li>No cloud lock-in</li>
           </ul>
           <a href="waitlist.html" class="btn-demo">See How It Works</a>
         </div>
 
         <!-- Feature 4: Card -->
         <div class="product-card">
-          <h3>Designed for Autonomous SOC Operations</h3>
-          <p>Valix operates independently, handling the majority of SOC functions autonomously. Achieve better security outcomes and operational efficiency without scaling your security team.</p>
+          <h3>Built for compliance-driven SMBs</h3>
+          <p>Autonomous SOC that fits your controls. No headcount spike.</p>
           <ul class="feature-list">
-            <li>Autonomous SOC operations</li>
-            <li>Operate without additional headcount</li>
-            <li>Improved security outcomes and efficiency</li>
+            <li>Compliance-ready</li>
+            <li>Autonomous operations</li>
+            <li>Same team, better outcomes</li>
           </ul>
           <a href="waitlist.html" class="btn-demo">Request Access</a>
         </div>
@@ -216,7 +235,7 @@
     <div class="container">
       <div class="section-header">
         <h2>Integrations</h2>
-        <p>Seamlessly integrate with your existing security infrastructure</p>
+        <p>Works with your stack. Wazuh, MDE, major OSs.</p>
       </div>
     </div>
     <div class="integrations-container">
@@ -282,37 +301,37 @@
   <section id="results" class="results-section">
     <div class="container">
       <div class="section-header">
-        <h2>Proven in Production</h2>
-        <p>Live deployment protecting critical infrastructure today</p>
+        <h2>Built for real workloads</h2>
+        <p>Autonomous security already running in production.</p>
       </div>
 
       <div class="results-deployment">
         <div class="deployment-badge">
           <span class="badge-icon">✓</span>
-          <span class="badge-text">Live Production Deployment</span>
+          <span class="badge-text">Live in production</span>
         </div>
       </div>
 
       <div class="results-grid">
         <div class="result-card">
           <div class="result-number">5M+</div>
-          <div class="result-label">Security Events Monitored</div>
-          <p>Real-time analysis of millions of security events</p>
+          <div class="result-label">Events monitored</div>
+          <p>Real-time analysis at scale</p>
         </div>
         <div class="result-card">
           <div class="result-number">50+</div>
-          <div class="result-label">Attack Classes Detected</div>
-          <p>Comprehensive threat detection across multiple attack vectors</p>
+          <div class="result-label">Attack classes detected</div>
+          <p>Broad coverage, fewer misses</p>
         </div>
         <div class="result-card">
           <div class="result-number">&lt;30s</div>
-          <div class="result-label">Average Response Time</div>
-          <p>Threats identified and contained in real-time</p>
+          <div class="result-label">Response time</div>
+          <p>Detect and contain fast</p>
         </div>
         <div class="result-card">
           <div class="result-number">24/7</div>
-          <div class="result-label">Autonomous Operation</div>
-          <p>Continuous protection with zero human intervention required</p>
+          <div class="result-label">Autonomous ops</div>
+          <p>Runs without extra headcount</p>
         </div>
       </div>
 
@@ -323,8 +342,8 @@
   <section id="contact" class="contact-section">
     <div class="container">
       <div class="contact-content">
-        <h2>Get Started Today</h2>
-        <p>Get a personalized demo and see how autonomous AI agents can transform your security operations.</p>
+        <h2>See it in action</h2>
+        <p>Demo the autonomous security platform built for compliance-driven SMBs.</p>
         <div class="contact-cta">
           <a href="waitlist.html" class="btn-primary-large">Request Demo</a>
           <a href="waitlist.html" class="btn-secondary-large">Contact Sales</a>
@@ -338,7 +357,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <img src="images/logo.svg" alt="Valix" class="footer-logo">
+          <img src="logo.svg" alt="Valix" class="footer-logo">
           <p>© 2024 Valix Inc. All rights reserved.</p>
         </div>
         <div class="footer-links">
@@ -349,7 +368,7 @@
           </div>
           <div class="footer-section">
             <h4>Company</h4>
-            <a href="https://www.valix.ai/cdn-cgi/l/email-protection#a7cec9c1c8d4e7d4c6c1c2c9c2d3d489c6ce">Contact</a>
+            <a href="waitlist.html">Contact</a>
           </div>
           <div class="footer-section">
             <h4>Follow Us</h4>
@@ -378,6 +397,43 @@
 
   <!-- Google tag (gtag.js) -->
   <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="script.js"></script>
+  <!-- Menu: details always open so content exists; mobile open state = class only (no details toggle) -->
+  <script>
+  (function() {
+    var details = document.getElementById('nav-details');
+    var menu = document.getElementById('nav-menu');
+    var btn = document.querySelector('.mobile-menu-toggle');
+    if (!details || !menu) return;
+    function isDesktop() { return window.matchMedia('(min-width: 969px)').matches; }
+    details.setAttribute('open', '');
+    window.addEventListener('resize', function() {
+      if (isDesktop()) {
+        details.classList.remove('nav-menu-open');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!isDesktop()) {
+          details.classList.toggle('nav-menu-open');
+          var open = details.classList.contains('nav-menu-open');
+          btn.setAttribute('aria-expanded', open);
+          document.body.style.overflow = open ? 'hidden' : '';
+        }
+      });
+    }
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        details.classList.remove('nav-menu-open');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  })();
+  </script>
+  <script src="script.js?v=10.0"></script>
 </body>
 </html>
