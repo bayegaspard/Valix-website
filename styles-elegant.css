@@ -754,10 +754,9 @@ div.nav-logo::after {
 
 .nav-menu {
   display: flex;
-  gap: var(--space-xl);
+  gap: 1rem;
   align-items: center;
-  flex: 1;
-  justify-content: center;
+  justify-content: flex-end;
   margin-left: 0;
   margin-right: 0;
   position: relative;
@@ -768,10 +767,7 @@ div.nav-logo::after {
 }
 
 .nav-menu .btn-primary {
-  position: absolute;
-  right: 0;
-  margin-left: auto;
-  margin-right: 0;
+  margin-left: 0.5rem;
 }
 
 /* Mobile Menu Toggle */
