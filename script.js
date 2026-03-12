@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initMetricCounters();
   initFadeInAnimations();
   initVideoPlayButton();
+  initWaitlistDynamicFields();
 });
 
 // ===== NAVIGATION FUNCTIONALITY =====
@@ -89,6 +90,28 @@ function initNavigation() {
     });
   } else {
     console.warn('Mobile menu toggle or nav menu not found');
+  }
+}
+
+// ===== WAITLIST DYNAMIC FIELDS =====
+function initWaitlistDynamicFields() {
+  const interestSelect = document.getElementById('interest');
+  const otherInterestGroup = document.getElementById('other-interest-group');
+  const otherInterestInput = document.getElementById('other-interest');
+
+  if (interestSelect && otherInterestGroup) {
+    interestSelect.addEventListener('change', function() {
+      if (this.value === 'Other') {
+        otherInterestGroup.classList.add('visible');
+        if (otherInterestInput) otherInterestInput.required = true;
+      } else {
+        otherInterestGroup.classList.remove('visible');
+        if (otherInterestInput) {
+          otherInterestInput.required = false;
+          otherInterestInput.value = ''; // Clear if hidden
+        }
+      }
+    });
   }
 }
 

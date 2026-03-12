@@ -179,6 +179,20 @@ textarea:focus {
     color: var(--text-primary);
 }
 
+/* Dynamic Field Visibility */
+.hidden-field {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hidden-field.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Success Message Styles - Stunning Redesign */
 .success-message {
     text-align: center;
