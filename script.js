@@ -16,6 +16,7 @@ function initNavigation() {
   const navbar = document.querySelector('.navbar');
   const mobileToggle = document.querySelector('.mobile-menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
+  const logo = document.querySelector('.nav-logo a');
   
   // Navbar scroll effect
   if (navbar) {
@@ -578,9 +579,58 @@ function initFormEnhancements() {
   
   forms.forEach(form => {
     form.addEventListener('submit', function(e) {
+      if (form.id === 'waitlist-form') {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Joining...';
+          submitBtn.disabled = true;
+
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
+
+          // Using the user's Formspree endpoint
+          fetch('https://formspree.io/f/xdawgbgj', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(response => {
+            if (response.ok) {
+              form.style.display = 'none';
+              const successMsg = document.getElementById('success-message');
+              const formHeader = form.previousElementSibling;
+              if (successMsg) successMsg.style.display = 'block';
+              if (formHeader) formHeader.style.display = 'none';
+            } else {
+              response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                  alert(data["errors"].map(error => error["message"]).join(", "));
+                } else {
+                  alert("Oops! There was a problem submitting your form");
+                }
+              });
+              submitBtn.textContent = originalText;
+              submitBtn.disabled = false;
+            }
+          })
+          .catch(error => {
+            alert("Oops! There was a problem submitting your form");
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          });
+        }
+        return;
+      }
+
       e.preventDefault();
       
-      // Add loading state to submit button
+      // Add loading state to submit button for other forms (demo etc)
       const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
       if (submitBtn) {
         const originalText = submitBtn.textContent;
@@ -592,10 +642,33 @@ function initFormEnhancements() {
           submitBtn.textContent = 'Sent!';
           submitBtn.style.background = '#10B981';
           
+          if (form.id === 'waitlist-form') {
+            // Smoothly hide form and header for the premium view
+            const formHeader = form.previousElementSibling;
+            const successMsg = document.getElementById('success-message');
+            const formCard = form.closest('.form-card');
+            
+            if (formCard) {
+              formCard.style.opacity = '0';
+              formCard.style.transform = 'translateY(10px)';
+              
+              setTimeout(() => {
+                form.style.display = 'none';
+                if (formHeader) formHeader.style.display = 'none';
+                if (successMsg) successMsg.style.display = 'block';
+                
+                formCard.style.opacity = '1';
+                formCard.style.transform = 'translateY(0)';
+              }, 400);
+            }
+          }
+          
           setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.background = '';
+            if (form.id !== 'waitlist-form') {
+              submitBtn.textContent = originalText;
+              submitBtn.disabled = false;
+              submitBtn.style.background = '';
+            }
           }, 2000);
         }, 1500);
       }

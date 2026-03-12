@@ -428,14 +428,13 @@ nav.navbar,
   background: #ffffff !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  z-index: 1000;
+  z-index: 1010;
   border-bottom: 1px solid #e5e5e5 !important;
   border-top: none !important;
   border-left: none !important;
   border-right: none !important;
   transition: all var(--transition);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
-  overflow: hidden;
   outline: none !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -2202,6 +2201,7 @@ div.nav-logo::after {
   }
 
   .mobile-menu-toggle {
+    display: flex !important;
     position: absolute;
     right: 5%;
     top: 50%;

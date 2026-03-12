@@ -1,0 +1,272 @@
+/* ===== PREMIUM WAITLIST FORM STYLES ===== */
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body.waitlist-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Decorative Background Glows */
+body.waitlist-page::before,
+body.waitlist-page::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.4;
+}
+
+body.waitlist-page::before {
+    top: -200px;
+    right: -200px;
+    background: radial-gradient(circle, var(--primary-light), transparent);
+}
+
+body.waitlist-page::after {
+    bottom: -200px;
+    left: -200px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent);
+}
+
+.waitlist-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(112px + var(--space-xl)) 5% var(--space-4xl);
+}
+
+.waitlist-content-wrapper {
+    width: 100%;
+    max-width: 720px;
+    animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: var(--space-3xl) var(--space-2xl);
+    border-radius: var(--radius-2xl);
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    text-align: left;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.form-header h2 {
+    margin-bottom: var(--space-sm);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--text-primary) 0%, #475569 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-header p {
+    color: var(--text-secondary);
+    font-size: var(--text-lg);
+    line-height: 1.6;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+}
+
+.form-group {
+    margin-bottom: var(--space-md);
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+    opacity: 0.8;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    font-family: inherit;
+    font-size: var(--text-base);
+    transition: all 0.2s ease;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: var(--text-primary);
+}
+
+input:hover,
+select:hover {
+    border-color: #cbd5e1;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    background: rgba(var(--primary-rgb), 0.03);
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    border: 1px dashed var(--border);
+    transition: all 0.2s ease;
+}
+
+.checkbox-group:hover {
+    background: rgba(var(--primary-rgb), 0.05);
+    border-color: var(--primary);
+}
+
+.checkbox-group input {
+    width: 1.25rem;
+    height: 1.25rem;
+    accent-color: var(--primary);
+}
+
+.checkbox-label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Success Message Styles - Stunning Redesign */
+.success-message {
+    text-align: center;
+    padding: var(--space-xl) 0;
+    display: none;
+    animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.success-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: #10B981;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-xl);
+    font-size: 2.5rem;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+}
+
+.success-message h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+}
+
+.success-message p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2xl);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button Refinement */
+.btn-primary-large {
+    background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 5s ease infinite;
+    padding: 1.25rem 2rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    font-size: var(--text-lg);
+    box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary-large:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.5);
+}
+
+.btn-primary-large:active {
+    transform: translateY(0);
+}
+
+/* Base Nav/Footer Overrides */
+.navbar {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    z-index: 1010 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-header h2 {
+        font-size: 2rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+    
+    .waitlist-main {
+        padding-top: calc(84px + var(--space-xl));
+    }
+    
+    .form-card {
+        padding: var(--space-xl) var(--space-lg);
+    }
+}

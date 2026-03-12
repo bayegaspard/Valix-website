@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KLR09LQH6C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KLR09LQH6C');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the Waitlist - Valix</title>
+  <meta name="description" content="Join the waitlist for autonomous cybersecurity and compliance monitoring for SMBs.">
+  <link rel="icon" type="image/jpeg" href="images/valix_ai_logo-2.jpeg">
+  <link rel="apple-touch-icon" href="images/valix_ai_logo-2.jpeg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles-elegant.css?v=4.0">
+  <link rel="stylesheet" href="waitlist.css">
+</head>
+<body class="waitlist-page">
+  <!-- Announcement Banner -->
+  <div class="announcement-banner">
+    <div class="announcement-content">
+      <span>🎉 Valix AI have been accepted to <a href="https://www.c10labs.com/" target="_blank" rel="noopener noreferrer">C10 labs</a> winter cohort</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="images/logo.svg" alt="Valix" class="logo-image">
+        </a>
+      </div>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-menu">
+        <a href="index.html#product" class="nav-link">Platform</a>
+        <a href="index.html#results" class="nav-link">Impact</a>
+        <a href="index.html#integrations" class="nav-link">Integrations</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="index.html" class="btn-primary">Back to Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Centered Content -->
+  <main class="waitlist-main">
+    <div class="waitlist-content-wrapper">
+      <div class="form-card">
+        <!-- Form Header -->
+        <div class="form-header">
+          <h2>Join the Waitlist</h2>
+          <p>Enterprise-grade security handles the complexity. You handle your business.</p>
+        </div>
+
+        <!-- Signup Form -->
+        <form id="waitlist-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+              <input type="text" id="full-name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="work-email">Work Email</label>
+              <input type="email" id="work-email" name="email" placeholder="john@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="company-name">Company Name</label>
+              <input type="text" id="company-name" name="company" placeholder="Acme Inc." required>
+            </div>
+            <div class="form-group">
+              <label for="industry">Industry</label>
+              <select id="industry" name="industry" required>
+                <option value="" disabled selected>Select industry</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Fintech">Fintech</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="endpoints">Number of Endpoints</label>
+              <select id="endpoints" name="endpoints" required>
+                <option value="" disabled selected>Select size</option>
+                <option value="1-25">1–25</option>
+                <option value="26-100">26–100</option>
+                <option value="101-500">101–500</option>
+                <option value="500+">500+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="compliance">Compliance Need</label>
+              <select id="compliance" name="compliance" required>
+                <option value="" disabled selected>Select primary need</option>
+                <option value="HIPAA">HIPAA</option>
+                <option value="PCI DSS">PCI DSS</option>
+                <option value="CMMC">CMMC</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="interest">Level of Interest</label>
+              <select id="interest" name="interest" required>
+                <option value="" disabled selected>When do you need a solution?</option>
+                <option value="Exploring">Just Exploring</option>
+                <option value="Actively Looking">Actively Looking</option>
+                <option value="Need Solution">Need Solution Within 3 Months</option>
+              </select>
+            </div>
+            <div class="form-group full-width" style="margin-top: 0.5rem;">
+              <label class="checkbox-group">
+                <input type="checkbox" name="pilot" value="yes">
+                <span class="checkbox-label">I'm interested in early pilot access</span>
+              </label>
+            </div>
+          </div>
+          <div style="margin-top: 2.5rem;">
+            <button type="submit" class="btn-primary-large" style="width: 100%;">Get Early Access</button>
+          </div>
+        </form>
+
+        <!-- Success Message -->
+        <div id="success-message" class="success-message">
+          <div class="success-icon-wrapper">✓</div>
+          <h3>You're on the list!</h3>
+          <p>We've received your application for early access. Our team will reach out to you shortly to discuss your security needs.</p>
+          <div style="margin-top: 1rem;">
+            <a href="index.html" class="btn-secondary">Back to Homepage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="images/logo.svg" alt="Valix" class="footer-logo">
+          <p>© 2024 Valix Inc. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-section">
+            <h4>Product</h4>
+            <a href="index.html#product">Platform</a>
+            <a href="index.html#results">Impact</a>
+          </div>
+          <div class="footer-section">
+            <h4>Company</h4>
+            <a href="https://www.valix.ai/cdn-cgi/l/email-protection#a7cec9c1c8d4e7d4c6c1c2c9c2d3d489c6ce">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
