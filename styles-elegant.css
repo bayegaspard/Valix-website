@@ -229,7 +229,28 @@ p {
   white-space: nowrap;
 }
 
-/* Mobile: bar with larger readable font, text wraps; scroll if needed */
+/* Tablet/Small Laptop: allow banner to wrap earlier */
+@media (max-width: 1100px) {
+  :root {
+    --announcement-height: 60px;
+  }
+  .announcement-banner {
+    height: var(--announcement-height);
+    min-height: var(--announcement-height);
+    padding: 0 1rem;
+  }
+  .announcement-content {
+    white-space: normal;
+    flex-wrap: wrap;
+    line-height: 1.25;
+    max-height: 54px;
+    padding: 4px 0;
+  }
+  .announcement-content a {
+    word-break: break-word;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --announcement-height: 80px;
@@ -237,38 +258,20 @@ p {
   .announcement-banner {
     height: var(--announcement-height);
     min-height: var(--announcement-height);
-    padding: 0.4rem var(--space-sm);
-    align-items: center;
-    box-sizing: border-box;
-    overflow: hidden;
+    padding: 0.5rem 1rem;
+    flex-direction: column;
+    justify-content: center;
   }
   .announcement-content {
     white-space: normal;
     flex-wrap: wrap;
-    max-height: 66px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    font-size: 0.8rem;
-    line-height: 1.35;
-    padding: 0.25rem var(--space-xs);
-    gap: 0.25rem;
     justify-content: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
     text-align: center;
+    max-height: none;
+    overflow: visible;
     width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-    -webkit-text-size-adjust: 100%;
-  }
-  .announcement-content .announcement-badge {
-    flex-shrink: 0;
-  }
-  .announcement-content > span:last-of-type {
-    min-width: 0;
-    flex: 1 1 auto;
-  }
-  .announcement-content a {
-    word-break: break-word;
   }
 }
 
@@ -640,7 +643,7 @@ div.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--space-xl);
+  gap: 1.5rem !important;
   border: none !important;
   border-left: none !important;
   border-top: none !important;
@@ -681,7 +684,7 @@ div.nav-logo {
   outline: none !important;
   background: #ffffff !important;
   padding: 0 !important;
-  margin: 0 var(--space-lg) 0 var(--space-lg) !important;
+  margin: 0 1rem 0 0 !important;
   position: relative;
   z-index: 1001;
   box-shadow: none !important;
