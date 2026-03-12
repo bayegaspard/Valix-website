@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initFadeInAnimations();
   initVideoPlayButton();
   initWaitlistDynamicFields();
+  initFormEnhancements();
 });
 
 // ===== NAVIGATION FUNCTIONALITY =====
