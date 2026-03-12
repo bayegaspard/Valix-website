@@ -565,22 +565,65 @@ function initFormEnhancements() {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Add loading state to submit button
+      const isWaitlistForm = form.id === 'waitlist-form';
+      const successMessage = document.getElementById('success-message');
       const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
-      if (submitBtn) {
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
+
+      if (!submitBtn) return;
+      
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      // Use Fetch to submit via Formspree if it's the waitlist form
+      if (isWaitlistForm && form.action.includes('formspree.io')) {
+        const formData = new FormData(form);
         
-        // Simulate form submission (replace with actual form handling)
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => {
+          if (response.ok) {
+            // Success! Hide form and show message
+            form.style.display = 'none';
+            if (successMessage) {
+              successMessage.style.display = 'block';
+              successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          } else {
+            // Error handling
+            submitBtn.textContent = 'Error. Try again';
+            submitBtn.disabled = false;
+            setTimeout(() => { submitBtn.textContent = originalText; }, 3000);
+          }
+        })
+        .catch(error => {
+          console.error('Form submission error:', error);
+          submitBtn.textContent = 'Error. Try again';
+          submitBtn.disabled = false;
+          setTimeout(() => { submitBtn.textContent = originalText; }, 3000);
+        });
+      } else {
+        // Simulated success for other forms or local testing
         setTimeout(() => {
           submitBtn.textContent = 'Sent!';
           submitBtn.style.background = '#10B981';
           
+          if (isWaitlistForm && successMessage) {
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+          }
+
           setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.background = '';
+            if (!isWaitlistForm) {
+              submitBtn.textContent = originalText;
+              submitBtn.disabled = false;
+              submitBtn.style.background = '';
+            }
           }, 2000);
         }, 1500);
       }
