@@ -491,3 +491,60 @@ textarea:focus {
         padding: 1.5rem;
     }
 }
+
+/* ===== DARK THEME OVERRIDES FOR WAITLIST ===== */
+body.waitlist-page.dark-theme {
+    background-color: var(--dk-bg-main, #0a0a0a);
+}
+
+body.waitlist-page.dark-theme .form-card {
+    background: var(--dk-bg-card, #111111);
+    border-color: var(--dk-border, #333);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 20px rgba(124, 58, 237, 0.1);
+}
+
+body.waitlist-page.dark-theme .form-header h2,
+body.waitlist-page.dark-theme .form-header h3 {
+    color: var(--dk-text-primary, #ffffff);
+}
+
+body.waitlist-page.dark-theme .form-header p,
+body.waitlist-page.dark-theme label {
+    color: var(--dk-text-secondary, #a1a1aa);
+}
+
+body.waitlist-page.dark-theme input[type="text"],
+body.waitlist-page.dark-theme input[type="email"],
+body.waitlist-page.dark-theme select,
+body.waitlist-page.dark-theme textarea {
+    background: var(--dk-bg-main, #0a0a0a);
+    border-color: var(--dk-border, #333);
+    color: var(--dk-text-primary, #ffffff);
+}
+
+body.waitlist-page.dark-theme select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+body.waitlist-page.dark-theme input:focus,
+body.waitlist-page.dark-theme select:focus,
+body.waitlist-page.dark-theme textarea:focus {
+    background-color: #111;
+    border-color: var(--dk-accent, #8b5cf6);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+}
+
+body.waitlist-page.dark-theme .checkbox-group {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--dk-border, #333);
+    color: var(--dk-text-primary, #ffffff);
+}
+
+
+/* Fix repeating background on select */
+body.waitlist-page.dark-theme select {
+    background-color: var(--dk-bg-main, #0a0a0a);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}

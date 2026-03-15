@@ -200,14 +200,45 @@ p {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.9),
-    transparent,
-    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.3),
     transparent
   );
-  background-size: 200% 100%;
-  animation: announcement-shine 3s ease-in-out infinite;
-  pointer-events: none;
+}
+
+.banner-close {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  transition: all 0.2s ease;
+  z-index: 10;
+  padding: 0;
+}
+
+.banner-close:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Banner Hidden State */
+body.banner-hidden {
+  --announcement-height: 0px !important;
+}
+
+body.banner-hidden .announcement-banner {
+  display: none !important;
 }
 
 .announcement-content {
@@ -682,7 +713,7 @@ div.nav-logo {
   border-right: none !important;
   border-bottom: none !important;
   outline: none !important;
-  background: #ffffff !important;
+  background: transparent;
   padding: 0 !important;
   margin: 0 1rem 0 0 !important;
   position: relative;
@@ -708,14 +739,13 @@ div.nav-logo::after {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
-  background: #ffffff !important;
-  filter: none !important;
+  background: transparent;
   mix-blend-mode: normal !important;
   isolation: isolate;
 }
 
 .nav-logo img {
-  background: #ffffff !important;
+  background: transparent;
   padding: 0;
   margin: 0;
 }
@@ -2729,4 +2759,720 @@ div.nav-logo::after {
 .nav-link:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
+}
+
+/* ==========================================================================
+   AI CISO - DARK REGULATED SMB THEME ADDITIONS
+   ========================================================================== */
+
+:root {
+  --dk-bg-main: #0a0a0a;
+  --dk-bg-card: #141414;
+  --dk-bg-card-hover: #1a1a1a;
+  --dk-text-primary: #ffffff;
+  --dk-text-secondary: #a1a1aa;
+  --dk-border: rgba(255, 255, 255, 0.1);
+  --dk-accent: #7c3aed;
+  --dk-accent-glow: rgba(124, 58, 237, 0.4);
+}
+
+body.dark-theme {
+  background-color: var(--dk-bg-main);
+  color: var(--dk-text-primary);
+}
+
+body.dark-theme h1, 
+body.dark-theme h2, 
+body.dark-theme h3, 
+body.dark-theme h4, 
+body.dark-theme h5, 
+body.dark-theme h6 {
+  color: var(--dk-text-primary);
+}
+
+body.dark-theme p {
+  color: var(--dk-text-secondary);
+}
+
+/* Navbar overrides for dark theme */
+body.dark-theme .navbar {
+  background: rgba(10, 10, 10, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+body.dark-theme .nav-container,
+body.dark-theme .nav-logo {
+  background: transparent !important;
+}
+
+body.dark-theme .nav-link {
+  color: var(--dk-text-secondary);
+}
+
+body.dark-theme .nav-link:hover {
+  color: var(--dk-text-primary);
+}
+
+body.dark-theme .mobile-menu-toggle span {
+  background: var(--dk-text-primary);
+}
+
+/* Logo handling */
+.logo-light-mode-only {
+  display: none !important;
+}
+
+body.dark-theme .logo-dark-mode {
+  display: block;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  padding: calc(var(--announcement-height) + 120px) 5% 80px 5%;
+  overflow: hidden;
+  background: var(--dk-bg-main);
+}
+
+.hero-glow {
+  position: absolute;
+  top: -10%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, var(--dk-accent-glow) 0%, transparent 60%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: #c4b5fd;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--dk-text-secondary);
+}
+
+.hero-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.125rem;
+  color: #e4e4e7;
+}
+
+.icon-check {
+  width: 24px;
+  height: 24px;
+  color: var(--dk-accent);
+}
+
+/* Hero Form Embedded */
+.hero-form-wrapper {
+  flex: 0 0 450px;
+  width: 100%;
+}
+
+.hero-form-card {
+  background: var(--dk-bg-card);
+  border: 1px solid var(--dk-border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--dk-accent), transparent);
+}
+
+.form-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #e4e4e7;
+}
+
+input[type="email"],
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--dk-border);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+input[type="email"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--dk-accent);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+select option {
+  background: var(--dk-bg-card);
+  color: white;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.btn-primary-large {
+  display: inline-block;
+  background: var(--dk-accent);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 1.125rem;
+  text-decoration: none;
+  width: 100%;
+}
+
+.btn-primary-large:hover {
+  background: #6d28d9;
+}
+
+.form-security-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--dk-text-secondary);
+}
+
+/* Success Message inside Hero */
+.success-message {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.success-message.hidden {
+  display: none;
+}
+
+.success-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+}
+
+/* Sections Global */
+.problem-section,
+.solution-section,
+.steps-section,
+.frameworks-section,
+.benefits-section {
+  padding: 6rem 5%;
+  background: var(--dk-bg-main);
+}
+
+.section-header p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Problem Grid */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.problem-card {
+  background: transparent;
+  padding: 2rem;
+  border-left: 2px solid var(--dk-border);
+  transition: border-color 0.3s;
+}
+
+.problem-card:hover {
+  border-color: var(--dk-accent);
+}
+
+.problem-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--dk-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.problem-card:hover .problem-icon {
+  color: var(--dk-text-primary);
+}
+
+/* Solution Grid */
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.feature-card {
+  position: relative;
+  background: var(--dk-bg-card);
+  border-radius: 16px;
+  padding: 1px; /* for gradient border effect */
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  border-radius: 16px;
+  z-index: 0;
+}
+
+.feature-card-content {
+  position: relative;
+  background: var(--dk-bg-card);
+  padding: 2.5rem;
+  border-radius: 15px;
+  height: 100%;
+  z-index: 1;
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.feature-icon svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.bg-purple { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+.bg-blue   { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+.bg-green  { background: linear-gradient(135deg, #6d28d9, #4c1d95); }
+
+/* Steps Section */
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 4rem auto 0;
+}
+
+.step-item {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.step-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.1);
+  line-height: 1;
+}
+
+.step-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.step-connector {
+  width: 2px;
+  height: 40px;
+  background: var(--dk-border);
+  margin-left: 1.25rem;
+}
+
+/* Frameworks Grid */
+.frameworks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.framework-badge {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--dk-border);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.framework-badge:hover {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.5);
+  transform: translateY(-5px);
+}
+
+.framework-badge h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.framework-badge p {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Benefits (Video + Text Side by Side) */
+.benefits-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.benefits-image {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--dk-border);
+}
+
+.inline-video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.benefits-text {
+  flex: 1;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.benefits-list li {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.benefits-list .b-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.benefits-list strong {
+  display: block;
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.benefits-list span {
+  color: var(--dk-text-secondary);
+  line-height: 1.6;
+}
+
+/* Dark theme overrides for global sections */
+.dark-partners {
+  background: var(--dk-bg-main) !important;
+  border-color: var(--dk-border) !important;
+}
+
+.dark-integrations {
+  background: var(--dk-bg-main) !important;
+  border-top: 1px solid var(--dk-border) !important;
+  border-bottom: 1px solid var(--dk-border) !important;
+}
+
+.bottom-cta-section {
+  padding: 6rem 5%;
+  background: linear-gradient(180deg, var(--dk-bg-main) 0%, #110825 100%);
+  border-top: 1px solid var(--dk-border);
+}
+
+.dark-footer {
+  background: #050505 !important;
+  border-top: 1px solid var(--dk-border) !important;
+  color: var(--dk-text-secondary) !important;
+}
+
+.dark-footer h4 { color: white !important; }
+.dark-footer a { color: var(--dk-text-secondary) !important; }
+.dark-footer a:hover { color: white !important; }
+.dark-footer .social-link { color: var(--dk-text-secondary) !important; }
+.dark-footer .social-link:hover { color: white !important; }
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+  .hero-container,
+  .benefits-content {
+    flex-direction: column;
+  }
+  
+  .hero-form-wrapper {
+    flex: none;
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+
+
+/* Fixes for original logos on dark theme */
+body.dark-theme .nav-logo img,
+body.dark-theme .footer-logo {
+  filter: brightness(0) invert(1);
+}
+
+
+/* Ensure partner/integration logos are readable on dark theme without a white background */
+body.dark-theme .partners-section,
+body.dark-theme .integrations-section {
+  background: transparent !important;
+  color: var(--dk-text-primary) !important;
+}
+
+body.dark-theme .partners-section .partners-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #c4b5fd !important;
+  margin-bottom: 0.5rem;
+}
+
+body.dark-theme .partners-section .partners-sublabel {
+  font-size: 1.125rem;
+  color: var(--dk-text-secondary);
+  opacity: 0.8;
+}
+
+body.dark-theme .integrations-section h2,
+body.dark-theme .integrations-section p {
+  color: var(--dk-text-secondary) !important;
+}
+
+/* Legacy logo filters removed in favor of refined overrides at the end of file */
+
+
+/* Enforce transparent background for logos in dark theme */
+body.dark-theme .nav-logo,
+body.dark-theme div.nav-logo,
+body.dark-theme .nav-logo a,
+body.dark-theme .nav-logo img,
+body.dark-theme .nav-logo .logo-image,
+body.dark-theme .footer-logo,
+body.dark-theme .footer-logo img {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+
+/* Modern Bottom CTA Button Fix */
+.btn-primary-large {
+  display: inline-block;
+  background: var(--dk-accent, #8b5cf6);
+  color: #ffffff;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  margin-top: var(--space-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary-large:hover {
+  background: var(--dk-accent-hover, #7c3aed);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+
+/* Bottom CTA Layout */
+body.dark-theme .bottom-cta-section {
+  padding: 6rem 5%;
+  background: linear-gradient(180deg, rgba(10, 10, 11, 0) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark-theme .bottom-cta-section h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+body.dark-theme .bottom-cta-section p {
+  font-size: 1.25rem;
+  color: var(--dk-text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure CTA button is elegant, small and easy to use */
+body.dark-theme .bottom-cta-section .btn-primary-large {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.8rem !important;
+  font-size: 1rem !important;
+  width: auto !important;
+  min-width: 180px !important;
+  max-width: 300px !important;
+  margin: 0 auto !important;
+}
+
+
+/* Enforce transparent background for integrations wrapper */
+body.dark-theme #integrations,
+body.dark-theme .integrations-section,
+body.dark-theme .integrations-container,
+body.dark-theme .integrations-scroll,
+body.dark-theme .integrations-track {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Refined Logo Filters for Partners and Integrations */
+body.dark-theme #integrations .integration-logo img,
+body.dark-theme .integrations-section .integration-logo img,
+body.dark-theme .partner-logo img,
+body.dark-theme .partner-logo-large img,
+body.dark-theme .partner-logo-google img {
+    filter: invert(1) brightness(2) contrast(0.8) !important;
+    mix-blend-mode: screen !important;
+    opacity: 0.75 !important;
+}
+
+body.dark-theme #integrations .integration-logo:hover img,
+body.dark-theme .integrations-section .integration-logo:hover img,
+body.dark-theme .partner-logo:hover img {
+    filter: grayscale(0) invert(0) brightness(1) contrast(1) !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
 }

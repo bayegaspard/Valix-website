@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KLR09LQH6C"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-KLR09LQH6C');
   </script>
@@ -14,31 +15,38 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Autonomous security for compliance-driven Small and Medium Businesses (SMBs)</title>
-  <meta name="description" content="Replaces manual Security Operations Center (SOC) workflows. Fewer false positives. Scales without cloud costs. Think autonomous Cursor agents for continuous security and compliance.">
+  <title>Valix | AI CISO for Regulated SMBs</title>
+  <meta name="description"
+    content="Your AI CISO for Regulated SMBs. Automate CMMC, HIPAA, PCI DSS, and SOC 2 compliance while protecting your intellectual property.">
   <meta name="author" content="Valix Inc.">
-  <meta name="keywords" content="autonomous security, SMB compliance, SOC automation, endpoint protection, false positive reduction">
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <link rel="apple-touch-icon" href="logo.svg">
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <!-- Styles -->
-  <link rel="stylesheet" href="styles-elegant.css?v=50.0">
+  <link rel="stylesheet" href="styles-elegant.css?v=51.0">
 </head>
-<body>
-  <!-- Announcement Banner (deploy v9) -->
+
+<body class="dark-theme">
+  <!-- Announcement Banner -->
   <div class="announcement-banner" role="banner">
     <div class="announcement-content">
       <span class="announcement-badge" aria-hidden="true">New</span>
-      <span>🎉 Valix has been accepted to <a href="https://www.c10labs.com/" target="_blank" rel="noopener noreferrer">C10 Labs</a> winter cohort, <a href="https://www.microsoft.com/en-us/startups" target="_blank" rel="noopener noreferrer">Microsoft for Startups</a>, and <a href="https://cloud.google.com/startup" target="_blank" rel="noopener noreferrer">Google Cloud for Startups</a></span>
+      <span>🎉 Valix has been accepted to <a href="https://www.c10labs.com/" target="_blank"
+          rel="noopener noreferrer">C10 Labs</a> winter cohort, <a href="https://www.microsoft.com/en-us/startups"
+          target="_blank" rel="noopener noreferrer">Microsoft for Startups</a>, and <a
+          href="https://cloud.google.com/startup" target="_blank" rel="noopener noreferrer">Google Cloud for
+          Startups</a></span>
     </div>
+    <button class="banner-close" aria-label="Close announcement">×</button>
   </div>
 
-  <!-- Navigation: button toggles menu (reliable on mobile touch), details[open] shows menu -->
+  <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">
@@ -54,66 +62,133 @@
           <span></span>
         </button>
         <div class="nav-menu" id="nav-menu">
-          <a href="#product" class="nav-link">Platform</a>
-          <a href="#results" class="nav-link">Impact</a>
+          <a href="#problem" class="nav-link">Problem</a>
+          <a href="#solution" class="nav-link">Platform</a>
+          <a href="#how-it-works" class="nav-link">How it Works</a>
           <a href="#integrations" class="nav-link">Integrations</a>
-          <a href="#contact" class="nav-link">Contact</a>
-          <a href="waitlist.html" class="btn-primary">Get Started</a>
+          <a href="waitlist.html" class="btn-primary">Get Early Access</a>
         </div>
       </details>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <!-- Top Section: Headline Left, Text Right -->
-      <div class="hero-top">
-        <div class="hero-left">
-          <h1 class="hero-title">Autonomous security for compliance-driven Small and Medium Businesses (SMBs)</h1>
+  <section class="hero-section" id="hero">
+    <div class="hero-glow"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">AI-Powered Security & Compliance</div>
+        <h1 class="hero-title">Your AI CISO for Regulated SMBs.</h1>
+        <p class="hero-description">
+          Automate CMMC, HIPAA, PCI DSS, and SOC 2 compliance, maintain continuous security monitoring, and protect your
+          intellectual property - without hiring a full security team.
+        </p>
+        <div class="hero-features-list">
+          <div class="hero-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" class="icon-check" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Automated compliance engine
+          </div>
+          <div class="hero-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" class="icon-check" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Always-on SOC for SMBs
+          </div>
+          <div class="hero-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" class="icon-check" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Replaces expensive manual work
+          </div>
         </div>
-        <div class="hero-right">
-          <p class="hero-description">Replaces manual Security Operations Center (SOC) workflows. Fewer false positives. Scales without cloud costs. Think autonomous Cursor agents for continuous security and compliance.</p>
-          <div class="hero-cta">
-            <a href="waitlist.html" class="btn-pill btn-primary-pill">
-              Get a Demo
-              <span class="btn-arrow">→</span>
-            </a>
-            <a href="waitlist.html" class="btn-pill btn-secondary-pill">
-              Take a Tour
-              <span class="btn-arrow">→</span>
-            </a>
+      </div>
+
+      <div class="hero-form-wrapper" id="waitlist-section">
+        <div class="hero-form-card">
+          <div class="form-header">
+            <h3>Join the Waitlist</h3>
+            <p>Secure your early access to the platform.</p>
+          </div>
+          <form id="waitlist-form" action="https://formspree.io/f/xdawgbgj" method="POST">
+            <div class="form-group">
+              <label for="email">Work Email</label>
+              <input type="email" id="email" name="email" placeholder="john@company.com" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="endpoints">Endpoints</label>
+                <select id="endpoints" name="endpoints" required>
+                  <option value="" disabled selected>Company Size</option>
+                  <option value="1-50">1-50</option>
+                  <option value="51-200">51-200</option>
+                  <option value="201-1000">201-1000</option>
+                  <option value="1000+">1000+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="compliance">Compliance</label>
+                <select id="compliance" name="compliance" required>
+                  <option value="" disabled selected>Primary Need</option>
+                  <option value="CMMC">CMMC</option>
+                  <option value="HIPAA">HIPAA</option>
+                  <option value="PCI DSS">PCI DSS</option>
+                  <option value="SOC 2">SOC 2</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary-large full-width">
+              Secure Early Access
+            </button>
+            <div class="form-security-note">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              Enterprise-grade data encryption
+            </div>
+          </form>
+          <div id="success-message" class="success-message hidden">
+            <div class="success-icon-wrapper">✓</div>
+            <h4>Application Received</h4>
+            <p>You're on the priority list. We'll be in touch shortly.</p>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Video Section with Purple Gradient Background - Outside container for full width -->
-    <div class="hero-video-section">
-      <div class="hero-video-wrapper">
-        <video class="hero-video" autoplay muted loop playsinline>
-          <source src="demo/Web-demo.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <button class="video-play-button" aria-label="Play/Pause video">
-          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="40" cy="40" r="40" fill="rgba(255, 255, 255, 0.9)"/>
-            <path d="M32 24L32 56L56 40L32 24Z" fill="#7c3aed"/>
-          </svg>
-        </button>
-      </div>
-    </div>
   </section>
+
+  <!-- Video Section Restored -->
+  <div class="hero-video-section">
+    <div class="hero-video-wrapper">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="demo/Web-demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button class="video-play-button" aria-label="Play/Pause video">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="40" fill="rgba(255, 255, 255, 0.9)" />
+          <path d="M32 24L32 56L56 40L32 24Z" fill="#7c3aed" />
+        </svg>
+      </button>
+    </div>
+  </div>
 
   <!-- Partners Carousel Section -->
   <section class="partners-section">
     <div class="partners-container">
       <div class="partners-header">
-        <p class="partners-text">Trusted and backed by</p>
+        <p class="partners-label">Trusted and Backed By</p>
+        <p class="partners-sublabel">Empowering the next generation of regulated startups.</p>
       </div>
       <div class="partners-scroll">
         <div class="partners-track">
-          <!-- Partner logos: Microsoft, Google, C10 Labs, Proto -->
+          <!-- Partner logos -->
           <div class="partner-logo partner-logo-large">
             <img src="partners/logo_microsoft_for_startups.png" alt="Microsoft for Startups">
           </div>
@@ -139,94 +214,216 @@
           <div class="partner-logo">
             <img src="partners/logo.png" alt="Proto">
           </div>
-          <!-- Additional duplicates for seamless continuous loop -->
-          <div class="partner-logo partner-logo-large">
-            <img src="partners/logo_microsoft_for_startups.png" alt="Microsoft for Startups">
-          </div>
-          <div class="partner-logo partner-logo-large partner-logo-google">
-            <img src="partners/googlecloudforstartup.png" alt="Google Cloud for Startups">
-          </div>
-          <div class="partner-logo">
-            <img src="partners/logo_3d6f8cb795.svg" alt="C10 Labs">
-          </div>
-          <div class="partner-logo">
-            <img src="partners/logo.png" alt="Proto">
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Agents Collaboration Section -->
-  <section class="agents-collab-section">
-    <div class="agents-collab-container">
-      <h2 class="agents-collab-title">Autonomous SOC. You stay in control.</h2>
-      <p class="agents-collab-description">AI agents run detection and response so your team doesn’t drown in alerts. Built for compliance-driven SMBs-on-prem, no cloud lock-in.</p>
-      <div class="agents-collab-image-wrapper">
-        <img src="images/attacks.svg" alt="AI Agents Collaboration" class="agents-collab-image">
-      </div>
-      <a href="waitlist.html" class="btn-pill btn-primary-pill agents-collab-button">
-        See it in action
-        <span class="btn-arrow">→</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- Product Section -->
-  <section id="product" class="product-section">
+  <!-- Problem Section -->
+  <section id="problem" class="problem-section">
     <div class="container">
       <div class="section-header">
-        <h2>One platform. Less noise. Full control.</h2>
-        <p>Autonomous security that replaces manual workflows and scales without cloud spend.</p>
+        <h2 class="gradient-text">Compliance isn't just documentation.</h2>
+        <p>Not just another platform that acts as "AI compliance" but still expects founders to spend hours drafting
+          policies and manually gathering evidence. True security demands action.</p>
       </div>
 
-      <div class="product-grid">
-        <!-- Feature 1: Card -->
-        <div class="product-card">
-          <h3>Acts, not just alerts</h3>
-          <p>AI responds to threats in real time. Fewer false positives, less manual triage.</p>
-          <ul class="feature-list">
-            <li>Autonomous detection and response</li>
-            <li>Lower false positives</li>
-            <li>Less manual SOC work</li>
-          </ul>
-          <a href="waitlist.html" class="btn-demo">Get a Demo</a>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <h3>Expensive Requirements</h3>
+          <p>Traditional compliance requires hiring costly consultants and dedicated security teams that drain SMB
+            resources.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3>Manual Policy Drafting</h3>
+          <p>Founders waste hundreds of hours manually writing security policies instead of focusing on their product.
+          </p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3>Constant IP Risks</h3>
+          <p>Without an always-on security team, your intellectual property and sensitive customer data remain
+            vulnerable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section id="solution" class="solution-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Complete Autonomous Platform</h2>
+        <p>Valix operates identically to an elite, tier-1 security team-fully automated.</p>
+      </div>
+
+      <div class="solution-grid">
+        <div class="feature-card">
+          <div class="feature-card-glow"></div>
+          <div class="feature-card-content">
+            <div class="feature-icon bg-purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <h3>Your AI CISO</h3>
+            <p>Expert-level security leadership without the C-suite salary. Strategic guidance, policy generation, and
+              architecture review handled automatically.</p>
+          </div>
         </div>
 
-        <!-- Feature 2: Card -->
-        <div class="product-card">
-          <h3>On-prem, air-gapped</h3>
-          <p>Data stays in your environment. Compliance-friendly, no cloud dependency.</p>
-          <ul class="feature-list">
-            <li>100% on-premise</li>
-            <li>Air-gapped option</li>
-            <li>No data sent to the cloud</li>
-          </ul>
-          <a href="waitlist.html" class="btn-demo">Take a Tour</a>
+        <div class="feature-card">
+          <div class="feature-card-glow"></div>
+          <div class="feature-card-content">
+            <div class="feature-icon bg-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3>Automated Compliance Engine</h3>
+            <p>Stop writing policies. We dynamically map your tech stack to frameworks, gather evidence, and
+              continuously prove compliance.</p>
+          </div>
         </div>
 
-        <!-- Feature 3: Card -->
-        <div class="product-card">
-          <h3>Scale without cloud cost</h3>
-          <p>Grow to 100k+ endpoints without extra cloud bills or complexity.</p>
-          <ul class="feature-list">
-            <li>100k+ endpoints supported</li>
-            <li>Linear scaling</li>
-            <li>No cloud lock-in</li>
-          </ul>
-          <a href="waitlist.html" class="btn-demo">See How It Works</a>
+        <div class="feature-card">
+          <div class="feature-card-glow"></div>
+          <div class="feature-card-content">
+            <div class="feature-icon bg-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 12h4l2-9 5 18 3-10 2 3h4"></path>
+              </svg>
+            </div>
+            <h3>Always-On SOC</h3>
+            <p>Continuous threat monitoring and autonomous incident response. Protect your IP against active threats
+              24/7/365.</p>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Feature 4: Card -->
-        <div class="product-card">
-          <h3>Built for compliance-driven SMBs</h3>
-          <p>Autonomous SOC that fits your controls. No headcount spike.</p>
-          <ul class="feature-list">
-            <li>Compliance-ready</li>
-            <li>Autonomous operations</li>
-            <li>Same team, better outcomes</li>
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="steps-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Achieve readiness in minutes, not months.</p>
+      </div>
+
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Connect Your Systems</h3>
+            <p>Seamlessly integrate with your existing cloud providers, code repositories, and identity systems.</p>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-item">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>AI Maps Controls</h3>
+            <p>Our engine automatically translates your technical reality into formal compliance controls (CMMC, HIPAA,
+              etc).</p>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-item">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Continuous Operations</h3>
+            <p>Valix maintains policies, collects evidence, and actively monitors for security threats around the clock.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frameworks Section -->
+  <section class="frameworks-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for Strict Regulatory Demands</h2>
+        <p>Unified coverage across major compliance frameworks.</p>
+      </div>
+
+      <div class="frameworks-grid">
+        <div class="framework-badge">
+          <h4>CMMC</h4>
+          <p>DOD Suppliers</p>
+        </div>
+        <div class="framework-badge">
+          <h4>HIPAA</h4>
+          <p>Healthcare</p>
+        </div>
+        <div class="framework-badge">
+          <h4>PCI DSS</h4>
+          <p>Payments</p>
+        </div>
+        <div class="framework-badge">
+          <h4>SOC 2</h4>
+          <p>SaaS Providers</p>
+        </div>
+        <div class="framework-badge">
+          <h4>NIST CSF</h4>
+          <p>Foundational Security</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="benefits-content" style="flex-direction: column; text-align: center;">
+        <div class="benefits-text">
+          <h2 class="gradient-text">Unparalleled Protection. Unbeatable Economics.</h2>
+          <ul class="benefits-list" style="text-align: left; display: inline-block; max-width: 800px;">
+            <li>
+              <div class="b-icon">✓</div>
+              <div>
+                <strong>Replaces Security Headcount</strong>
+                <span>Get CISO-level strategy and SOC-level execution at a fraction of a single hire's cost.</span>
+              </div>
+            </li>
+            <li>
+              <div class="b-icon">✓</div>
+              <div>
+                <strong>Zero False Positives Panic</strong>
+                <span>AI triage ensures you only get alerted when human intervention is absolutely essential.</span>
+              </div>
+            </li>
+            <li>
+              <div class="b-icon">✓</div>
+              <div>
+                <strong>IP & Customer Data Safe</strong>
+                <span>Proactive hardening and threat hunting keep your most valuable assets protected.</span>
+              </div>
+            </li>
           </ul>
-          <a href="waitlist.html" class="btn-demo">Request Access</a>
         </div>
       </div>
     </div>
@@ -236,126 +433,47 @@
   <section id="integrations" class="integrations-section">
     <div class="container">
       <div class="section-header">
-        <h2>Integrations</h2>
-        <p>Works with your stack. Wazuh, MDE, major OSs.</p>
+        <h2>Works With Your Stack</h2>
       </div>
     </div>
     <div class="integrations-container">
       <div class="integrations-scroll">
         <div class="integrations-track">
-            <!-- Integration logos from integrations folder -->
-            <div class="integration-logo">
-              <img src="integrations/wazuh.png" alt="Wazuh">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/MDE.png" alt="Microsoft Defender for Endpoint">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/Windows-Logo.png" alt="Windows">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/mac-21.png" alt="macOS">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/Linux-Logo.wine.svg" alt="Linux">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/debian_logo_icon_168290.png" alt="Debian">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/mittre.png" alt="MITRE">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/1738678976919.png" alt="Integration">
-            </div>
-            <!-- Duplicate for seamless loop -->
-            <div class="integration-logo">
-              <img src="integrations/wazuh.png" alt="Wazuh">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/MDE.png" alt="Microsoft Defender for Endpoint">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/Windows-Logo.png" alt="Windows">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/mac-21.png" alt="macOS">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/Linux-Logo.wine.svg" alt="Linux">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/debian_logo_icon_168290.png" alt="Debian">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/mittre.png" alt="MITRE">
-            </div>
-            <div class="integration-logo">
-              <img src="integrations/1738678976919.png" alt="Integration">
-            </div>
-          </div>
+          <!-- Integration logos from integrations folder -->
+          <div class="integration-logo"><img src="integrations/wazuh.png" alt="Wazuh"></div>
+          <div class="integration-logo"><img src="integrations/MDE.png" alt="Microsoft Defender for Endpoint"></div>
+          <div class="integration-logo"><img src="integrations/Windows-Logo.png" alt="Windows"></div>
+          <div class="integration-logo"><img src="integrations/mac-21.png" alt="macOS"></div>
+          <div class="integration-logo"><img src="integrations/Linux-Logo.wine.svg" alt="Linux"></div>
+          <div class="integration-logo"><img src="integrations/debian_logo_icon_168290.png" alt="Debian"></div>
+          <div class="integration-logo"><img src="integrations/mittre.png" alt="MITRE"></div>
+          <div class="integration-logo"><img src="integrations/1738678976919.png" alt="Integration"></div>
+          <!-- Duplicates -->
+          <div class="integration-logo"><img src="integrations/wazuh.png" alt="Wazuh"></div>
+          <div class="integration-logo"><img src="integrations/MDE.png" alt="Microsoft Defender for Endpoint"></div>
+          <div class="integration-logo"><img src="integrations/Windows-Logo.png" alt="Windows"></div>
+          <div class="integration-logo"><img src="integrations/mac-21.png" alt="macOS"></div>
+          <div class="integration-logo"><img src="integrations/Linux-Logo.wine.svg" alt="Linux"></div>
+          <div class="integration-logo"><img src="integrations/debian_logo_icon_168290.png" alt="Debian"></div>
+          <div class="integration-logo"><img src="integrations/mittre.png" alt="MITRE"></div>
+          <div class="integration-logo"><img src="integrations/1738678976919.png" alt="Integration"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Results Section -->
-  <section id="results" class="results-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Built for real workloads</h2>
-        <p>Autonomous security already running in production.</p>
-      </div>
-
-      <div class="results-deployment">
-        <div class="deployment-badge">
-          <span class="badge-icon">✓</span>
-          <span class="badge-text">Live in production</span>
-        </div>
-      </div>
-
-      <div class="results-grid">
-        <div class="result-card">
-          <div class="result-number">5M+</div>
-          <div class="result-label">Events monitored</div>
-          <p>Real-time analysis at scale</p>
-        </div>
-        <div class="result-card">
-          <div class="result-number">50+</div>
-          <div class="result-label">Attack classes detected</div>
-          <p>Broad coverage, fewer misses</p>
-        </div>
-        <div class="result-card">
-          <div class="result-number">&lt;30s</div>
-          <div class="result-label">Response time</div>
-          <p>Detect and contain fast</p>
-        </div>
-        <div class="result-card">
-          <div class="result-number">24/7</div>
-          <div class="result-label">Autonomous ops</div>
-          <p>Runs without extra headcount</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <div class="contact-content">
-        <h2>See it in action</h2>
-        <p>Demo the autonomous security platform built for compliance-driven SMBs.</p>
-        <div class="contact-cta">
-          <a href="waitlist.html" class="btn-primary-large">Request Demo</a>
-          <a href="waitlist.html" class="btn-secondary-large">Contact Sales</a>
-        </div>
-      </div>
+  <!-- CTA Section -->
+  <section class="bottom-cta-section">
+    <div class="container text-center">
+      <h2>Ready to automate your security & compliance?</h2>
+      <p>Join the companies trusting Valix as their AI CISO.</p>
+      <br>
+      <a href="waitlist.html" class="btn-primary-large">Get Early Access</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer dark-footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
@@ -365,29 +483,28 @@
         <div class="footer-links">
           <div class="footer-section">
             <h4>Product</h4>
-            <a href="#product">Platform</a>
-            <a href="#results">Impact</a>
+            <a href="#solution">Platform</a>
+            <a href="#how-it-works">How it Works</a>
           </div>
           <div class="footer-section">
             <h4>Company</h4>
-            <a href="waitlist.html">Contact</a>
+            <a href="mailto:founders@valix.ai">Contact</a>
           </div>
           <div class="footer-section">
             <h4>Follow Us</h4>
             <div class="footer-social">
-              <a href="https://www.linkedin.com/company/valix-ai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/valix-ai" target="_blank" rel="noopener noreferrer"
+                class="social-link" aria-label="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
-              <a href="https://x.com/valixai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X (Twitter)">
+              <a href="https://x.com/valixai" target="_blank" rel="noopener noreferrer" class="social-link"
+                aria-label="X (Twitter)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-              <a href="https://www.facebook.com/valixai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
             </div>
@@ -397,45 +514,44 @@
     </div>
   </footer>
 
-  <!-- Google tag (gtag.js) -->
-  <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <!-- Menu: details always open so content exists; mobile open state = class only (no details toggle) -->
+  <!-- Scripts -->
   <script>
-  (function() {
-    var details = document.getElementById('nav-details');
-    var menu = document.getElementById('nav-menu');
-    var btn = document.querySelector('.mobile-menu-toggle');
-    if (!details || !menu) return;
-    function isDesktop() { return window.matchMedia('(min-width: 969px)').matches; }
-    details.setAttribute('open', '');
-    window.addEventListener('resize', function() {
-      if (isDesktop()) {
-        details.classList.remove('nav-menu-open');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-    });
-    if (btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (!isDesktop()) {
-          details.classList.toggle('nav-menu-open');
-          var open = details.classList.contains('nav-menu-open');
-          btn.setAttribute('aria-expanded', open);
-          document.body.style.overflow = open ? 'hidden' : '';
+    (function () {
+      var details = document.getElementById('nav-details');
+      var menu = document.getElementById('nav-menu');
+      var btn = document.querySelector('.mobile-menu-toggle');
+      if (!details || !menu) return;
+      function isDesktop() { return window.matchMedia('(min-width: 969px)').matches; }
+      details.setAttribute('open', '');
+      window.addEventListener('resize', function () {
+        if (isDesktop()) {
+          details.classList.remove('nav-menu-open');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
         }
       });
-    }
-    menu.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        details.classList.remove('nav-menu-open');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+      if (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (!isDesktop()) {
+            details.classList.toggle('nav-menu-open');
+            var open = details.classList.contains('nav-menu-open');
+            btn.setAttribute('aria-expanded', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+          }
+        });
+      }
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          details.classList.remove('nav-menu-open');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
       });
-    });
-  })();
+    })();
   </script>
-  <script src="script.js?v=50.0"></script>
+  <script src="script.js?v=51.0"></script>
 </body>
+
 </html>

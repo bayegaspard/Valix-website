@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initVideoPlayButton();
   initWaitlistDynamicFields();
   initFormEnhancements();
+  initBannerDismissal();
 });
 
 // ===== NAVIGATION FUNCTIONALITY =====
@@ -745,6 +746,24 @@ window.addEventListener('load', function() {
   // Remove loading states
   document.body.classList.add('loaded');
 });
+
+// ===== BANNER DISMISSAL =====
+function initBannerDismissal() {
+  const banner = document.querySelector('.announcement-banner');
+  const closeBtn = document.querySelector('.banner-close');
+  
+  if (!banner || !closeBtn) return;
+
+  // Check if banner was already dismissed
+  if (localStorage.getItem('valix-banner-dismissed') === 'true') {
+    document.body.classList.add('banner-hidden');
+  }
+
+  closeBtn.addEventListener('click', function() {
+    document.body.classList.add('banner-hidden');
+    localStorage.setItem('valix-banner-dismissed', 'true');
+  });
+}
 
 // ===== EXPORT FOR MODULE SYSTEMS =====
 if (typeof module !== 'undefined' && module.exports) {
