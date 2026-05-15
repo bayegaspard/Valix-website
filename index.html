@@ -18,95 +18,25 @@
   <link rel="icon" type="image/jpeg" href="images/favico.jpeg">
   <link rel="stylesheet" href="styles-elegant.css?v=54.0">
   <style>
-    /* Desktop Layout Hardening */
-    @media (min-width: 969px) {
-      .hero-zoom-visual {
-        transform: scale(1.45);
-        transform-origin: right center;
-        margin-left: 40px;
-      }
-
-      .feature-asymmetric-grid {
-        grid-template-columns: 4.5fr 5.5fr !important;
-        gap: 100px !important;
-      }
+    /* --- GLOBAL DESIGN SYSTEM --- */
+    html, body {
+      overflow-x: hidden !important;
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Mobile UX Refinements */
-    @media (max-width: 968px) {
-      /* Navigation - Clean Apple Style */
-      .mobile-utility-bar {
-        display: flex !important;
-        background: #000;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-      }
-      .global-nav {
-        background: rgba(0, 0, 0, 0.9) !important;
-        backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .global-nav .container {
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        height: 72px !important;
-        padding: 0 20px !important;
-      }
-      .nav-left {
-        flex-direction: row !important;
-        gap: 0 !important;
-      }
-      .nav-links, .sign-in-link {
-        display: none !important; /* Hide secondary links for a focused mobile UI */
-      }
-      .nav-right {
-        width: auto !important;
-        margin-top: 0 !important;
-      }
-      .nav-right .btn {
-        width: auto !important;
-        padding: 10px 20px !important;
-        font-size: 0.875rem !important;
-        margin-top: 0 !important;
-        border-radius: 99px !important; /* Pill style for mobile header */
-      }
-      .logo-img {
-        height: 34px !important;
-        width: auto !important;
-      }
-
-      /* Hero Section Spacing & Ordering Fix */
-      .hero {
-        padding-top: 100px !important;
-      }
-
-      .hero-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important; /* Reduced global gap for tighter mobile feel */
-      }
-
-      .hero-content {
-        display: contents !important;
-      }
-
-      .hero-kicker { order: 1; margin-bottom: 8px !important; }
-      .hero-punchy { order: 2; margin-top: 0 !important; margin-bottom: 12px !important; }
-      .hero-subhead { order: 3; margin-bottom: 24px !important; }
-      .hero-visual { order: 4; margin-top: 10px !important; }
-      .hero-actions { 
-        order: 5; 
-        margin-top: 32px !important;
-        margin-bottom: 40px !important;
-        width: 100%;
-      }
-
-    /* Typography & Global Uniformity */
+    .container {
+      margin: 0 auto !important;
+      width: 100% !important;
+      max-width: 1200px !important;
+      padding: 0 24px !important;
+      box-sizing: border-box !important;
+    }
     h2 {
-      font-size: clamp(2rem, 4vw, 3rem) !important;
+      font-size: clamp(2.25rem, 5vw, 3.5rem) !important;
       font-weight: 800 !important;
-      color: var(--valix-purple) !important;
+      color: #ffffff !important;
       text-align: center !important;
       margin-bottom: 24px !important;
       letter-spacing: -0.02em !important;
@@ -118,6 +48,15 @@
       margin-bottom: 12px !important;
     }
 
+    .pricing-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 32px !important;
+      max-width: 1600px !important;
+      margin: 0 auto !important;
+      align-items: stretch !important;
+    }
+
     .section-subhead {
       font-size: 1.25rem !important;
       color: var(--text-gray) !important;
@@ -127,106 +66,249 @@
       line-height: 1.6 !important;
     }
 
-    /* Global Mobile Grid Resets */
+    section {
+      padding: 60px 0 !important; /* Unified tighter spacing to remove gaps */
+    }
+
+    /* --- PREMIUM OFFER CARD - FIXED POPUP --- */
+    .offer-card-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      max-width: 280px;
+      width: 90%;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(100px);
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .offer-card-container.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Modal Backdrop for Mobile */
+    .popup-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 9998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .popup-backdrop.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .offer-card {
+      position: relative;
+      width: 100%;
+      padding: 36px 24px 24px;
+      text-align: center;
+      border: 1px solid rgba(192, 132, 252, 0.85);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(15, 12, 41, 0.98), rgba(48, 12, 82, 0.98));
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(20px);
+      color: white !important;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .close-popup {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 10;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .close-popup:hover { background: rgba(255, 255, 255, 0.2); }
+
+    .offer-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+      transform: rotate(45deg);
+      animation: shimmer 5s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+
+    .offer-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #c084fc;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 50px rgba(124, 58, 237, 0.4);
+    }
+
+    .crown {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 44px;
+      height: 44px;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #a855f7, #5b21b6);
+      border: 2px solid #e9d5ff;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
+      font-size: 20px;
+      z-index: 5;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #e9d5ff !important;
+      margin-bottom: 8px;
+    }
+
+    .offer-main {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 8px;
+      margin: 8px 0;
+    }
+
+    .percent {
+      font-size: 56px;
+      font-weight: 950;
+      line-height: 0.8;
+      letter-spacing: -0.05em;
+      background: linear-gradient(180deg, #ffffff 30%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .off {
+      font-size: 24px;
+      font-weight: 950;
+      text-transform: uppercase;
+      color: #c084fc !important;
+    }
+
+    .subline {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff !important;
+      margin-top: 4px;
+    }
+
+    .offer-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 32px;
+      color: rgba(233, 213, 255, 0.8) !important;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .offer-divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(192, 132, 252, 0.4);
+    }
+
+    /* --- LAYOUT HARDENING --- */
+    @media (min-width: 969px) {
+      .hero-zoom-visual { transform: scale(1.45); transform-origin: right center; margin-left: 40px; }
+      .feature-asymmetric-grid { grid-template-columns: 4.5fr 5.5fr !important; gap: 100px !important; }
+    }
+
     @media (max-width: 968px) {
-      .feature-row-grid, 
-      .hero-stats-bar, 
-      .pricing-grid, 
-      .footer-grid, 
-      .stats-grid,
-      .testimonial-grid,
-      .footer-top,
-      .footer-links,
-      .footer-bottom,
-      .footer-legal {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 40px !important;
+      .mobile-utility-bar { display: flex !important; background: #000; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .global-nav { background: rgba(0, 0, 0, 0.9) !important; backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+      .global-nav .container { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; height: 72px !important; padding: 0 20px !important; }
+      .nav-links, .sign-in-link { display: none !important; }
+      .nav-right .btn { width: auto !important; padding: 10px 20px !important; font-size: 0.875rem !important; border-radius: 99px !important; }
+      .logo-img { height: 34px !important; }
+      section { padding: 40px 0 !important; }
+      .pricing-toggle { 
+        flex-direction: column !important; 
+        gap: 12px !important; 
         text-align: center !important;
-        align-items: center !important;
       }
-
-      .pricing-grid {
-        grid-template-columns: 1fr !important;
+      .toggle-label { font-size: 0.9rem !important; }
+      .discount-pill { margin: 8px 0 0 0 !important; display: inline-block !important; }
+      .hero { padding-top: 100px !important; }
+      .hero-grid { display: flex !important; flex-direction: column !important; gap: 20px !important; }
+      .hero-content { display: contents !important; }
+      .hero-kicker { order: 1; margin-bottom: 8px !important; }
+      .hero-punchy { order: 2; margin-top: 0 !important; margin-bottom: 12px !important; }
+      .hero-subhead { order: 3; margin-bottom: 24px !important; }
+      .hero-visual { order: 4; margin-top: 10px !important; overflow: hidden !important; }
+      .hero-actions { order: 5; margin-top: 32px !important; margin-bottom: 40px !important; width: 100%; }
+      .feature-showcase-img { 
+        width: 100% !important; 
+        max-width: none !important; 
+        margin: 20px 0 !important; 
+        border-radius: 8px !important; 
+        transform: scale(1.05); /* Subtle zoom without extreme cropping */
       }
-
-      .container {
-        padding: 0 24px !important;
-        max-width: 100% !important;
-      }
-
-      .feature-content {
-        text-align: center !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-      }
-
-      .hero-visual, .feature-visual {
-        justify-content: center !important;
+      .pricing-grid { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        gap: 32px !important; 
         width: 100% !important;
       }
-
-      .hero-zoom-visual {
-        transform: scale(1.15) !important;
-        width: 100% !important;
-        margin: 32px 0 !important;
-        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+      .feature-row-grid, .footer-grid, .stats-grid, .testimonial-grid { display: flex !important; flex-direction: column !important; gap: 40px !important; text-align: center !important; align-items: center !important; }
+      .container { padding: 0 20px !important; }
+      .hero-grid, .pricing-grid, .feature-row-grid { 
+        width: 100% !important; 
+        margin-left: auto !important; 
+        margin-right: auto !important; 
+        text-align: center !important; 
       }
-
-      .feature-showcase-img {
-        width: 150% !important; /* Ultra-Zoom for maximum legibility of UI text */
-        max-width: none !important;
-        margin: 80px -25% !important; /* Massive bleed to ensure central UI is large and centered */
-        display: block;
-        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
-        border-radius: 8px !important;
+      .offer-card-container { 
+        bottom: auto !important;
+        right: auto !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -40%) !important;
+        max-width: 320px !important;
       }
-
-      img {
-        max-width: 100% !important;
-        height: auto !important;
+      .offer-card-container.visible {
+        transform: translate(-50%, -50%) !important;
       }
-
-      /* Logo Scaling Fixes */
-      .integration-logo {
-        max-width: 80px !important;
-        height: auto !important;
-        object-fit: contain !important;
-      }
-      
-      .testimonial-grid img {
-        max-height: 60px !important; /* Increased for better visibility */
-        width: auto !important;
-      }
-
-      .footer-brand img {
-        height: 32px !important;
-        width: auto !important;
-      }
-
-      /* Backed by logos */
-      .light-theme-wrapper section img {
-        max-width: 280px !important;
-        margin: 0 auto !important;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
-        padding: 18px 24px !important;
-        font-size: 1.05rem !important;
-        border-radius: 14px !important;
-        box-shadow: 0 10px 25px rgba(124, 58, 237, 0.2);
-      }
-
-      .strength-section h2, .pricing h2 {
-        font-size: 1.85rem !important;
-      }
-      
-      .link-col {
-        margin-bottom: 32px;
-      }
+      .percent { font-size: 72px; }
+      .off { font-size: 32px; }
+      .subline { font-size: 20px; }
     }
   </style>
 </head>
@@ -260,7 +342,7 @@
       <div class="nav-right" style="display: flex; align-items: center; gap: 24px;">
         <a href="tel:+17744768407" class="sign-in-link" style="white-space: nowrap; font-size: 0.95rem;">Talk to Sales: +1 (774) 476 8407</a>
         <a href="waitlist.html" class="sign-in-link">Sign In</a>
-        <a href="waitlist.html" class="btn btn-primary">Buy Now</a>
+        <a href="#pricing" class="btn btn-primary">Buy Now</a>
       </div>
     </div>
   </nav>
@@ -274,14 +356,12 @@
         <h1 class="hero-punchy">The AI CISO for Regulated SMBs.</h1>
         <p class="hero-subhead">Automate CMMC, HIPAA, and SOC 2 compliance. Maintain 24/7 monitoring and protect your
           intellectual property without hiring a full security team.</p>
-        <div class="hero-actions" style="margin-bottom: 32px;">
-          <a href="#pricing" class="btn btn-primary large">Claim 50% Early Founder Offer</a>
-        </div>
+
       </div>
       <div class="hero-visual" style="display: flex; align-items: center; position: relative;">
-        <!-- Glowing aura behind the image -->
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; background: var(--valix-purple); filter: blur(100px); opacity: 0.15; z-index: 0;"></div>
+        <!-- Irresistible Offer Card -->
         <img src="images/9a7258cf-020f-4bb2-89a2-e1e08cc3198c.png" alt="Valix Dashboard Preview" class="hero-zoom-visual" style="width: 100%; max-width: 900px; height: auto; object-fit: contain;">
+      </div>
       </div>
     </div>
 
@@ -393,7 +473,7 @@
 <!-- Features -->
     <div id="features">
       <!-- Feature 1 -->
-      <section class="feature-row" style="padding: 120px 0 60px;">
+      <section class="feature-row" style="background-color: #000;">
         <div class="container" style="text-align: center; max-width: 900px; margin: 0 auto;">
           <h2>Write Policies Faster with AI</h2>
           <p class="section-subhead">Turn requirements into clear, compliant policies in minutes. Our engine dynamically maps your tech stack to frameworks, gathers evidence, and continuously proves compliance.</p>
@@ -424,7 +504,7 @@
       </section>
 
       <!-- Feature 2 -->
-      <section class="feature-row" style="padding: 60px 0 120px; background-color: #fcfcfd;">
+      <section class="feature-row" style="background-color: #fcfcfd;">
         <div class="container" style="text-align: center; max-width: 900px; margin: 0 auto;">
           <h2>Smart Evidence Collection & Monitoring</h2>
           <p class="section-subhead">Automatically collect, organize, and link evidence. Detect issues early and stay aligned 24/7. See your posture clearly and fix what matters most with actionable insights.</p>
@@ -456,8 +536,7 @@
     </div>
 
 <!-- Integrations Section -->
-    <section class="integrations-section"
-      style="padding: 100px 0; background: var(--bg-light); border-top: 1px solid var(--border-color);">
+    <section class="integrations-section" style="background: var(--bg-light); border-top: 1px solid var(--border-color);">
       <div class="container" style="text-align: center; max-width: 1000px;">
         <h2>Seamlessly connect your tools</h2>
         <p class="section-subhead">Several native integrations,
@@ -526,7 +605,7 @@
 
 <!-- Pricing Section -->
   <section id="pricing" class="pricing">
-    <div class="container" style="max-width: 1400px;">
+    <div class="container" style="max-width: 1600px;">
       <div class="pricing-header" style="text-align: center;">
         <h2>Find a plan that fits your business</h2>
         <p class="section-subhead">Simple, transparent pricing to help you automate compliance and scale with confidence.</p>
@@ -541,17 +620,17 @@
           <button class="fw-btn" data-fw="cmmc">CMMC</button>
         </div>
 
-        <div class="pricing-toggle" style="margin: 0;">
-          <span class="toggle-label">Pay Monthly</span>
+        <div class="pricing-toggle" style="margin: 0; display: flex; align-items: center; gap: 16px;">
+          <span class="toggle-label" style="font-weight: 700; color: #fff;">Monthly <span style="color: #a855f7; font-size: 0.75rem; margin-left: 4px;">(50% FOUNDER OFF)</span></span>
           <label class="switch">
-            <input type="checkbox" id="billing-toggle" checked>
+            <input type="checkbox" id="billing-toggle">
             <span class="slider"></span>
           </label>
-          <span class="toggle-label">Pay Annually <span class="discount-pill">Save 50%</span></span>
+          <span class="toggle-label" style="font-weight: 700; color: #fff;">Elite Yearly <span class="discount-pill" style="background: linear-gradient(135deg, #a855f7, #6d28d9); color: white; padding: 4px 10px; border-radius: 99px; font-size: 0.7rem; margin-left: 8px;">SAVE EXTRA $25/YR</span></span>
         </div>
       </div>
 
-      <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); justify-content: center; gap: 32px; max-width: 1300px; margin: 0 auto;">
+      <div class="pricing-grid">
 
         <!-- FREE Tier -->
         <div class="pricing-card">
@@ -584,9 +663,10 @@
               <li class="disabled"><span class="qbo-cross">✕</span> Infrastructure Scanners</li>
               <li class="disabled"><span class="qbo-cross">✕</span> GitHub AI Scanners</li>
               <li class="disabled"><span class="qbo-cross">✕</span> Priority Support</li>
-              <li class="disabled"><span class="qbo-cross">✕</span> Audit Guard™ AI Monitoring</li>
+              <li class="disabled"><span class="qbo-cross">✕</span> Audit Guard™ Monitoring</li>
               <li class="disabled"><span class="qbo-cross">✕</span> Endpoint Protection</li>
               <li class="disabled"><span class="qbo-cross">✕</span> Asset Observability</li>
+              <li class="disabled"><span class="qbo-cross">✕</span> AI & Guardrails</li>
             </ul>
           </div>
         </div>
@@ -629,9 +709,10 @@
                 </svg> Infrastructure Scanners</li>
               <li class="disabled"><span class="qbo-cross">✕</span> GitHub AI Scanners</li>
               <li class="disabled"><span class="qbo-cross">✕</span> Priority Support</li>
-              <li class="disabled"><span class="qbo-cross">✕</span> Audit Guard™ AI Monitoring</li>
+              <li class="disabled"><span class="qbo-cross">✕</span> Audit Guard™ Monitoring</li>
               <li class="disabled"><span class="qbo-cross">✕</span> Endpoint Protection</li>
               <li class="disabled"><span class="qbo-cross">✕</span> Asset Observability</li>
+              <li class="disabled"><span class="qbo-cross">✕</span> AI & Guardrails</li>
             </ul>
           </div>
         </div>
@@ -679,9 +760,10 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg> Priority Support</li>
-              <li class="disabled"><span class="qbo-cross">✕</span> Audit Guard™ AI Monitoring</li>
+              <li class="disabled"><span class="qbo-cross">✕</span> Audit Guard™ Monitoring</li>
               <li class="disabled"><span class="qbo-cross">✕</span> Endpoint Protection</li>
               <li class="disabled"><span class="qbo-cross">✕</span> Asset Observability</li>
+              <li class="disabled"><span class="qbo-cross">✕</span> AI & Guardrails</li>
             </ul>
           </div>
         </div>
@@ -691,7 +773,7 @@
           <div class="card-top">
             <h3>Custom</h3>
             <div class="price-block">
-              <span class="amount" style="font-size:2.5rem;">Contact Us</span>
+              <span class="amount" style="font-size:1.75rem;">Contact Us</span>
             </div>
             <p class="billing-term">&nbsp;</p>
             <div class="employee-badge" style="visibility:hidden;">1-50 employees</div>
@@ -725,13 +807,16 @@
                 </svg> Priority Support</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="20 6 9 17 4 12"></polyline>
-                </svg> Audit Guard™ AI Monitoring</li>
+                </svg> Audit Guard™ Monitoring</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg> Endpoint Protection</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg> Asset Observability</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg> AI & Guardrails</li>
             </ul>
           </div>
         </div>
@@ -789,51 +874,101 @@
     };
 
     let currentFw = 'hipaa';
-    let isAnnual = true;
 
     const fwBtns = document.querySelectorAll('.fw-btn');
     const toggle = document.getElementById('billing-toggle');
-    const terms = document.querySelectorAll('.billing-term');
+    // Store original HTML of price blocks to allow restoration when switching frameworks
+    const originalPriceBlocks = Array.from(document.querySelectorAll('.price-block')).map(el => el.innerHTML);
+    const originalButtons = Array.from(document.querySelectorAll('.pricing-card .btn')).map(el => el.innerHTML);
+    const originalFeatureLists = Array.from(document.querySelectorAll('.feature-list')).map(el => el.innerHTML);
 
     function updatePrices() {
-      const mult = multipliers[currentFw];
+      const isAnnual = toggle.checked;
+      const cards = document.querySelectorAll('.pricing-card');
+      const terms = document.querySelectorAll('.billing-term');
+      const mult = multipliers[currentFw] || 1;
 
-      document.querySelectorAll('.pricing-card').forEach(card => {
-        const strikeEl = card.querySelector('.strike-price');
+      // CMMC Feature HTML
+      const checkIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+      const cmmcExtraFeatures = [
+        "", // Free
+        `<li>${checkIcon} Level 1 (17 Controls)</li>`, // Starter
+        `<li>${checkIcon} Level 1 (17 Controls)</li><li>${checkIcon} Level 2 (110 Controls)</li>`, // Pro
+        `<li>${checkIcon} Level 1 (17 Controls)</li><li>${checkIcon} Level 2 (110 Controls)</li><li>${checkIcon} Level 3 (Enterprise Support)</li>` // Custom
+      ];
+
+      cards.forEach((card, index) => {
+        const priceBlock = card.querySelector('.price-block');
+        const billingTerm = card.querySelector('.billing-term');
+        const btn = card.querySelector('.btn');
+        const featureList = card.querySelector('.feature-list');
+        
+        // Handle Feature List Injection for CMMC
+        if (currentFw === 'cmmc') {
+          featureList.innerHTML = cmmcExtraFeatures[index] + originalFeatureLists[index];
+        } else {
+          featureList.innerHTML = originalFeatureLists[index];
+        }
+
+        // Handle "Contact Us" only frameworks (SOC 2 and CMMC)
+        if (currentFw === 'soc2' || currentFw === 'cmmc') {
+          if (priceBlock) priceBlock.style.display = 'none';
+          if (billingTerm) billingTerm.style.visibility = 'hidden';
+          if (btn) {
+            const planName = card.querySelector('h3').textContent;
+            const fwName = currentFw.toUpperCase();
+            btn.textContent = 'Contact Us';
+            btn.href = `mailto:founders@valix.ai?subject=${encodeURIComponent('Inquiry: ' + fwName + ' ' + planName + ' Plan')}`;
+          }
+          card.style.borderColor = '';
+          return;
+        }
+
+        // Restore original HIPAA structure
+        if (priceBlock) {
+          priceBlock.style.display = 'flex';
+          if (!priceBlock.querySelector('.amount[data-base-price]') && index < 3) {
+            priceBlock.innerHTML = originalPriceBlocks[index];
+          }
+        }
+        if (btn && index < 3) {
+          btn.innerHTML = originalButtons[index];
+          btn.href = 'waitlist.html';
+        } else if (btn && index === 3) {
+          // Custom tier always uses mailto with dynamic subject
+          const fwName = currentFw.toUpperCase();
+          btn.href = `mailto:founders@valix.ai?subject=${encodeURIComponent('Inquiry: ' + fwName + ' Custom Plan')}`;
+        }
+        if (billingTerm) billingTerm.style.visibility = 'visible';
+
         const amountEl = card.querySelector('.amount');
+        const strikeEl = card.querySelector('.strike-price');
+        
+        if (amountEl && strikeEl) {
+          const basePrice = parseInt(amountEl.getAttribute('data-base-price'));
+          if (!basePrice) return;
 
-        if (strikeEl && amountEl) {
-          const basePrice = parseInt(strikeEl.getAttribute('data-base-price'));
-
-          // Framework multiplier
-          let fwPrice = basePrice * mult;
-
-          // Original Monthly Price (No discount)
-          let origMonthly = fwPrice;
-
-          // Displayed Price
-          let displayPrice = origMonthly;
-          let strikePrice = 0;
+          const fwBase = basePrice * mult;
+          const monthlyFounder = Math.round(fwBase * 0.5);
+          const annualEffective = Math.round((monthlyFounder * 12 - 25) / 12);
 
           if (isAnnual) {
-            // Apply 20% discount for annual
-            displayPrice = Math.round(origMonthly * 0.5);
-            strikePrice = origMonthly; // Show original monthly as strikethrough
-
+            amountEl.textContent = annualEffective;
             strikeEl.style.display = 'block';
-            strikeEl.textContent = '$' + strikePrice;
-            amountEl.textContent = displayPrice;
+            strikeEl.textContent = '$' + monthlyFounder;
+            card.style.borderColor = 'rgba(168, 85, 247, 0.4)';
           } else {
-            // Monthly has no discount shown, so hide strike
-            strikeEl.style.display = 'none';
-            amountEl.textContent = displayPrice;
+            amountEl.textContent = monthlyFounder;
+            strikeEl.style.display = 'block';
+            strikeEl.textContent = '$' + Math.round(fwBase);
+            card.style.borderColor = '';
           }
         }
       });
 
       terms.forEach(term => {
         if (term.textContent.includes('billed')) {
-          term.textContent = isAnnual ? 'billed annually' : 'billed monthly';
+          term.textContent = isAnnual ? 'billed annually (Save $25/yr)' : 'billed monthly (Founder Offer)';
         }
       });
     }
@@ -858,6 +993,52 @@
 
     // Initialize
     updatePrices();
+  </script>
+  <!-- Founder Offer Popup -->
+  <div id="popup-backdrop" class="popup-backdrop"></div>
+  <div id="founder-popup" class="offer-card-container">
+    <div class="close-popup" onclick="closePopup()">✕</div>
+    <a href="#pricing" style="text-decoration: none;">
+      <div class="offer-card">
+        <div class="crown">♛</div>
+        <div class="eyebrow">Early Founder Offer</div>
+        <div class="offer-main">
+          <span class="percent">50%</span>
+          <span class="off">Off</span>
+        </div>
+        <div class="subline">First 6 Months</div>
+        <div class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 12px !important; font-size: 0.9rem; border-radius: 12px !important;">Claim Now</div>
+        <div class="offer-footer" style="margin-top: 16px; font-size: 11px;">
+          <span>Limited cohort</span>
+          <span class="offer-divider"></span>
+          <span>Offer ends soon</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <script>
+    let popupClosed = false;
+
+    function closePopup() {
+      document.getElementById('founder-popup').classList.remove('visible');
+      document.getElementById('popup-backdrop').classList.remove('visible');
+      popupClosed = true;
+    }
+
+    // Show Founder Offer Popup on Scroll (Persistent until closed)
+    window.addEventListener('scroll', function() {
+      if (popupClosed) return;
+      const popup = document.getElementById('founder-popup');
+      const backdrop = document.getElementById('popup-backdrop');
+      
+      if (window.scrollY > 500) {
+        popup.classList.add('visible');
+        if (window.innerWidth < 968) {
+          backdrop.classList.add('visible');
+        }
+      }
+    });
   </script>
 </body>
 
