@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
   initWaitlistDynamicFields();
   initFormEnhancements();
   initBannerDismissal();
+  initTabs();
+  initPricingToggle();
 });
 
 // ===== NAVIGATION FUNCTIONALITY =====
@@ -774,4 +776,50 @@ if (typeof module !== 'undefined' && module.exports) {
     initHoverEffects,
     initMetricCounters
   };
+}
+
+// ===== TAB LOGIC =====
+function initTabs() {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active from all
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabPanes.forEach(p => p.classList.remove('active'));
+
+      // Add active to clicked
+      btn.classList.add('active');
+      const targetId = `tab-${btn.getAttribute('data-tab')}`;
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) targetPane.classList.add('active');
+    });
+  });
+}
+
+// ===== PRICING TOGGLE LOGIC =====
+function initPricingToggle() {
+  const toggle = document.getElementById('qbo-billing-toggle');
+  const prices = document.querySelectorAll('.qbo-price');
+
+  if (!toggle) return;
+
+  toggle.addEventListener('change', () => {
+    const isAnnual = toggle.checked;
+    
+    prices.forEach(price => {
+      if (price.hasAttribute('data-monthly') && price.hasAttribute('data-annual')) {
+        const monthly = price.getAttribute('data-monthly');
+        const annual = price.getAttribute('data-annual');
+        
+        // Retain the <span class="qbo-mo">/mo</span> inside
+        if (isAnnual) {
+          price.innerHTML = `${annual}<span class="qbo-mo">/mo</span>`;
+        } else {
+          price.innerHTML = `${monthly}<span class="qbo-mo">/mo</span>`;
+        }
+      }
+    });
+  });
 }
