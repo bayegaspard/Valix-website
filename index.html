@@ -787,7 +787,7 @@
             <div class="employee-badge" style="visibility:hidden;">1-50 employees</div>
           </div>
           <div class="card-action">
-            <a href="mailto:founders@valix.ai" class="btn btn-secondary block">Select</a>
+            <a href="mailto:infos@valix.ai" class="btn btn-secondary block">Select</a>
           </div>
           <div class="card-features">
             <p>For organizations with advanced needs and custom environments.</p>
@@ -926,7 +926,7 @@
             const planName = card.querySelector('h3').textContent;
             const fwName = currentFw.toUpperCase();
             btn.textContent = 'Contact Us';
-            btn.href = `mailto:founders@valix.ai?subject=${encodeURIComponent('Inquiry: ' + fwName + ' ' + planName + ' Plan')}`;
+            btn.href = `mailto:infos@valix.ai?subject=${encodeURIComponent('Inquiry: ' + fwName + ' ' + planName + ' Plan')}`;
           }
           card.style.borderColor = '';
           return;
@@ -945,7 +945,7 @@
         } else if (btn && index === 3) {
           // Custom tier always uses mailto with dynamic subject
           const fwName = currentFw.toUpperCase();
-          btn.href = `mailto:founders@valix.ai?subject=${encodeURIComponent('Inquiry: ' + fwName + ' Custom Plan')}`;
+          btn.href = `mailto:infos@valix.ai?subject=${encodeURIComponent('Inquiry: ' + fwName + ' Custom Plan')}`;
         }
         if (billingTerm) billingTerm.style.visibility = 'visible';
 
