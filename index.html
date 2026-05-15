@@ -17,6 +17,143 @@
     content="Your AI CISO for Regulated SMBs. Automate CMMC, HIPAA, PCI DSS, and SOC 2 compliance.">
   <link rel="icon" type="image/jpeg" href="images/favico.jpeg">
   <link rel="stylesheet" href="styles-elegant.css?v=54.0">
+  <style>
+    /* Desktop Layout Hardening */
+    @media (min-width: 969px) {
+      .hero-zoom-visual {
+        transform: scale(1.45);
+        transform-origin: right center;
+        margin-left: 40px;
+      }
+
+      .feature-asymmetric-grid {
+        grid-template-columns: 4.5fr 5.5fr !important;
+        gap: 100px !important;
+      }
+    }
+
+    /* Mobile UX Refinements */
+    @media (max-width: 968px) {
+      /* Navigation Stacking */
+      .global-nav .container {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 16px !important;
+        padding: 16px 20px !important;
+      }
+      .nav-left {
+        flex-direction: column !important;
+        gap: 16px !important;
+        align-items: center !important;
+      }
+      .nav-links {
+        display: none !important; /* Hide desktop links on mobile for clarity */
+      }
+      .nav-right {
+        width: 100%;
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: center !important;
+      }
+      .logo-img {
+        height: 44px !important; /* Made slightly larger for visibility */
+        width: auto !important;
+        display: block !important;
+        margin: 0 auto !important;
+      }
+
+      /* Grid & Flex Resets */
+      .hero-grid, 
+      .feature-row-grid, 
+      .hero-stats-bar, 
+      .pricing-grid, 
+      .footer-grid, 
+      .stats-grid,
+      .testimonial-grid,
+      .footer-top,
+      .footer-links,
+      .footer-bottom,
+      .footer-legal {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 32px !important;
+        text-align: center !important;
+        align-items: center !important;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr !important; /* Override inline styles */
+      }
+
+      .container {
+        padding: 0 20px !important;
+        max-width: 100% !important;
+      }
+
+      .hero-punchy {
+        font-size: 2.25rem !important;
+        line-height: 1.2 !important;
+      }
+
+      .hero-content, .feature-content {
+        text-align: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+      }
+
+      .hero-visual, .feature-visual {
+        justify-content: center !important;
+        margin-top: 32px;
+        width: 100% !important;
+      }
+
+      .hero-zoom-visual {
+        transform: scale(1) !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+      }
+
+      img {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      /* Logo Scaling Fixes */
+      .integration-logo {
+        max-width: 140px !important;
+      }
+      
+      .testimonial-grid img {
+        max-height: 48px !important;
+        width: auto !important;
+      }
+
+      .footer-brand img {
+        height: 32px !important;
+        width: auto !important;
+      }
+
+      /* Backed by logos */
+      .light-theme-wrapper section img {
+        max-width: 300px !important;
+        margin: 0 auto !important;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .strength-section h2, .pricing h2 {
+        font-size: 1.75rem !important;
+      }
+      
+      .link-col {
+        margin-bottom: 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -54,10 +191,10 @@
           <a href="#pricing" class="btn btn-primary large">Claim 50% Early Founder Offer</a>
         </div>
       </div>
-      <div class="hero-visual" style="display: flex; align-items: center; justify-content: flex-end; position: relative;">
+      <div class="hero-visual" style="display: flex; align-items: center; position: relative;">
         <!-- Glowing aura behind the image -->
         <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; background: var(--valix-purple); filter: blur(100px); opacity: 0.15; z-index: 0;"></div>
-        <img src="images/9a7258cf-020f-4bb2-89a2-e1e08cc3198c.png" alt="Valix Dashboard Preview" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; transform: scale(1.35); transform-origin: right center; margin-left: 40px;">
+        <img src="images/9a7258cf-020f-4bb2-89a2-e1e08cc3198c.png" alt="Valix Dashboard Preview" class="hero-zoom-visual" style="width: 100%; max-width: 900px; height: auto; object-fit: contain;">
       </div>
     </div>
 
@@ -169,7 +306,7 @@
 <!-- Features -->
     <div id="features">
       <!-- Feature 1 -->
-      <section class="feature-row" style="padding: 120px 0;">
+      <section class="feature-row" style="padding: 120px 0 60px;">
         <div class="container" style="text-align: center; max-width: 900px; margin: 0 auto 64px;">
           <h2 style="font-size: 3rem; margin-bottom: 24px; color: var(--valix-purple);">Write Policies Faster with AI</h2>
           <p style="font-size: 1.25rem; line-height: 1.6; color: var(--text-gray); margin-bottom: 32px;">Turn requirements into clear, compliant policies in minutes. Our engine dynamically maps your tech stack to frameworks, gathers evidence, and continuously proves compliance.</p>
@@ -200,7 +337,7 @@
       </section>
 
       <!-- Feature 2 -->
-      <section class="feature-row" style="padding: 120px 0; background-color: #fcfcfd;">
+      <section class="feature-row" style="padding: 60px 0 120px; background-color: #fcfcfd;">
         <div class="container" style="text-align: center; max-width: 900px; margin: 0 auto 64px;">
           <h2 style="font-size: 3rem; margin-bottom: 24px; color: var(--valix-purple);">Smart Evidence Collection & Monitoring</h2>
           <p style="font-size: 1.25rem; line-height: 1.6; color: var(--text-gray); margin-bottom: 32px;">Automatically collect, organize, and link evidence. Detect issues early and stay aligned 24/7. See your posture clearly and fix what matters most with actionable insights.</p>
@@ -325,7 +462,7 @@
         <span class="toggle-label">Pay Annually <span class="discount-pill">Save 50%</span></span>
       </div>
 
-      <div class="pricing-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="pricing-grid">
 
         <!-- STARTER Tier -->
         <div class="pricing-card">
