@@ -57,7 +57,7 @@
       <div class="hero-visual" style="display: flex; align-items: center; justify-content: flex-end; position: relative;">
         <!-- Glowing aura behind the image -->
         <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; background: var(--valix-purple); filter: blur(100px); opacity: 0.15; z-index: 0;"></div>
-        <img src="images/9a7258cf-020f-4bb2-89a2-e1e08cc3198c.png" alt="Valix Dashboard Preview" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; transform: scale(1.45); transform-origin: right center;">
+        <img src="images/9a7258cf-020f-4bb2-89a2-e1e08cc3198c.png" alt="Valix Dashboard Preview" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; transform: scale(1.35); transform-origin: right center; margin-left: 40px;">
       </div>
     </div>
 
@@ -108,18 +108,21 @@
 
   <div class="light-theme-wrapper">
   <!-- Backed By Pill (Below Header) -->
-    <section style="padding: 60px 0 20px; display: flex; justify-content: center;">
-      <div class="container" style="display: flex; justify-content: center;">
-        <img src="partners/a07a1d41-4f62-45c0-8f53-e340e0f7f030-2.png"
-          alt="Backed by AWS, Microsoft, Google Cloud, and C10 Labs"
-          style="width: 100%; max-width: 800px; height: auto; object-fit: contain;">
+    <section style="padding: 80px 0 40px; background-color: #ffffff;">
+      <div class="container">
+        <h4 style="text-align: center; color: #86868b; text-transform: uppercase; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 32px;">Backed By</h4>
+        <div style="display: flex; justify-content: center;">
+          <img src="partners/a07a1d41-4f62-45c0-8f53-e340e0f7f030-2.png"
+            alt="Backed by AWS, Microsoft, Google Cloud, and C10 Labs"
+            style="width: 100%; max-width: 800px; height: auto; object-fit: contain;">
+        </div>
       </div>
     </section>
 <!-- Our Strength Section -->
     <section class="strength-section">
       <div class="container">
         <div style="text-align: center; margin-bottom: 48px;">
-          <h2 style="font-size: 2rem; font-weight: 800;">Our Core Strengths</h2>
+          <h2 style="font-size: 2rem; font-weight: 800; color: var(--valix-purple);">Our Core Strengths</h2>
           <p style="color: var(--text-gray); font-size: 1.125rem;">Why high-growth teams choose Valix AI over
             traditional consultants.</p>
         </div>
@@ -166,59 +169,65 @@
 <!-- Features -->
     <div id="features">
       <!-- Feature 1 -->
-      <section class="feature-row">
-        <div class="container feature-row-grid">
-          <div class="feature-content">
-            <h2>Write Policies Faster with AI</h2>
-            <p>Turn requirements into clear, compliant policies in minutes. Our engine dynamically maps your tech stack
-              to frameworks, gathers evidence, and continuously proves compliance.</p>
-            <ul class="check-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg> Replaces costly consultants</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg> Generates audit-ready evidence in seconds</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg> Fully mapped to NIST SP 800-171</li>
-            </ul>
-          </div>
-          <div class="feature-visual">
-            <div class="ui-mockup-frame">
-              <span>[Compliance Engine UI Mockup]</span>
+      <section class="feature-row" style="padding: 120px 0;">
+        <div class="container" style="text-align: center; max-width: 900px; margin: 0 auto 64px;">
+          <h2 style="font-size: 3rem; margin-bottom: 24px; color: var(--valix-purple);">Write Policies Faster with AI</h2>
+          <p style="font-size: 1.25rem; line-height: 1.6; color: var(--text-gray); margin-bottom: 32px;">Turn requirements into clear, compliant policies in minutes. Our engine dynamically maps your tech stack to frameworks, gathers evidence, and continuously proves compliance.</p>
+          <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--valix-purple);">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span style="font-weight: 500;">Replaces costly consultants</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--valix-purple);">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span style="font-weight: 500;">Audit-ready evidence in seconds</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--valix-purple);">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span style="font-weight: 500;">Mapped to NIST SP 800-171</span>
             </div>
           </div>
         </div>
-
+        <div class="container" style="max-width: 1200px;">
+          <img src="images/aa5d5d5a-ac34-4b46-94e4-e7a8887b9fa3.png" alt="Valix AI Policy Engine" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 40px 100px rgba(0,0,0,0.1); border: 1px solid #f0f0f0;">
+        </div>
       </section>
 
       <!-- Feature 2 -->
-      <section class="feature-row reverse">
-        <div class="container feature-row-grid">
-          <div class="feature-content">
-            <h2>Smart Evidence Collection & Monitoring</h2>
-            <p>Automatically collect, organize, and link evidence. Detect issues early and stay aligned 24/7. See your
-              posture clearly and fix what matters most with actionable insights.</p>
-            <ul class="check-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg> Proactive threat hunting</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg> Zero false-positives panic</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg> Instant remediation scripts</li>
-            </ul>
-          </div>
-          <div class="feature-visual">
-            <div class="ui-mockup-frame">
-              <span>[SOC Dashboard UI Mockup]</span>
+      <section class="feature-row" style="padding: 120px 0; background-color: #fcfcfd;">
+        <div class="container" style="text-align: center; max-width: 900px; margin: 0 auto 64px;">
+          <h2 style="font-size: 3rem; margin-bottom: 24px; color: var(--valix-purple);">Smart Evidence Collection & Monitoring</h2>
+          <p style="font-size: 1.25rem; line-height: 1.6; color: var(--text-gray); margin-bottom: 32px;">Automatically collect, organize, and link evidence. Detect issues early and stay aligned 24/7. See your posture clearly and fix what matters most with actionable insights.</p>
+          <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--valix-purple);">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span style="font-weight: 500;">Proactive threat hunting</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--valix-purple);">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span style="font-weight: 500;">Zero false-positives</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--valix-purple);">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span style="font-weight: 500;">Instant remediation scripts</span>
             </div>
           </div>
         </div>
-
+        <div class="container" style="max-width: 1200px;">
+          <img src="images/bb15f288-fef5-4877-bc99-f79406f73a9e.png" alt="Valix Evidence Collection" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 40px 100px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;">
+        </div>
       </section>
     </div>
 
@@ -226,7 +235,7 @@
     <section class="integrations-section"
       style="padding: 100px 0; background: var(--bg-light); border-top: 1px solid var(--border-color);">
       <div class="container" style="text-align: center; max-width: 1000px;">
-        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 16px;">Seamlessly connect your tools</h2>
+        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; color: var(--valix-purple);">Seamlessly connect your tools</h2>
         <p style="font-size: 1.125rem; color: var(--text-gray); margin-bottom: 64px;">Several native integrations,
           including GitHub, AWS, Microsoft, and Google Cloud.</p>
 
@@ -248,7 +257,7 @@
     <section class="testimonial-banner"
       style="padding: 100px 0; background: var(--bg-light); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
       <div class="container" style="max-width: 1200px;">
-        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 64px;">Trusted by
+        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 64px; color: var(--valix-purple);">Trusted by
           Fast-Growing Companies</h2>
         <div class="testimonial-grid">
 
@@ -278,8 +287,7 @@
               "</div>
             <p
               style="font-size: 1.125rem; line-height: 1.6; color: #ffffff; margin-bottom: 32px; font-style: italic; position: relative; z-index: 1;">
-              "As a medical organization, HIPAA compliance is absolutely critical. Valix AI automated our continuous
-              monitoring, allowing us to focus entirely on patient care rather than regulatory paperwork."
+              "Valix AI automated our HIPAA and SOC 2 monitoring instantly. We stopped worrying about regulatory paperwork and started focusing entirely on patient care."
             </p>
             <div style="display: flex; align-items: center; gap: 24px;">
               <img src="partners/diagnos.png" alt="Diagnos SARL" style="height: 72px; object-fit: contain;">
