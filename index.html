@@ -987,47 +987,21 @@
           if (!basePrice) return;
 
           let monthlyFounder, fwBase;
+          
+          const cmmcBaseStarter = 500;
+          const cmmcBasePro = 1000;
+          
           if (currentFw === 'cmmc') {
-            // CMMC custom pricing: Starter = $500/mo (base $1000), Pro = $1000/mo (base $2000)
-            if (index === 1) { // Starter
-              fwBase = 1000;
-              monthlyFounder = 500;
-            } else if (index === 2) { // Pro
-              fwBase = 2000;
-              monthlyFounder = 1000;
-            } else {
-              fwBase = basePrice * mult;
-              monthlyFounder = Math.round(fwBase * 0.5);
-            }
-          } else if (currentFw === 'soc2') {
-            // SOC 2 custom pricing: Starter = $400/mo (base $800), Pro = $800/mo (base $1600)
-            if (index === 1) { // Starter
-              fwBase = 800;
-              monthlyFounder = 400;
-            } else if (index === 2) { // Pro
-              fwBase = 1600;
-              monthlyFounder = 800;
-            } else {
-              fwBase = basePrice * mult;
-              monthlyFounder = Math.round(fwBase * 0.5);
-            }
+            fwBase = index === 1 ? cmmcBaseStarter : cmmcBasePro;
           } else if (currentFw === 'hipaa') {
-            // HIPAA custom pricing: Starter = $350/mo (base $700), Pro = $700/mo (base $1400)
-            if (index === 1) { // Starter
-              fwBase = 700;
-              monthlyFounder = 350;
-            } else if (index === 2) { // Pro
-              fwBase = 1400;
-              monthlyFounder = 700;
-            } else {
-              fwBase = basePrice * mult;
-              monthlyFounder = Math.round(fwBase * 0.5);
-            }
+            fwBase = index === 1 ? (cmmcBaseStarter * 0.7) : (cmmcBasePro * 0.7);
+          } else if (currentFw === 'soc2') {
+            fwBase = index === 1 ? (cmmcBaseStarter * 0.8) : (cmmcBasePro * 0.8);
           } else {
-            // Fallback framework pricing Math
             fwBase = basePrice * mult;
-            monthlyFounder = Math.round(fwBase * 0.5);
           }
+          
+          monthlyFounder = Math.round(fwBase * 0.5);
 
           const annualEffective = Math.round((monthlyFounder * 12 - 25) / 12);
 
