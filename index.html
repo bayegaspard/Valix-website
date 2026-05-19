@@ -1073,6 +1073,222 @@
     // Initialize
     updatePrices();
   </script>
+  <!-- Payment Success Modal Styles -->
+  <style>
+    .payment-success-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(8, 5, 16, 0.7);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+    }
+    .payment-success-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .payment-success-card {
+      background: rgba(17, 12, 28, 0.65);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 
+                  0 0 80px rgba(168, 85, 247, 0.15);
+      border-radius: 24px;
+      max-width: 520px;
+      width: 90%;
+      padding: 40px;
+      text-align: center;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .payment-success-overlay.active .payment-success-card {
+      transform: scale(1) translateY(0);
+    }
+    .payment-success-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .success-badge-wrapper {
+      width: 80px;
+      height: 80px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #10b981;
+      font-size: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px auto;
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+    .success-checkmark-svg {
+      width: 40px;
+      height: 40px;
+      stroke: #10b981;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    .success-checkmark-svg path {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: drawCheckmark 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+    }
+    @keyframes drawCheckmark {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    .payment-success-card h3 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.025em;
+      position: relative;
+      z-index: 1;
+    }
+    .payment-success-card p.subtitle {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .onboarding-steps {
+      text-align: left;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .onboarding-steps h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #a855f7;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .step-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+    .step-num {
+      width: 22px;
+      height: 22px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #c084fc;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-content {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
+    }
+    .step-content strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .btn-success-close {
+      background: linear-gradient(135deg, #a855f7, #6d28d9);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(168, 85, 247, 0.35);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-success-close:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(168, 85, 247, 0.5);
+    }
+  </style>
+
+  <!-- Payment Success Modal Markup -->
+  <div id="payment-success-modal" class="payment-success-overlay" role="dialog" aria-modal="true">
+    <div class="payment-success-card">
+      <div class="success-badge-wrapper">
+        <svg class="success-checkmark-svg" viewBox="0 0 24 24">
+          <path d="M20 6L9 17L4 12" />
+        </svg>
+      </div>
+      <h3>Welcome to Valix!</h3>
+      <p class="subtitle">Your payment was processed successfully. Let's get your compliance dashboard running.</p>
+      
+      <div class="onboarding-steps">
+        <h4>Next Steps for Onboarding</h4>
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Check Your Inbox</strong>
+            An onboarding email with your temporary dashboard credentials has been sent to your work email.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Connect Cloud Assets</strong>
+            Log in to link your AWS, Azure, GCP, or GitHub repositories for automated configuration analysis.
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Kickoff Consultation</strong>
+            Schedule your 1-on-1 certified auditor kickoff call through the calendar link inside the email.
+          </div>
+        </div>
+      </div>
+      
+      <button type="button" class="btn-success-close" id="btn-success-dismiss">
+        Go to Dashboard
+      </button>
+    </div>
+  </div>
 </body>
 
 </html>

@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initTabs();
   initPricingToggle();
   initScrollToHashOnLoad();
+  initPaymentSuccessPopup();
 });
 
 // ===== NAVIGATION FUNCTIONALITY =====
@@ -861,5 +862,33 @@ function initScrollToHashOnLoad() {
         }
       }, 100);
     });
+  }
+}
+
+// ===== PAYMENT SUCCESS POPUP ONBOARDING =====
+function initPaymentSuccessPopup() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('payment') === 'success') {
+    // Strip ?payment=success from the browser URL immediately
+    const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.hash;
+    window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+
+    // Show the success modal
+    const successModal = document.getElementById('payment-success-modal');
+    const dismissBtn = document.getElementById('btn-success-dismiss');
+
+    if (successModal) {
+      setTimeout(() => {
+        successModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Lock background scrolling
+      }, 500);
+    }
+
+    if (dismissBtn && successModal) {
+      dismissBtn.addEventListener('click', () => {
+        successModal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore background scrolling
+      });
+    }
   }
 }
