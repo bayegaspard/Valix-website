@@ -47,6 +47,20 @@ function initWaitlistDynamicFields() {
   const dynamicDetailsGroup = document.getElementById('dynamic-details-group');
   const dynamicDetailsInput = document.getElementById('dynamic-details');
 
+  // Pre-select primary need based on ?framework query parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const fwParam = urlParams.get('framework');
+  const complianceSelect = document.getElementById('compliance');
+  if (fwParam && complianceSelect) {
+    const targetFw = fwParam.toUpperCase();
+    for (let i = 0; i < complianceSelect.options.length; i++) {
+      if (complianceSelect.options[i].value.toUpperCase() === targetFw) {
+        complianceSelect.selectedIndex = i;
+        break;
+      }
+    }
+  }
+
   function updateVisibility() {
     const isOtherSelected = interestSelect && interestSelect.value === 'Other';
     const isPilotChecked = pilotCheckbox && pilotCheckbox.checked;
