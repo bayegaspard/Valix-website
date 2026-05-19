@@ -881,6 +881,41 @@
       'cmmc': 2.0
     };
 
+    // Centralized Stripe Checkout URLs for each Framework, Plan Tier, and Billing Interval
+    const STRIPE_CHECKOUT_URLS = {
+      free: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000', // Set to Stripe link
+      hipaa: {
+        starter: {
+          monthly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000',
+          yearly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000'
+        },
+        pro: {
+          monthly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000',
+          yearly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000'
+        }
+      },
+      soc2: {
+        starter: {
+          monthly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000',
+          yearly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000'
+        },
+        pro: {
+          monthly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000',
+          yearly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000'
+        }
+      },
+      cmmc: {
+        starter: {
+          monthly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000',
+          yearly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000'
+        },
+        pro: {
+          monthly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000',
+          yearly: 'https://buy.stripe.com/eVqcN545RcsxeMe9KRes000'
+        }
+      }
+    };
+
     let currentFw = 'hipaa';
 
     const fwBtns = document.querySelectorAll('.fw-btn');
@@ -925,9 +960,18 @@
             priceBlock.innerHTML = originalPriceBlocks[index];
           }
         }
-        if (btn && index < 3) {
+        if (btn && index === 0) {
           btn.innerHTML = originalButtons[index];
-          btn.href = `waitlist.html?framework=${currentFw}`;
+          btn.href = STRIPE_CHECKOUT_URLS.free;
+          btn.target = '_blank';
+          btn.rel = 'noopener noreferrer';
+        } else if (btn && (index === 1 || index === 2)) {
+          btn.innerHTML = originalButtons[index];
+          const plan = index === 1 ? 'starter' : 'pro';
+          const interval = isAnnual ? 'yearly' : 'monthly';
+          btn.href = STRIPE_CHECKOUT_URLS[currentFw][plan][interval];
+          btn.target = '_blank';
+          btn.rel = 'noopener noreferrer';
         } else if (btn && index === 3) {
           // Custom tier always uses mailto with dynamic subject
           const fwName = currentFw.toUpperCase();
