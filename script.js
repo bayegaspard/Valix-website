@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initBannerDismissal();
   initTabs();
   initPricingToggle();
+  initScrollToHashOnLoad();
 });
 
 // ===== NAVIGATION FUNCTIONALITY =====
@@ -604,19 +605,20 @@ function initFormEnhancements() {
             if (successMessage) {
               successMessage.style.display = 'block';
               successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              
+              // Automatically redirect to index.html#pricing after 3 seconds
+              setTimeout(() => {
+                window.location.href = 'index.html#pricing';
+              }, 3000);
             }
           } else {
-            // Error handling
-            submitBtn.textContent = 'Error. Try again';
-            submitBtn.disabled = false;
-            setTimeout(() => { submitBtn.textContent = originalText; }, 3000);
+            // Fallback to standard form submission on error
+            form.submit();
           }
         })
         .catch(error => {
-          console.error('Form submission error:', error);
-          submitBtn.textContent = 'Error. Try again';
-          submitBtn.disabled = false;
-          setTimeout(() => { submitBtn.textContent = originalText; }, 3000);
+          console.error('Form submission error, falling back to standard submit:', error);
+          form.submit();
         });
       } else {
         // Simulated success for other forms or local testing
@@ -627,6 +629,11 @@ function initFormEnhancements() {
           if (isWaitlistForm && successMessage) {
             form.style.display = 'none';
             successMessage.style.display = 'block';
+            
+            // Automatically redirect to index.html#pricing after 3 seconds
+            setTimeout(() => {
+              window.location.href = 'index.html#pricing';
+            }, 3000);
           }
 
           setTimeout(() => {
@@ -836,4 +843,23 @@ function initPricingToggle() {
       }
     });
   });
+}
+
+// ===== SCROLL TO HASH ON LOAD =====
+function initScrollToHashOnLoad() {
+  if (window.location.hash) {
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        const targetId = window.location.hash;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const offsetTop = targetElement.offsetTop - 80; // Account for fixed 80px navbar
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    });
+  }
 }

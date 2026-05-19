@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    window.location.replace("index.html#pricing");
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KLR09LQH6C"></script>
   <script>
@@ -56,6 +59,7 @@
           <a href="index.html#problem" class="nav-link">Problem</a>
           <a href="index.html#solution" class="nav-link">Platform</a>
           <a href="index.html#how-it-works" class="nav-link">How it Works</a>
+          <a href="index.html#pricing" class="nav-link">Pricing</a>
           <a href="index.html#integrations" class="nav-link">Integrations</a>
           <a href="#form" class="btn-primary">Get Early Access</a>
         </div>
@@ -73,8 +77,8 @@
           <p>Early access application.</p>
         </div>
         
-        <!-- Signup Form -->
         <form id="waitlist-form" action="https://formspree.io/f/xdawgbgj" method="POST">
+          <input type="hidden" name="_next" value="index.html#pricing">
           <!-- Contact Details -->
           <div class="form-group full-width">
             <label for="email">Work Email</label>
@@ -149,8 +153,9 @@
           <div class="success-icon-wrapper">✓</div>
           <h4>Application Received</h4>
           <p>We've added you to our early access priority list. Our team will reach out shortly to discuss your pilot access.</p>
+          <p style="font-size: 0.85rem; color: #a855f7; margin-top: 1.5rem; font-weight: 500;">Redirecting to pricing in 3 seconds...</p>
           <br>
-          <a href="index.html" class="btn-primary-large" style="display: inline-block;">Return to Home</a>
+          <a href="index.html#pricing" class="btn-primary-large" style="display: inline-block;">Return to Pricing</a>
         </div>
       </div>
     </div>
