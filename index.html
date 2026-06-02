@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MNZVNCG2');</script>
+  <!-- End Google Tag Manager -->
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KLR09LQH6C"></script>
   <script>
@@ -19,7 +29,8 @@
   <link rel="stylesheet" href="styles-elegant.css?v=54.0">
   <style>
     /* --- GLOBAL DESIGN SYSTEM --- */
-    html, body {
+    html,
+    body {
       overflow-x: hidden !important;
       width: 100%;
       margin: 0;
@@ -33,6 +44,7 @@
       padding: 0 24px !important;
       box-sizing: border-box !important;
     }
+
     h2 {
       font-size: clamp(2.25rem, 5vw, 3.5rem) !important;
       font-weight: 800 !important;
@@ -74,7 +86,8 @@
     }
 
     section {
-      padding: 60px 0 !important; /* Unified tighter spacing to remove gaps */
+      padding: 60px 0 !important;
+      /* Unified tighter spacing to remove gaps */
     }
 
     /* --- PREMIUM OFFER CARD - FIXED POPUP --- */
@@ -149,7 +162,10 @@
       z-index: 10;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .close-popup:hover { background: rgba(255, 255, 255, 0.2); }
+
+    .close-popup:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
 
     .offer-card::before {
       content: '';
@@ -164,8 +180,13 @@
     }
 
     @keyframes shimmer {
-      0% { transform: translateX(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) rotate(45deg); }
+      0% {
+        transform: translateX(-100%) rotate(45deg);
+      }
+
+      100% {
+        transform: translateX(100%) rotate(45deg);
+      }
     }
 
     .offer-card:hover {
@@ -254,63 +275,167 @@
 
     /* --- LAYOUT HARDENING --- */
     @media (min-width: 969px) {
-      .hero-zoom-visual { transform: scale(1.45); transform-origin: right center; margin-left: 40px; }
-      .feature-asymmetric-grid { grid-template-columns: 4.5fr 5.5fr !important; gap: 100px !important; }
+      .hero-zoom-visual {
+        transform: scale(1.45);
+        transform-origin: right center;
+        margin-left: 40px;
+      }
+
+      .feature-asymmetric-grid {
+        grid-template-columns: 4.5fr 5.5fr !important;
+        gap: 100px !important;
+      }
     }
 
     @media (max-width: 968px) {
-      .mobile-utility-bar { display: flex !important; background: #000; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-      .global-nav { background: rgba(0, 0, 0, 0.9) !important; backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-      .global-nav .container { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; height: 72px !important; padding: 0 20px !important; }
-      .nav-links, .sign-in-link { display: none !important; }
-      .nav-right .btn { width: auto !important; padding: 10px 20px !important; font-size: 0.875rem !important; border-radius: 99px !important; }
-      .logo-img { height: 34px !important; }
-      section { padding: 40px 0 !important; }
-      .pricing-toggle { 
-        flex-direction: column !important; 
-        gap: 16px !important; 
+      .mobile-utility-bar {
+        display: flex !important;
+        background: #000;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .global-nav {
+        background: rgba(0, 0, 0, 0.9) !important;
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .global-nav .container {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        height: 72px !important;
+        padding: 0 20px !important;
+      }
+
+      .nav-links,
+      .sign-in-link {
+        display: none !important;
+      }
+
+      .nav-right .btn {
+        width: auto !important;
+        padding: 10px 20px !important;
+        font-size: 0.875rem !important;
+        border-radius: 99px !important;
+      }
+
+      .logo-img {
+        height: 34px !important;
+      }
+
+      section {
+        padding: 40px 0 !important;
+      }
+
+      .pricing-toggle {
+        flex-direction: column !important;
+        gap: 16px !important;
         text-align: center !important;
       }
-      .toggle-label { font-size: 1rem !important; display: block !important; position: relative !important; }
-      .discount-pill { 
-        position: relative !important; 
-        top: 0 !important; 
-        right: 0 !important; 
-        margin: 8px auto 0 !important; 
-        display: block !important; 
-        width: fit-content !important; 
+
+      .toggle-label {
+        font-size: 1rem !important;
+        display: block !important;
+        position: relative !important;
+      }
+
+      .discount-pill {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        margin: 8px auto 0 !important;
+        display: block !important;
+        width: fit-content !important;
         transform: none !important;
       }
-      .hero { padding-top: 100px !important; }
-      .hero-grid { display: flex !important; flex-direction: column !important; gap: 20px !important; }
-      .hero-content { display: contents !important; }
-      .hero-kicker { order: 1; margin-bottom: 8px !important; }
-      .hero-punchy { order: 2; margin-top: 0 !important; margin-bottom: 12px !important; }
-      .hero-subhead { order: 3; margin-bottom: 24px !important; }
-      .hero-visual { order: 4; margin-top: 10px !important; overflow: hidden !important; }
-      .hero-actions { order: 5; margin-top: 32px !important; margin-bottom: 40px !important; width: 100%; justify-content: center; }
-      .feature-showcase-img { 
-        width: 100% !important; 
-        max-width: none !important; 
-        margin: 20px 0 !important; 
-        border-radius: 8px !important; 
-        transform: scale(1.05); /* Subtle zoom without extreme cropping */
+
+      .hero {
+        padding-top: 100px !important;
       }
-      .pricing-grid { 
-        display: flex !important; 
-        flex-direction: column !important; 
-        gap: 32px !important; 
+
+      .hero-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+      }
+
+      .hero-content {
+        display: contents !important;
+      }
+
+      .hero-kicker {
+        order: 1;
+        margin-bottom: 8px !important;
+      }
+
+      .hero-punchy {
+        order: 2;
+        margin-top: 0 !important;
+        margin-bottom: 12px !important;
+      }
+
+      .hero-subhead {
+        order: 3;
+        margin-bottom: 24px !important;
+      }
+
+      .hero-visual {
+        order: 4;
+        margin-top: 10px !important;
+        overflow: hidden !important;
+      }
+
+      .hero-actions {
+        order: 5;
+        margin-top: 32px !important;
+        margin-bottom: 40px !important;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .feature-showcase-img {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 20px 0 !important;
+        border-radius: 8px !important;
+        transform: scale(1.05);
+        /* Subtle zoom without extreme cropping */
+      }
+
+      .pricing-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 32px !important;
         width: 100% !important;
       }
-      .feature-row-grid, .footer-grid, .stats-grid, .testimonial-grid { display: flex !important; flex-direction: column !important; gap: 40px !important; text-align: center !important; align-items: center !important; }
-      .container { padding: 0 20px !important; }
-      .hero-grid, .pricing-grid, .feature-row-grid { 
-        width: 100% !important; 
-        margin-left: auto !important; 
-        margin-right: auto !important; 
-        text-align: center !important; 
+
+      .feature-row-grid,
+      .footer-grid,
+      .stats-grid,
+      .testimonial-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+        text-align: center !important;
+        align-items: center !important;
       }
-      .offer-card-container { 
+
+      .container {
+        padding: 0 20px !important;
+      }
+
+      .hero-grid,
+      .pricing-grid,
+      .feature-row-grid {
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+      }
+
+      .offer-card-container {
         bottom: auto !important;
         right: auto !important;
         top: 50% !important;
@@ -318,25 +443,40 @@
         transform: translate(-50%, -40%) !important;
         max-width: 320px !important;
       }
+
       .offer-card-container.visible {
         transform: translate(-50%, -50%) !important;
       }
-      .percent { font-size: 72px; }
-      .off { font-size: 32px; }
-      .subline { font-size: 20px; }
+
+      .percent {
+        font-size: 72px;
+      }
+
+      .off {
+        font-size: 32px;
+      }
+
+      .subline {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNZVNCG2" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- Mobile Utility Bar -->
   <div class="mobile-utility-bar" style="display: none;">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-      <a href="tel:+17744768407" style="color: #a1a1a6; text-decoration: none; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.02em;">
+      <a href="tel:+17744768407"
+        style="color: #a1a1a6; text-decoration: none; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.02em;">
         QUESTIONS? TALK TO AN EXPERT: +1 (774) 476 8407
       </a>
-      <a href="#" style="color: #a1a1a6; text-decoration: none; font-size: 0.7rem; font-weight: 500;">
+      <a href="#" class="sign-in-link" style="color: #a1a1a6; text-decoration: none; font-size: 0.7rem; font-weight: 500;">
         SIGN IN
       </a>
     </div>
@@ -355,7 +495,8 @@
         </div>
       </div>
       <div class="nav-right" style="display: flex; align-items: center; gap: 24px;">
-        <a href="tel:+17744768407" class="sign-in-link" style="white-space: nowrap; font-size: 0.95rem;">Talk to Sales: +1 (774) 476 8407</a>
+        <a href="tel:+17744768407" class="sales-link" style="white-space: nowrap; font-size: 0.95rem;">Talk to Sales:
+          +1 (774) 476 8407</a>
         <a href="#" class="sign-in-link">Sign In</a>
         <a href="#pricing" class="btn btn-primary">Buy Now</a>
       </div>
@@ -369,16 +510,20 @@
       <div class="hero-content">
         <p class="hero-kicker">THE #1 AI-NATIVE CISO FOR SMBS</p>
         <h1 class="hero-punchy">Enterprise-grade security and compliance for regulated SMBs</h1>
-        <p class="hero-subhead">Automate CMMC, HIPAA, PCI DSS, and SOC 2 compliance, monitor threats 24/7, and protect your IP– all without hiring a security team.</p>
+        <p class="hero-subhead">Automate CMMC, HIPAA, PCI DSS, and SOC 2 compliance, monitor threats 24/7, and protect
+          your IP– all without hiring a security team.</p>
         <div class="hero-actions" style="margin-top: 24px;">
-          <a href="#gap-analysis" class="btn btn-primary" style="font-size: 0.95rem; padding: 10px 22px; border-radius: 8px; box-shadow: 0 8px 24px rgba(168, 85, 247, 0.35);">Get a Free Gap Analysis</a>
+          <a href="https://compliance.valix.ai" class="btn btn-primary"
+            style="font-size: 0.95rem; padding: 10px 22px; border-radius: 8px; box-shadow: 0 8px 24px rgba(168, 85, 247, 0.35);">Get
+            a Free Gap Analysis</a>
         </div>
       </div>
       <div class="hero-visual" style="display: flex; align-items: center; position: relative;">
         <!-- Irresistible Offer Card -->
-        <img src="images/9a7258cf-020f-4bb2-89a2-e1e08cc3198c.png" alt="Valix Dashboard Preview" class="hero-zoom-visual" style="width: 100%; max-width: 900px; height: auto; object-fit: contain;">
+        <img src="images/9a7258cf-020f-4bb2-89a2-e1e08cc3198c.png" alt="Valix Dashboard Preview"
+          class="hero-zoom-visual" style="width: 100%; max-width: 900px; height: auto; object-fit: contain;">
       </div>
-      </div>
+    </div>
     </div>
 
     <!-- QBO Style Stats Bar inside Hero -->
@@ -394,7 +539,8 @@
             </svg>
             15+ years of expertise
           </div>
-          <div class="hero-stat-desc">Built by PhDs and security leaders from global enterprises like Qualcomm, Nokia, and TikTok</div>
+          <div class="hero-stat-desc">Built by PhDs and security leaders from global enterprises like Qualcomm, Nokia,
+            and TikTok</div>
         </div>
         <!-- Block 2 -->
         <div class="hero-stat-block">
@@ -405,7 +551,8 @@
             </svg>
             $20M+ Saved
           </div>
-          <div class="hero-stat-desc">In potential losses prevented through proactive AI monitoring and instant threat remediation</div>
+          <div class="hero-stat-desc">In potential losses prevented through proactive AI monitoring and instant threat
+            remediation</div>
         </div>
         <!-- Block 3 -->
         <div class="hero-stat-block">
@@ -424,10 +571,12 @@
 
 
   <div class="light-theme-wrapper">
-  <!-- Backed By Pill (Below Header) -->
+    <!-- Backed By Pill (Below Header) -->
     <section style="padding: 80px 0 40px; background-color: #ffffff;">
       <div class="container">
-        <h4 style="text-align: center; color: #86868b; text-transform: uppercase; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 32px;">Backed By</h4>
+        <h4
+          style="text-align: center; color: #86868b; text-transform: uppercase; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 32px;">
+          Backed By</h4>
         <div style="display: flex; justify-content: center;">
           <img src="partners/a07a1d41-4f62-45c0-8f53-e340e0f7f030-2.png"
             alt="Backed by AWS, Microsoft, Google Cloud, and C10 Labs"
@@ -435,13 +584,14 @@
         </div>
       </div>
     </section>
-<!-- Our Strength Section -->
+    <!-- Our Strength Section -->
     <section class="strength-section">
       <div class="container">
         <div style="text-align: center; margin-bottom: 48px;">
           <h2>Why Teams Choose Valix AI</h2>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto;">
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto;">
           <!-- Strength 1 -->
           <div
             style="padding: 32px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-light);">
@@ -450,7 +600,8 @@
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
             </svg>
             <h3 style="font-weight: 700; margin-bottom: 12px;">AI-Native Workflows</h3>
-            <p style="color: var(--text-dark); font-size: 0.95rem;">More than templates. Valix scans your infrastructure and writes policies tailored to your real environment, and updates them as it changes.</p>
+            <p style="color: var(--text-dark); font-size: 0.95rem;">More than templates. Valix scans your infrastructure
+              and writes policies tailored to your real environment, and updates them as it changes.</p>
           </div>
           <!-- Strength 2 -->
           <div
@@ -460,14 +611,15 @@
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
             <h3 style="font-weight: 700; margin-bottom: 12px;">Audit-Grade Precision</h3>
-            <p style="color: var(--text-dark); font-size: 0.95rem;">Our intelligent control-mapping aligns HIPAA and SOC 2 requirements with the right evidence, helping you stay ready for even the toughest reviews.</p>
+            <p style="color: var(--text-dark); font-size: 0.95rem;">Our intelligent control-mapping aligns HIPAA and SOC
+              2 requirements with the right evidence, helping you stay ready for even the toughest reviews.</p>
           </div>
         </div>
       </div>
 
     </section>
 
-<!-- Features -->
+    <!-- Features -->
     <div id="features">
       <!-- Feature 1 -->
       <section class="feature-row" style="background-color: #000;">
@@ -476,13 +628,15 @@
           <p class="section-subhead">Turn requirements into clear, compliant policies in minutes instead of weeks.</p>
           <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
             <div style="display: flex; align-items: center; gap: 8px;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--valix-purple);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="width: 20px; height: 20px; color: var(--valix-purple);">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span style="font-weight: 500;">Context-aware policy generator</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--valix-purple);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="width: 20px; height: 20px; color: var(--valix-purple);">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span style="font-weight: 500;">NIST SP 800-171 & HIPAA aligned</span>
@@ -490,7 +644,9 @@
           </div>
         </div>
         <div class="container" style="max-width: 1200px;">
-          <img src="images/aa5d5d5a-ac34-4b46-94e4-e7a8887b9fa3.png" alt="Valix AI Policy Engine" class="feature-showcase-img" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 40px 100px rgba(0,0,0,0.1); border: 1px solid #f0f0f0;">
+          <img src="images/aa5d5d5a-ac34-4b46-94e4-e7a8887b9fa3.png" alt="Valix AI Policy Engine"
+            class="feature-showcase-img"
+            style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 40px 100px rgba(0,0,0,0.1); border: 1px solid #f0f0f0;">
         </div>
       </section>
 
@@ -498,16 +654,21 @@
       <section class="feature-row" style="background-color: #fcfcfd;">
         <div class="container" style="text-align: center; max-width: 900px; margin: 0 auto;">
           <h2>Smart Evidence Collection & Continuous Monitoring</h2>
-          <p class="section-subhead">Automatically collect, organize, and link evidence. Detect issues early and stay aligned 24/7. Get actionable insights to see your posture clearly and fix what matters most. Security never sleeps – Valix monitors your environment 24/7 and collects evidence automatically, so you’re audit-ready.</p>
+          <p class="section-subhead">Automatically collect, organize, and link evidence. Detect issues early and stay
+            aligned 24/7. Get actionable insights to see your posture clearly and fix what matters most. Security never
+            sleeps – Valix monitors your environment 24/7 and collects evidence automatically, so you’re audit-ready.
+          </p>
           <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
             <div style="display: flex; align-items: center; gap: 8px;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--valix-purple);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="width: 20px; height: 20px; color: var(--valix-purple);">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span style="font-weight: 500;">Continuous evidence logging</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--valix-purple);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="width: 20px; height: 20px; color: var(--valix-purple);">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span style="font-weight: 500;">Actionable telemetry dashboards</span>
@@ -515,13 +676,16 @@
           </div>
         </div>
         <div class="container" style="max-width: 1200px;">
-          <img src="images/bb15f288-fef5-4877-bc99-f79406f73a9e.png" alt="Valix Evidence Collection" class="feature-showcase-img" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 40px 100px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;">
+          <img src="images/bb15f288-fef5-4877-bc99-f79406f73a9e.png" alt="Valix Evidence Collection"
+            class="feature-showcase-img"
+            style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 40px 100px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;">
         </div>
       </section>
     </div>
 
-<!-- Integrations Section -->
-    <section class="integrations-section" style="background: var(--bg-light); border-top: 1px solid var(--border-color);">
+    <!-- Integrations Section -->
+    <section class="integrations-section"
+      style="background: var(--bg-light); border-top: 1px solid var(--border-color);">
       <div class="container" style="text-align: center; max-width: 1000px;">
         <h2>Seamlessly Connect Your Tools</h2>
         <p class="section-subhead">Plug Valix into your existing stack</p>
@@ -540,11 +704,12 @@
       </div>
     </section>
 
-<!-- Testimonial Section -->
+    <!-- Testimonial Section -->
     <section class="trusted-section" style="padding: 100px 0; background-color: #fcfcfd;">
       <div class="container">
         <h2>Trusted by High-Growth Companies</h2>
-        <p class="section-subhead" style="margin-bottom: 64px !important;">Industry leaders rely on Valix AI to automate their security and compliance</p>
+        <p class="section-subhead" style="margin-bottom: 64px !important;">Industry leaders rely on Valix AI to automate
+          their security and compliance</p>
         <div class="testimonial-grid">
 
           <!-- Testimonial 1: Protoxyz -->
@@ -573,7 +738,8 @@
               "</div>
             <p
               style="font-size: 1.125rem; line-height: 1.6; color: #ffffff; margin-bottom: 32px; font-style: italic; position: relative; z-index: 1;">
-              "Valix AI automated our HIPAA and SOC 2 monitoring instantly. We stopped worrying about regulatory paperwork and started focusing entirely on patient care."
+              "Valix AI automated our HIPAA and SOC 2 monitoring instantly. We stopped worrying about regulatory
+              paperwork and started focusing entirely on patient care."
             </p>
             <div style="display: flex; align-items: center; gap: 24px;">
               <img src="partners/diagnos.png" alt="Diagnos SARL" style="height: 72px; object-fit: contain;">
@@ -587,30 +753,35 @@
     </section>
   </div>
 
-<!-- Pricing Section -->
+  <!-- Pricing Section -->
   <section id="pricing" class="pricing">
     <div class="container" style="max-width: 1600px;">
       <div class="pricing-header" style="text-align: center;">
         <h2>A Plan for Every Business</h2>
-        <p class="section-subhead">Simple, transparent pricing to help you automate compliance and scale with confidence.</p>
+        <p class="section-subhead">Simple, transparent pricing to help you automate compliance and scale with
+          confidence.</p>
       </div>
 
 
       <div style="display: flex; flex-direction: column; align-items: center; gap: 32px; margin-bottom: 64px;">
         <!-- Framework Selector -->
-        <div class="framework-tabs" style="background: rgba(255,255,255,0.05); padding: 6px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.1);">
+        <div class="framework-tabs"
+          style="background: rgba(255,255,255,0.05); padding: 6px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.1);">
           <button class="fw-btn active" data-fw="hipaa">HIPAA</button>
           <button class="fw-btn" data-fw="soc2">SOC 2</button>
           <button class="fw-btn" data-fw="cmmc">CMMC</button>
         </div>
 
         <div class="pricing-toggle" style="margin: 0; display: flex; align-items: center; gap: 16px;">
-          <span class="toggle-label" style="font-weight: 700; color: #fff;">Monthly <span style="color: #a855f7; font-size: 0.75rem; margin-left: 4px;">(50% Off First 3 Months)</span></span>
+          <span class="toggle-label" style="font-weight: 700; color: #fff;">Monthly <span
+              style="color: #a855f7; font-size: 0.75rem; margin-left: 4px;">(50% Off First 3 Months)</span></span>
           <label class="switch">
             <input type="checkbox" id="billing-toggle">
             <span class="slider"></span>
           </label>
-          <span class="toggle-label" style="font-weight: 700; color: #fff;">Elite Yearly <span class="discount-pill" style="background: linear-gradient(135deg, #a855f7, #6d28d9); color: white; padding: 4px 10px; border-radius: 99px; font-size: 0.7rem; margin-left: 8px;">SAVE EXTRA $25/YR</span></span>
+          <span class="toggle-label" style="font-weight: 700; color: #fff;">Elite Yearly <span class="discount-pill"
+              style="background: linear-gradient(135deg, #a855f7, #6d28d9); color: white; padding: 4px 10px; border-radius: 99px; font-size: 0.7rem; margin-left: 8px;">SAVE
+              EXTRA $25/YR</span></span>
         </div>
       </div>
 
@@ -757,11 +928,13 @@
           <div class="card-top">
             <h3>Endpoint Protection</h3>
             <div style="margin: 16px 0; display: flex; flex-direction: column; gap: 8px;">
-              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 600; color: #fff;">
+              <div
+                style="display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 600; color: #fff;">
                 <span>Endpoints:</span>
                 <span id="endpoint-count" style="color: #a855f7; font-weight: 700;">25</span>
               </div>
-              <input type="range" id="endpoint-slider" min="5" max="250" step="5" value="25" style="width: 100%; accent-color: #a855f7; cursor: pointer;">
+              <input type="range" id="endpoint-slider" min="5" max="250" step="5" value="25"
+                style="width: 100%; accent-color: #a855f7; cursor: pointer;">
             </div>
             <div class="price-block">
               <span class="currency">$</span>
@@ -806,20 +979,27 @@
   </section>
 
   <!-- Gap Analysis Section (Section 9) -->
-  <section id="gap-analysis" style="padding: 100px 0; background-color: #000; position: relative; overflow: hidden; border-top: 1px solid var(--border-color);">
-    <div style="position: absolute; top: 50%; left: 50%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(168, 85, 247, 0.07) 0%, transparent 70%); transform: translate(-50%, -50%); pointer-events: none; z-index: 0;"></div>
+  <section id="gap-analysis"
+    style="padding: 100px 0; background-color: #000; position: relative; overflow: hidden; border-top: 1px solid var(--border-color);">
+    <div
+      style="position: absolute; top: 50%; left: 50%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(168, 85, 247, 0.07) 0%, transparent 70%); transform: translate(-50%, -50%); pointer-events: none; z-index: 0;">
+    </div>
     <div class="container" style="max-width: 900px; text-align: center; position: relative; z-index: 1;">
-      <h2 style="font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 20px; letter-spacing: -0.03em;">Get a Free Gap Analysis</h2>
-      <p class="section-subhead" style="max-width: 650px; margin: 0 auto 40px auto; font-size: 1.15rem; line-height: 1.6; color: rgba(255,255,255,0.7);">
-        Know where you stand. Map your environment against CMMC, HIPAA, PCI DSS, and SOC 2 so you always know what’s missing.
+      <h2 style="font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 20px; letter-spacing: -0.03em;">Get a
+        Free Gap Analysis</h2>
+      <p class="section-subhead"
+        style="max-width: 650px; margin: 0 auto 40px auto; font-size: 1.15rem; line-height: 1.6; color: rgba(255,255,255,0.7);">
+        Know where you stand. Map your environment against CMMC, HIPAA, PCI DSS, and SOC 2 so you always know what’s
+        missing.
       </p>
-      <a href="waitlist.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 36px; border-radius: 12px; box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);">
-        Sign Up
+      <a href="https://compliance.valix.ai" class="btn btn-primary"
+        style="font-size: 1.1rem; padding: 16px 36px; border-radius: 12px; box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);">
+        Get Started
       </a>
     </div>
   </section>
 
-<!-- Footer -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
@@ -842,8 +1022,14 @@
           <div class="link-col">
             <h4>Company</h4>
             <a href="mailto:infos@valix.ai">infos@valix.ai</a>
-            <a href="https://www.linkedin.com/company/valix-ai" style="display: inline-flex; align-items: center; margin-top: 8px;">
-              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color: #86868b; transition: color 0.2s ease;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            <a href="https://www.linkedin.com/company/valix-ai"
+              style="display: inline-flex; align-items: center; margin-top: 8px;">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" style="color: #86868b; transition: color 0.2s ease;">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
             </a>
           </div>
         </div>
@@ -876,7 +1062,7 @@
         },
         pro: {
           monthly: 'https://buy.stripe.com/4gM3cvbyj2RX9rU9KRes005',
-          yearly: 'https://buy.stripe.com/00w6oH1XJ2RXcE66yFes003'
+          yearly: 'https://buy.stripe.com/bJe5kDgSD3W17jM7CJes008'
         }
       },
       soc2: {
@@ -930,7 +1116,7 @@
         const billingTerm = card.querySelector('.billing-term');
         const btn = card.querySelector('.btn');
         const featureList = card.querySelector('.feature-list');
-        
+
         // Handle Feature List Injection for CMMC
         if (currentFw === 'cmmc') {
           featureList.innerHTML = cmmcExtraFeatures[index] + originalFeatureLists[index];
@@ -967,7 +1153,7 @@
 
         const amountEl = card.querySelector('.amount');
         const strikeEl = card.querySelector('.strike-price');
-        
+
         if (amountEl && strikeEl) {
           let fwBase;
           if (index === 3) {
@@ -979,7 +1165,7 @@
 
             const cmmcBaseStarter = 500;
             const cmmcBasePro = 1000;
-            
+
             if (currentFw === 'cmmc') {
               fwBase = index === 1 ? cmmcBaseStarter : cmmcBasePro;
             } else if (currentFw === 'hipaa') {
@@ -990,7 +1176,7 @@
               fwBase = basePrice * mult;
             }
           }
-          
+
           let monthlyFounder = Math.round(fwBase * 0.5);
 
           const annualEffective = Math.round((monthlyFounder * 12 - 25) / 12);
@@ -1066,15 +1252,17 @@
       visibility: hidden;
       transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
     }
+
     .payment-success-overlay.active {
       opacity: 1;
       visibility: visible;
     }
+
     .payment-success-card {
       background: rgba(17, 12, 28, 0.65);
       border: 1px solid rgba(168, 85, 247, 0.25);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 
-                  0 0 80px rgba(168, 85, 247, 0.15);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8),
+        0 0 80px rgba(168, 85, 247, 0.15);
       border-radius: 24px;
       max-width: 520px;
       width: 90%;
@@ -1085,9 +1273,11 @@
       position: relative;
       overflow: hidden;
     }
+
     .payment-success-overlay.active .payment-success-card {
       transform: scale(1) translateY(0);
     }
+
     .payment-success-card::before {
       content: '';
       position: absolute;
@@ -1099,6 +1289,7 @@
       pointer-events: none;
       z-index: 0;
     }
+
     .success-badge-wrapper {
       width: 80px;
       height: 80px;
@@ -1115,6 +1306,7 @@
       position: relative;
       z-index: 1;
     }
+
     .success-checkmark-svg {
       width: 40px;
       height: 40px;
@@ -1124,16 +1316,19 @@
       stroke-linejoin: round;
       fill: none;
     }
+
     .success-checkmark-svg path {
       stroke-dasharray: 100;
       stroke-dashoffset: 100;
       animation: drawCheckmark 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
     }
+
     @keyframes drawCheckmark {
       to {
         stroke-dashoffset: 0;
       }
     }
+
     .payment-success-card h3 {
       font-size: 1.75rem;
       font-weight: 800;
@@ -1143,6 +1338,7 @@
       position: relative;
       z-index: 1;
     }
+
     .payment-success-card p.subtitle {
       color: rgba(255, 255, 255, 0.7);
       font-size: 0.95rem;
@@ -1151,6 +1347,7 @@
       position: relative;
       z-index: 1;
     }
+
     .onboarding-steps {
       text-align: left;
       background: rgba(255, 255, 255, 0.03);
@@ -1161,6 +1358,7 @@
       position: relative;
       z-index: 1;
     }
+
     .onboarding-steps h4 {
       font-size: 0.85rem;
       text-transform: uppercase;
@@ -1169,14 +1367,17 @@
       margin-bottom: 16px;
       font-weight: 700;
     }
+
     .step-item {
       display: flex;
       gap: 12px;
       margin-bottom: 16px;
     }
+
     .step-item:last-child {
       margin-bottom: 0;
     }
+
     .step-num {
       width: 22px;
       height: 22px;
@@ -1191,16 +1392,19 @@
       justify-content: center;
       flex-shrink: 0;
     }
+
     .step-content {
       font-size: 0.9rem;
       color: rgba(255, 255, 255, 0.8);
       line-height: 1.4;
     }
+
     .step-content strong {
       color: #fff;
       display: block;
       margin-bottom: 2px;
     }
+
     .btn-success-close {
       background: linear-gradient(135deg, #a855f7, #6d28d9);
       color: #fff;
@@ -1216,9 +1420,295 @@
       position: relative;
       z-index: 1;
     }
+
     .btn-success-close:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 30px rgba(168, 85, 247, 0.5);
+    }
+
+    /* Sign-In Modal Styles */
+    .signin-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(8, 5, 16, 0.75);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+    }
+
+    .signin-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .signin-card {
+      background: rgba(17, 12, 28, 0.7);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8),
+        0 0 80px rgba(168, 85, 247, 0.15);
+      border-radius: 24px;
+      max-width: 480px;
+      width: 90%;
+      padding: 40px;
+      text-align: center;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .signin-overlay.active .signin-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .signin-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .signin-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      color: #a1a1a6;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s ease;
+    }
+
+    .signin-close:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .signin-logo-wrapper {
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .signin-logo-wrapper img {
+      height: 40px;
+    }
+
+    .signin-card h3 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.025em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .signin-card p.subtitle {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .signin-form {
+      position: relative;
+      z-index: 1;
+      text-align: left;
+    }
+
+    .signin-form-group {
+      margin-bottom: 24px;
+    }
+
+    .signin-form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #c084fc;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .signin-input-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .signin-input-container:focus-within {
+      border-color: #a855f7;
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.35);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .signin-input-container input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 14px 18px;
+      color: #fff;
+      font-size: 1.05rem;
+      font-family: inherit;
+      outline: none;
+      width: 100%;
+    }
+
+    .signin-input-container input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-signin-submit {
+      background: linear-gradient(135deg, #a855f7, #6d28d9);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-signin-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(168, 85, 247, 0.45);
+    }
+
+    .btn-signin-submit:disabled {
+      background: rgba(124, 58, 237, 0.5);
+      transform: none;
+      box-shadow: none;
+      cursor: not-allowed;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Spinner Animation */
+    .signin-spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: signin-spin 0.8s linear infinite;
+      display: none;
+    }
+
+    @keyframes signin-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Premium Alert Box */
+    .signin-alert-card {
+      margin-top: 24px;
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      text-align: left;
+      animation: alertSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes alertSlideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .signin-alert-icon {
+      font-size: 24px;
+      line-height: 1;
+      color: #ef4444;
+      flex-shrink: 0;
+      animation: pulseAlert 2s infinite;
+    }
+
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(0.95); }
+    }
+
+    .signin-alert-content {
+      flex: 1;
+    }
+
+    .signin-alert-content h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .signin-alert-content p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .btn-signin-pricing {
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-signin-pricing:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+    }
+
+    /* Helper class to hide alert card */
+    .signin-alert-card.hidden {
+      display: none !important;
     }
   </style>
 
@@ -1232,7 +1722,7 @@
       </div>
       <h3>Welcome to Valix!</h3>
       <p class="subtitle">Your payment was processed successfully. Let's get your compliance dashboard running.</p>
-      
+
       <div class="onboarding-steps">
         <h4>Next Steps for Onboarding</h4>
         <div class="step-item">
@@ -1257,12 +1747,49 @@
           </div>
         </div>
       </div>
-      
+
       <button type="button" class="btn-success-close" id="btn-success-dismiss">
         Go to Dashboard
       </button>
     </div>
   </div>
+
+  <!-- Sign-In Modal Markup -->
+  <div id="signin-modal" class="signin-overlay" role="dialog" aria-modal="true">
+    <div class="signin-card">
+      <button type="button" class="signin-close" id="btn-signin-close" aria-label="Close Sign In">✕</button>
+      <div class="signin-logo-wrapper">
+        <img src="logo.svg" alt="Valix">
+      </div>
+      <h3>Sign in to Valix</h3>
+      <p class="subtitle">Enter your company domain name to access your secure CISO dashboard.</p>
+      
+      <form id="signin-form" class="signin-form" novalidate>
+        <div class="signin-form-group">
+          <label for="signin-domain-input">Company Domain</label>
+          <div class="signin-input-container">
+            <input type="text" id="signin-domain-input" placeholder="e.g. www.company.com" required autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-signin-submit" id="btn-signin-submit">
+          <span class="signin-spinner" id="signin-spinner"></span>
+          <span id="signin-btn-text">Verify & Sign In</span>
+        </button>
+      </form>
+      
+      <!-- Premium XSS-Safe Alert Card -->
+      <div id="signin-alert" class="signin-alert-card hidden">
+        <div class="signin-alert-icon">⚠️</div>
+        <div class="signin-alert-content">
+          <h4>Subdomain Not Found</h4>
+          <p id="signin-alert-msg"></p>
+          <button type="button" class="btn-signin-pricing" id="btn-signin-pricing">View Pricing Plans</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js?v=54.0"></script>
 </body>
 
 </html>

@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initPricingToggle();
   initScrollToHashOnLoad();
   initPaymentSuccessPopup();
+  initSignInFlow();
 });
 
 // ===== NAVIGATION FUNCTIONALITY =====
@@ -575,6 +576,9 @@ function initFormEnhancements() {
   const forms = document.querySelectorAll('form');
   
   forms.forEach(form => {
+    // Skip signin form since it is handled by the custom secure signin flow
+    if (form.id === 'signin-form') return;
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -888,7 +892,200 @@ function initPaymentSuccessPopup() {
       dismissBtn.addEventListener('click', () => {
         successModal.classList.remove('active');
         document.body.style.overflow = ''; // Restore background scrolling
+
+        // Automatically open the secure Sign-In modal
+        const signinLink = document.querySelector('.sign-in-link');
+        if (signinLink) {
+          setTimeout(() => {
+            signinLink.click();
+          }, 300);
+        }
       });
     }
+  }
+}
+
+// ===== SECURE SIGN-IN & SUBDOMAIN RESOLUTION FLOW =====
+function initSignInFlow() {
+  const signInLinks = document.querySelectorAll('.sign-in-link');
+  const signInModal = document.getElementById('signin-modal');
+  const closeBtn = document.getElementById('btn-signin-close');
+  const signInForm = document.getElementById('signin-form');
+  const domainInput = document.getElementById('signin-domain-input');
+  const submitBtn = document.getElementById('btn-signin-submit');
+  const btnText = document.getElementById('signin-btn-text');
+  const spinner = document.getElementById('signin-spinner');
+  const alertCard = document.getElementById('signin-alert');
+  const alertMsg = document.getElementById('signin-alert-msg');
+  const alertPricingBtn = document.getElementById('btn-signin-pricing');
+
+  if (!signInModal) return;
+
+  // Open modal handler
+  signInLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Reset form states
+      signInForm.reset();
+      hideAlert();
+      
+      submitBtn.disabled = false;
+      btnText.textContent = 'Verify & Sign In';
+      spinner.style.display = 'none';
+      
+      // Open modal with glass transition
+      signInModal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Lock background scrolling
+      
+      // Auto focus input
+      setTimeout(() => domainInput.focus(), 100);
+    });
+  });
+
+  // Close modal handler
+  function closeModal() {
+    signInModal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore background scrolling
+    hideAlert();
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  // Close modal when clicking on the backdrop
+  signInModal.addEventListener('click', function(e) {
+    if (e.target === signInModal) {
+      closeModal();
+    }
+  });
+
+  // Close modal with ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && signInModal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // Dynamic XSS-proof Alerts
+  function showAlert(message) {
+    if (alertCard && alertMsg) {
+      // SECURE DEVELOPMENT BEST PRACTICE: Avoid innerHTML concatenation.
+      // Using textContent completely sanitizes the dynamic message and renders it as plain text, avoiding XSS.
+      alertMsg.textContent = message;
+      alertCard.classList.remove('hidden');
+    }
+  }
+
+  // Hide alert card
+  function hideAlert() {
+    if (alertCard) {
+      alertCard.classList.add('hidden');
+    }
+  }
+
+  // Pricing CTA inside the alert
+  if (alertPricingBtn) {
+    alertPricingBtn.addEventListener('click', function() {
+      closeModal();
+      
+      // Smooth scroll to pricing plans
+      const pricingSection = document.getElementById('pricing');
+      if (pricingSection) {
+        const offsetTop = pricingSection.offsetTop - 80;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      } else {
+        window.location.hash = '#pricing';
+      }
+    });
+  }
+
+  // Form submission handler
+  if (signInForm) {
+    signInForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      let input = domainInput.value.trim().toLowerCase();
+      
+      // Remove protocol (http/https) and optional www. prefix
+      input = input.replace(/^(https?:\/\/)?(www\.)?/, '');
+      
+      // Remove any trailing path/query (e.g. company.com/login -> company.com)
+      input = input.split('/')[0];
+      
+      // If the user typed their actual workspace subdomain with valix.ai suffix, strip it first
+      if (input.endsWith('.valix.ai')) {
+        input = input.substring(0, input.length - 9);
+      }
+      
+      // Split by dot to find the main company name ("anything in the middle")
+      const parts = input.split('.');
+      let middle = '';
+      
+      if (parts.length === 1) {
+        // Just typed the company name (e.g. "compliance" or "acme-corp")
+        middle = parts[0];
+      } else if (parts.length === 2) {
+        // Simple domain (e.g. "compliance.com" -> middle is "compliance")
+        middle = parts[0];
+      } else {
+        // Complex domain (e.g. "subdomain.compliance.com" or "compliance.co.uk")
+        const lastPart = parts[parts.length - 1];
+        const prevPart = parts[parts.length - 2];
+        const isMultiPartTld = ['co', 'com', 'net', 'org', 'edu', 'gov'].includes(prevPart) && lastPart.length === 2;
+        
+        if (isMultiPartTld) {
+          middle = parts[parts.length - 3];
+        } else {
+          middle = parts[parts.length - 2];
+        }
+      }
+
+      // SECURE DEVELOPMENT BEST PRACTICE: STRICT INPUT SANITIZATION
+      // Filter out any characters that are not alphanumeric or hyphens.
+      // This strips scripts, quotes, brackets, and html elements before they touch any database or DOM.
+      const sanitizedDomain = middle.replace(/[^a-zA-Z0-9-]/g, '');
+
+      hideAlert();
+
+      if (!sanitizedDomain) {
+        showAlert('Please enter a valid company domain name (e.g., www.company.com).');
+        return;
+      }
+
+      // Predefined active subdomains (added 'compliance' for seamless free gap analysis redirection)
+      const activeSubdomains = ['protoxyz', 'diagnos', 'acme', 'valix', 'demo', 'test', 'compliance'];
+
+      // Submit Button Loading States
+      submitBtn.disabled = true;
+      spinner.style.display = 'block';
+      btnText.textContent = 'Verifying Workspace Subdomain...';
+      
+      setTimeout(function() {
+        const isRegistered = activeSubdomains.includes(sanitizedDomain);
+
+        if (isRegistered) {
+          // Subdomain is active, redirect to custom domain
+          btnText.textContent = 'Success! Redirecting...';
+          
+          setTimeout(function() {
+            window.location.href = 'https://' + sanitizedDomain + '.valix.ai';
+          }, 600);
+          
+        } else {
+          // 404 Subdomain Not Found: Show premium alert card with signup/pricing route
+          submitBtn.disabled = false;
+          spinner.style.display = 'none';
+          btnText.textContent = 'Verify & Sign In';
+          
+          // Safe plain text rendering of sanitizedDomain prevents XSS
+          showAlert('Workspace "' + sanitizedDomain + '.valix.ai" does not exist. You need to sign up for a Valix account to claim this secure space.');
+        }
+      }, 1200);
+    });
   }
 }
