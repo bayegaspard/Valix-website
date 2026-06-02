@@ -1063,7 +1063,7 @@ function initSignInFlow() {
       // Submit Button Loading States
       submitBtn.disabled = true;
       spinner.style.display = 'block';
-      btnText.textContent = 'Verifying Workspace Subdomain...';
+      btnText.textContent = 'Verifying Workspace...';
       
       setTimeout(function() {
         const isRegistered = activeSubdomains.includes(sanitizedDomain);
@@ -1082,8 +1082,9 @@ function initSignInFlow() {
           spinner.style.display = 'none';
           btnText.textContent = 'Verify & Sign In';
           
-          // Safe plain text rendering of sanitizedDomain prevents XSS
-          showAlert('Workspace "' + sanitizedDomain + '.valix.ai" does not exist. You need to sign up for a Valix account to claim this secure space.');
+          // SECURE DEVELOPMENT BEST PRACTICE: Safe plain text rendering of 'input' prevents XSS.
+          // The error message directly uses their entered company domain name instead of exposing subdomain structures.
+          showAlert('We couldn\'t find an active security workspace associated with "' + input + '". You need to sign up for a Valix account to provision a secure workspace for this domain.');
         }
       }, 1200);
     });
