@@ -1,0 +1,40 @@
+# Security response headers.
+#
+# This file is read automatically by Netlify and Cloudflare Pages.
+# If you deploy elsewhere, apply the same header VALUES via your platform:
+#   - Vercel:  "headers" array in vercel.json
+#   - Nginx:   add_header <Name> "<value>" always;
+#   - Apache:  Header set <Name> "<value>"
+#   - S3/CloudFront: a CloudFront response-headers policy or Lambda@Edge
+#
+# The headers below are safe to enable as-is (they do not change page behavior).
+# The Content-Security-Policy is the one exception and is left COMMENTED OUT —
+# read the note before enabling it.
+
+/*
+  # Stop browsers from MIME-sniffing a response away from its declared type.
+  X-Content-Type-Options: nosniff
+
+  # Don't leak full URLs (paths/query) to third parties on cross-origin nav.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Clickjacking protection: disallow embedding this site in an iframe.
+  X-Frame-Options: DENY
+
+  # Turn off powerful APIs the site doesn't use.
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+  # Force HTTPS for 2 years (only send once you're sure HTTPS is permanent).
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # ---------------------------------------------------------------------------
+  # Content-Security-Policy — the strongest XSS mitigation, but it can break
+  # third-party scripts if any allowed origin is missing. The policy below is
+  # tuned to the origins this site actually uses today:
+  #   Google Tag Manager + Analytics, Google Fonts, Formspree.
+  # Uncomment it, deploy to a preview URL, open DevTools > Console, and click
+  # through the site + submit the waitlist form. Add any origin that shows a
+  # "Refused to load / connect" CSP violation, then ship to production.
+  #
+  # Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-src https://www.googletagmanager.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  # ---------------------------------------------------------------------------

@@ -205,3 +205,103 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ==========================================================================
+# AI coding agents & assistants
+#   Local agent state, caches, chat history, and tool config. Some of these
+#   directories can capture prompts containing secrets or proprietary code.
+# ==========================================================================
+# Claude Code / Anthropic
+.claude/
+.claude.json
+# Aider
+.aider*
+# Cursor (indexes, rules, local state)
+.cursor/
+# Windsurf / Codeium
+.windsurf/
+.codeium/
+# Continue.dev
+.continue/
+# Cline / Roo
+.cline/
+.roo/
+# GitHub Copilot local config
+.github/copilot/
+# Tabnine
+.tabnine/
+# Sourcegraph Cody
+.sourcegraph/
+# Gemini CLI
+.gemini/
+# Misc agents
+.qodo/
+.pearai/
+.aiconfig
+# Model Context Protocol server config (may hold tokens)
+.mcp.json
+# Personal, machine-local agent notes
+CLAUDE.local.md
+AGENTS.local.md
+GEMINI.local.md
+
+# ==========================================================================
+# Secrets, keys & credentials  — NEVER commit these
+# ==========================================================================
+.env
+.env.*
+# keep a checked-in template with no real values
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.ppk
+*_rsa
+*_dsa
+credentials.json
+service-account*.json
+gcp-*.json
+aws-credentials*
+.aws/
+# .npmrc can contain auth tokens
+.npmrc
+.netrc
+*.secret
+secrets.*
+config.local.*
+
+# ==========================================================================
+# OS & editor cruft
+# ==========================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-*
+
+# ==========================================================================
+# Node / web tooling (if added later)
+# ==========================================================================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+.cache/
+.gstack/

@@ -310,8 +310,15 @@
       }
 
       .nav-links,
-      .sign-in-link {
+      .sign-in-link,
+      .sales-link {
+        /* Phone number is already shown in the mobile utility bar above,
+           so hide the redundant nav link to free space for a larger logo. */
         display: none !important;
+      }
+
+      .nav-right {
+        gap: 12px !important;
       }
 
       .nav-right .btn {
@@ -322,7 +329,7 @@
       }
 
       .logo-img {
-        height: 34px !important;
+        height: 44px !important;
       }
 
       section {
@@ -578,7 +585,7 @@
           style="text-align: center; color: #86868b; text-transform: uppercase; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 32px;">
           Backed By</h4>
         <div style="display: flex; justify-content: center;">
-          <img src="partners/a07a1d41-4f62-45c0-8f53-e340e0f7f030-2.png"
+          <img src="partners/a07a1d41-4f62-45c0-8f53-e340e0f7f030-2.png" loading="lazy"
             alt="Backed by AWS, Microsoft, Google Cloud, and C10 Labs"
             style="width: 100%; max-width: 800px; height: auto; object-fit: contain;">
         </div>
@@ -644,7 +651,7 @@
           </div>
         </div>
         <div class="container" style="max-width: 1200px;">
-          <img src="images/aa5d5d5a-ac34-4b46-94e4-e7a8887b9fa3.png" alt="Valix AI Policy Engine"
+          <img src="images/aa5d5d5a-ac34-4b46-94e4-e7a8887b9fa3.png" loading="lazy" alt="Valix AI Policy Engine"
             class="feature-showcase-img"
             style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 40px 100px rgba(0,0,0,0.1); border: 1px solid #f0f0f0;">
         </div>
@@ -676,7 +683,7 @@
           </div>
         </div>
         <div class="container" style="max-width: 1200px;">
-          <img src="images/bb15f288-fef5-4877-bc99-f79406f73a9e.png" alt="Valix Evidence Collection"
+          <img src="images/bb15f288-fef5-4877-bc99-f79406f73a9e.png" loading="lazy" alt="Valix Evidence Collection"
             class="feature-showcase-img"
             style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 40px 100px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;">
         </div>
@@ -691,15 +698,15 @@
         <p class="section-subhead">Plug Valix into your existing stack</p>
 
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; align-items: center;">
-          <img src="integrations/AWS.png" alt="AWS" class="integration-logo">
-          <img src="integrations/mircrosoftazure.png" alt="Microsoft Azure" class="integration-logo">
-          <img src="integrations/googlecloud.png" alt="Google Cloud" class="integration-logo">
-          <img src="integrations/Windows-Logo.png" alt="Windows" class="integration-logo">
-          <img src="integrations/mac-21.png" alt="macOS" class="integration-logo">
-          <img src="integrations/Linux-Logo.wine.svg" alt="Linux" class="integration-logo">
-          <img src="integrations/VirusTotal_logo.svg.png" alt="VirusTotal" class="integration-logo">
-          <img src="integrations/wazuh.png" alt="Wazuh" class="integration-logo">
-          <img src="integrations/debian_logo_icon_168290.png" alt="Debian" class="integration-logo">
+          <img src="integrations/AWS.png" alt="AWS" class="integration-logo" loading="lazy">
+          <img src="integrations/mircrosoftazure.png" alt="Microsoft Azure" class="integration-logo" loading="lazy">
+          <img src="integrations/googlecloud.png" alt="Google Cloud" class="integration-logo" loading="lazy">
+          <img src="integrations/Windows-Logo.png" alt="Windows" class="integration-logo" loading="lazy">
+          <img src="integrations/mac-21.png" alt="macOS" class="integration-logo" loading="lazy">
+          <img src="integrations/Linux-Logo.wine.svg" alt="Linux" class="integration-logo" loading="lazy">
+          <img src="integrations/VirusTotal_logo.svg.png" alt="VirusTotal" class="integration-logo" loading="lazy">
+          <img src="integrations/wazuh.png" alt="Wazuh" class="integration-logo" loading="lazy">
+          <img src="integrations/debian_logo_icon_168290.png" alt="Debian" class="integration-logo" loading="lazy">
         </div>
       </div>
     </section>
@@ -724,7 +731,7 @@
               hours and gave us the audit-readiness we needed to close enterprise deals."
             </p>
             <div style="display: flex; align-items: center; gap: 24px;">
-              <img src="partners/protoxyz.png" alt="Protoxyz" style="height: 48px; object-fit: contain;">
+              <img src="partners/protoxyz.png" loading="lazy" alt="Protoxyz" style="height: 48px; object-fit: contain;">
               <div style="border-left: 1px solid rgba(0,0,0,0.15); height: 32px;"></div>
               <p style="font-weight: 600; color: #4b5563; font-size: 1rem;">Engineering Team</p>
             </div>
@@ -742,7 +749,7 @@
               paperwork and started focusing entirely on patient care."
             </p>
             <div style="display: flex; align-items: center; gap: 24px;">
-              <img src="partners/diagnos.png" alt="Diagnos SARL" style="height: 72px; object-fit: contain;">
+              <img src="partners/diagnos.png" loading="lazy" alt="Diagnos SARL" style="height: 72px; object-fit: contain;">
               <div style="border-left: 1px solid rgba(0,0,0,0.15); height: 32px;"></div>
               <p style="font-weight: 600; color: #4b5563; font-size: 1rem;">Operations Team</p>
             </div>
