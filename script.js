@@ -1017,9 +1017,11 @@ function initSignInFlow() {
       // Remove any trailing path/query (e.g. company.com/login -> company.com)
       input = input.split('/')[0];
       
-      // If the user typed their actual workspace subdomain with valix.ai suffix, strip it first
-      if (input.endsWith('.valix.ai')) {
-        input = input.substring(0, input.length - 9);
+      // If the user typed their actual workspace subdomain with the valix.ai suffix, strip it first
+      if (input.endsWith('.compliance.valix.ai')) {
+        input = input.substring(0, input.length - '.compliance.valix.ai'.length);
+      } else if (input.endsWith('.valix.ai')) {
+        input = input.substring(0, input.length - '.valix.ai'.length);
       }
       
       // Split by dot to find the main company name ("anything in the middle")
@@ -1073,7 +1075,7 @@ function initSignInFlow() {
           btnText.textContent = 'Success! Redirecting...';
           
           setTimeout(function() {
-            window.location.href = 'https://' + sanitizedDomain + '.valix.ai';
+            window.location.href = 'https://' + sanitizedDomain + '.compliance.valix.ai';
           }, 600);
           
         } else {
