@@ -968,11 +968,9 @@ function initSignInFlow() {
     }
   });
 
-  // Dynamic XSS-proof Alerts
+  // Show alert card
   function showAlert(message) {
     if (alertCard && alertMsg) {
-      // SECURE DEVELOPMENT BEST PRACTICE: Avoid innerHTML concatenation.
-      // Using textContent completely sanitizes the dynamic message and renders it as plain text, avoiding XSS.
       alertMsg.textContent = message;
       alertCard.classList.remove('hidden');
     }
@@ -1047,9 +1045,6 @@ function initSignInFlow() {
         }
       }
 
-      // SECURE DEVELOPMENT BEST PRACTICE: STRICT INPUT SANITIZATION
-      // Filter out any characters that are not alphanumeric or hyphens.
-      // This strips scripts, quotes, brackets, and html elements before they touch any database or DOM.
       const sanitizedDomain = middle.replace(/[^a-zA-Z0-9-]/g, '');
 
       hideAlert();
@@ -1084,8 +1079,6 @@ function initSignInFlow() {
           spinner.style.display = 'none';
           btnText.textContent = 'Verify & Sign In';
           
-          // SECURE DEVELOPMENT BEST PRACTICE: Safe plain text rendering of 'input' prevents XSS.
-          // The error message directly uses their entered company domain name instead of exposing subdomain structures.
           showAlert('We couldn\'t find an active security workspace associated with "' + input + '". You need to sign up for a Valix account to provision a secure workspace for this domain.');
         }
       }, 1200);
